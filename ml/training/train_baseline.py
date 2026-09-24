@@ -4,6 +4,14 @@ Usage: python ml/training/train_baseline.py --data dataset --epochs 10 --img 224
 import argparse
 from pathlib import Path
 
+def sparse_top3_acc(y_true, y_pred):
+    """Top-3 accuracy for integer labels (avoids Keras 3 in_top_k rank bug)."""
+    import tensorflow as tf
+    y_true = tf.reshape(tf.cast(y_true, tf.int32), [-1])
+    _, top3 = tf.math.top_k(y_pred, k=3)
+    hits = tf.reduce_any(tf.equal(top3, tf.expand_dims(y_true, -1)), axis=-1)
+    return tf.reduce_mean(tf.cast(hits, tf.float32))
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", required=True)
@@ -37,7 +45,7 @@ def main():
     outputs = tf.keras.layers.Dense(len(names), activation="softmax")(x)
     model = tf.keras.Model(inputs, outputs)
     model.compile(optimizer="adam", loss="sparse_categorical_crossentropy",
-                  metrics=["accuracy", tf.keras.metrics.TopKCategoricalAccuracy(3, name="top3")])
+                  metrics=["accuracy", sparse_top3_acc])
     train_ds = train_ds.prefetch(tf.data.AUTOTUNE)
     val_ds = val_ds.prefetch(tf.data.AUTOTUNE)
     Path("artifacts").mkdir(exist_ok=True)

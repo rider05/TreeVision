@@ -1,37 +1,51 @@
 species_id,common_name,scientific_name,family,dataset_source,region,occurrence_records,image_available,image_count,license,notes
-T001,Neem,Azadirachta indica,Meliaceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T002,Pungam,Pongamia pinnata,Fabaceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T003,Mango,Mangifera indica,Anacardiaceae,valparai_anamalai;anam_trees,Coimbatore/Tamil Nadu,35,FALSE,0,,"BarkVisionAI holds Mangifera sylvatica (wild relative), NOT M. indica — not interchangeable"
-T004,Tamarind,Tamarindus indica,Fabaceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T005,Banyan,Ficus benghalensis,Moraceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T006,Peepal,Ficus religiosa,Moraceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T007,Jamun,Syzygium cumini,Myrtaceae,valparai_anamalai;anam_trees,Coimbatore/Tamil Nadu,55,FALSE,0,,Occurrence reference only — field collection required
-T008,Guava,Psidium guajava,Myrtaceae,valparai_anamalai;anam_trees,Coimbatore/Tamil Nadu,5,FALSE,0,,Occurrence reference only — field collection required
-T009,Jackfruit,Artocarpus heterophyllus,Moraceae,valparai_anamalai;anam_trees,Coimbatore/Tamil Nadu,113,FALSE,0,,Occurrence reference only — field collection required
-T010,Rain tree,Samanea saman,Fabaceae,anam_trees,Coimbatore/Tamil Nadu,2,FALSE,0,,Occurrence reference only — field collection required
-T011,Gulmohar,Delonix regia,Fabaceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T012,Teak,Tectona grandis,Lamiaceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T013,Eucalyptus,Eucalyptus globulus,Myrtaceae,barkvisionai,Coimbatore/Tamil Nadu,0,TRUE,3000,CC-BY-4.0,Bark images available (3000 in sample); Coimbatore eucalypts often E. tereticornis — verify before training
-T014,Drumstick,Moringa oleifera,Moringaceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T015,Golden shower,Cassia fistula,Fabaceae,anam_trees,Coimbatore/Tamil Nadu,3,FALSE,0,,Occurrence reference only — field collection required
-T016,Indian almond,Terminalia catappa,Combretaceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T017,Casuarina,Casuarina equisetifolia,Casuarinaceae,valparai_anamalai,Coimbatore/Tamil Nadu,1,FALSE,0,,Occurrence reference only — field collection required
-T018,Palmyra,Borassus flabellifer,Arecaceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T019,Amla,Phyllanthus emblica,Phyllanthaceae,anam_trees;barkvisionai,Coimbatore/Tamil Nadu,2,TRUE,3000,CC-BY-4.0,Bark images available (3000 in sample); synonym Emblica officinalis
-T020,Arjun,Terminalia arjuna,Combretaceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T021,Kadamba,Neolamarckia cadamba,Rubiaceae,anam_trees,Coimbatore/Tamil Nadu,1,FALSE,0,,Occurrence reference only — field collection required
-T022,Ashoka,Saraca asoca,Fabaceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T023,Copperpod,Peltophorum pterocarpum,Fabaceae,valparai_anamalai,Coimbatore/Tamil Nadu,1,FALSE,0,,Occurrence reference only — field collection required
-T024,Siris,Albizia odoratissima,Fabaceae,anam_trees,Coimbatore/Tamil Nadu,1,FALSE,0,,Occurrence reference only — field collection required
-T025,Vaagai,Albizia lebbeck,Fabaceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T026,Vengai,Pterocarpus marsupium,Fabaceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T027,Poovarasu,Thespesia populnea,Malvaceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T028,Silk cotton,Ceiba pentandra,Malvaceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T029,Sandalwood,Santalum album,Santalaceae,,Coimbatore/Tamil Nadu,0,FALSE,0,,No images in downloaded datasets — field collection required
-T030,Rosewood,Dalbergia latifolia,Fabaceae,anam_trees,Coimbatore/Tamil Nadu,4,FALSE,0,,Occurrence reference only — field collection required
-T031,Vellai Nangai,Vateria indica,Dipterocarpaceae,valparai_anamalai;anam_trees,Coimbatore/Tamil Nadu; Western Ghats Annex,775,FALSE,0,,Occurrence reference only — field collection required
-T032,Myristica,Myristica beddomei,Myristicaceae,valparai_anamalai;anam_trees,Coimbatore/Tamil Nadu; Western Ghats Annex,453,FALSE,0,,Occurrence reference only — field collection required
-T033,White dhup,Cullenia exarillata,Malvaceae,valparai_anamalai;anam_trees,Coimbatore/Tamil Nadu; Western Ghats Annex,259,FALSE,0,,Occurrence reference only — field collection required
-T034,Nagappu,Mesua ferrea,Calophyllaceae,valparai_anamalai;anam_trees,Coimbatore/Tamil Nadu; Western Ghats Annex,129,FALSE,0,,Occurrence reference only — field collection required
-T035,Anamalai dipterocarp,Dipterocarpus bourdillonii,Dipterocarpaceae,anam_trees,Coimbatore/Tamil Nadu; Western Ghats Annex,44,FALSE,0,,Occurrence reference only — field collection required
-T036,Anamalai jamun,Syzygium densiflorum,Myrtaceae,valparai_anamalai;anam_trees,Coimbatore/Tamil Nadu; Western Ghats Annex,274,FALSE,0,,Occurrence reference only — field collection required
+T001,Neem,Azadirachta indica,Meliaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,403,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T002,Pungam,Pongamia pinnata,Fabaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,446,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T003,Mango,Mangifera indica,Anacardiaceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,23,TRUE,498,mixed CC0/CC-BY/CC-BY-NC (per-image log),"BarkVisionAI holds M. sylvatica (wild relative), NOT M. indica"
+T004,Tamarind,Tamarindus indica,Fabaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,418,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T005,Banyan,Ficus benghalensis,Moraceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,470,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T006,Peepal,Ficus religiosa,Moraceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,426,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T007,Jamun,Syzygium cumini,Myrtaceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,19,TRUE,304,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T008,Guava,Psidium guajava,Myrtaceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,1,TRUE,303,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T009,Jackfruit,Artocarpus heterophyllus,Moraceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,50,TRUE,265,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T010,Rain tree,Samanea saman,Fabaceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,2,TRUE,364,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T011,Gulmohar,Delonix regia,Fabaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,433,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T012,Teak,Tectona grandis,Lamiaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,356,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T013,Eucalyptus,Eucalyptus globulus,Myrtaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,4,mixed CC0/CC-BY/CC-BY-NC (per-image log),THIN (<50) — exclude from first baseline or top up with --india-bbox
+T014,Drumstick,Moringa oleifera,Moringaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,241,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T015,Golden shower,Cassia fistula,Fabaceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,3,TRUE,503,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T016,Indian almond,Terminalia catappa,Combretaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,510,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T017,Casuarina,Casuarina equisetifolia,Casuarinaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,12,mixed CC0/CC-BY/CC-BY-NC (per-image log),THIN (<50) — exclude from first baseline or top up with --india-bbox
+T018,Palmyra,Borassus flabellifer,Arecaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,424,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T019,Amla,Phyllanthus emblica,Phyllanthaceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,2,TRUE,127,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T020,Arjun,Terminalia arjuna,Combretaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,276,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T021,Kadamba,Neolamarckia cadamba,Rubiaceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,1,TRUE,92,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T022,Ashoka,Saraca asoca,Fabaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,95,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T023,Copperpod,Peltophorum pterocarpum,Fabaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,262,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T024,Siris,Albizia odoratissima,Fabaceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,1,TRUE,14,mixed CC0/CC-BY/CC-BY-NC (per-image log),THIN (<50) — exclude from first baseline or top up with --india-bbox
+T025,Vaagai,Albizia lebbeck,Fabaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,109,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T026,Vengai,Pterocarpus marsupium,Fabaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,101,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T027,Poovarasu,Thespesia populnea,Malvaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,444,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T028,Silk cotton,Ceiba pentandra,Malvaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,99,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T029,Sandalwood,Santalum album,Santalaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,250,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T030,Rosewood,Dalbergia latifolia,Fabaceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,4,TRUE,58,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T031,Vellai Nangai,Vateria indica,Dipterocarpaceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,524,TRUE,55,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T032,Myristica,Myristica beddomei,Myristicaceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,355,TRUE,18,mixed CC0/CC-BY/CC-BY-NC (per-image log),THIN (<50) — exclude from first baseline or top up with --india-bbox
+T033,White dhup,Cullenia exarillata,Malvaceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,108,TRUE,119,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T034,Nagappu,Mesua ferrea,Calophyllaceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,69,TRUE,77,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T035,Anamalai dipterocarp,Dipterocarpus bourdillonii,Dipterocarpaceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,44,TRUE,20,mixed CC0/CC-BY/CC-BY-NC (per-image log),THIN (<50) — exclude from first baseline or top up with --india-bbox
+T036,Anamalai jamun,Syzygium densiflorum,Myrtaceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,183,TRUE,44,mixed CC0/CC-BY/CC-BY-NC (per-image log),THIN (<50) — exclude from first baseline or top up with --india-bbox
+T037,Coconut,Cocos nucifera,Arecaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,439,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T038,Papaya,Carica papaya,Caricaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,473,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T039,Banana,Musa paradisiaca,Musaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,65,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T040,Curry leaf,Murraya koenigii,Rutaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,126,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T041,Custard apple,Annona squamosa,Annonaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,186,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T042,Lemon,Citrus limon,Rutaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,11,mixed CC0/CC-BY/CC-BY-NC (per-image log),THIN (<50) — exclude from first baseline or top up with --india-bbox
+T043,Babul,Vachellia nilotica,Fabaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,137,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T044,Subabul,Leucaena leucocephala,Fabaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,137,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T045,Mahogany,Swietenia macrophylla,Meliaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,53,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T046,Tabebuia,Tabebuia rosea,Bignoniaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,18,mixed CC0/CC-BY/CC-BY-NC (per-image log),THIN (<50) — exclude from first baseline or top up with --india-bbox
+T047,Cluster fig,Ficus racemosa,Moraceae,field_inat;anam_trees,Coimbatore/Tamil Nadu,2,TRUE,295,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T048,Jacaranda,Jacaranda mimosifolia,Bignoniaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,99,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T049,Millingtonia,Millingtonia hortensis,Bignoniaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,158,mixed CC0/CC-BY/CC-BY-NC (per-image log),
+T050,Bamboo,Bambusa bambos,Poaceae,field_inat,Coimbatore/Tamil Nadu,0,TRUE,8,mixed CC0/CC-BY/CC-BY-NC (per-image log),THIN (<50) — exclude from first baseline or top up with --india-bbox

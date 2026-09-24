@@ -22,7 +22,11 @@ Quoted from the official record pages. No legal conclusions beyond what the lice
 - Local copy: ONLY `datasets/raw/barkvisionai/metadata.csv` (6.8 MB sample). Image zips not mirrored.
 - Any image reuse must credit the creators and carry the CC-BY-4.0 notice.
 
-## 4. PlantCLEF-2026 (Kaggle)
+## 5. Field photos (iNaturalist, collected 2026-09-24)
+- 10845 research-grade images, per-file licenses in `dataset/ATTRIBUTION.csv` + `metadata/inat_collection.csv` (100% coverage after repair).
+- 72% are CC-BY-NC → the dataset as a whole is NON-COMMERCIAL. Commercial use would require dropping all NC files first.
+
+## 6. PlantCLEF-2026 (Kaggle)
 - Page: https://www.kaggle.com/competitions/plantclef-2026/data — License: **UNKNOWN** (login wall, not verified).
 - Status: NOT downloaded. Do not use until license + competition rules verified per file.
 - Redistribution: NOT permitted until verified (`redistribution_allowed: false` in metadata JSON).

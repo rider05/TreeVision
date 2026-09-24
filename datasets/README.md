@@ -16,10 +16,12 @@ Builder: `datasets/build_metadata.py`. Metadata: `datasets/metadata/`. Licenses:
 valparai_anamalai CC-BY-4.0; anam_trees CC-BY-4.0; barkvisionai CC-BY-4.0; plantclef UNKNOWN.
 Attribute every reuse; see `docs/dataset_licenses.md`. Redistribution allowed only for the three CC-BY-4.0 sets.
 
-## 4. Records / 5. Images / 6. Species
-- Records: 12510 (valparai 20×20 tree rows) + 8397 (anam occurrences) + 39000 (bark metadata rows).
-- Usable training images today: 0 (bark sample unverified; zips not downloaded; occurrence sets have no images).
-- Candidate species: 536 (`regional_species_master.csv`); target species: 36 (`target_species.csv`).
+## 4. Records / 5. Images / 6. Species (updated 2026-09-24: field collection complete)
+- Reference records: 12510 (valparai 20×20 tree rows) + 8397 (anam occurrences) + 39000 (bark metadata rows).
+- Field images: 10845 CC-licensed iNaturalist photos across 50 species (see `metadata/field_collection_report.md`).
+- After sha256 dedup (61 removed) + UNKNOWN-license exclusion (61 files / 36 obs, incl. 25 double-filed conflicts): **10748** in frozen splits — train 7609 / validation 1540 / test 1599 (`SPLIT_MANIFEST.csv`, zero treeID leakage).
+- Candidate species: 536 (`regional_species_master.csv`); target species: 50 (`target_species.csv`, 9 thin <50 excluded from first baseline).
+- License mix of field photos: CC-BY-NC 7872 / CC-BY 2761 / CC0 176 → project must stay non-commercial unless NC images are removed.
 
 ## 7. Regional relevance
 Occurrence sets are Valparai/Anamalai rainforest (215 species in both) — strong Western Ghats signal,
@@ -29,8 +31,7 @@ weak Coimbatore urban-tree signal. BarkVisionAI is 11/13 Himalayan — reference
 Bark only (512×512 processed, originals ~768×1024). Leaf / whole-tree / flower / fruit: none acquired.
 
 ## 9. Target species
-36 in `datasets/metadata/target_species.csv`: 15 MVP (Neem…Golden shower) + 15 expansion
-(Indian almond…Rosewood) + 6 Anamalai Annex (Vateria…Syzygium densiflorum).
+36 in `datasets/metadata/target_species.csv` (2026-09-24 refresh: 50 species — 15 MVP + 15 expansion + 6 Anamalai Annex + 14 urban TN additions).
 
 ## 10. Limitations
 - Zero verified training images for 34/36 targets; 2 bark candidates need domain verification.

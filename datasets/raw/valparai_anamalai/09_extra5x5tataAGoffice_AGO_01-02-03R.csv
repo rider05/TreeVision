@@ -1,0 +1,18 @@
+date5x5,fragment,siteID,treatment,verbatimSpecies,species,nSeedlingS1,nSaplingS1,nSeedlingCoppS1,nSaplingCoppS1,nSeedlingSmallS2,nSeedlingSmallCoppS2,nSeedlingS2,nSeedlingCoppS2,nSaplingSmallS2,nSaplingS2,remarks
+2023-04-21T00:00:00Z,TATA AG Office,AGO_01R,Restored,NA,Clerodendrum infortunatum,2,0,0,0,0,0,0,0,0,0,NA
+2023-04-21T00:00:00Z,TATA AG Office,AGO_01R,Restored,NA,Maesa indica,2,0,2,0,0,0,0,0,0,0,NA
+2023-04-21T00:00:00Z,TATA AG Office,AGO_01R,Restored,NA,Cinnamomum sp.,1,0,0,0,0,0,0,0,0,0,NA
+2023-04-21T00:00:00Z,TATA AG Office,AGO_02R,Restored,NA,Clerodendrum infortunatum,22,11,0,0,0,0,0,0,0,0,NA
+2023-04-21T00:00:00Z,TATA AG Office,AGO_02R,Restored,NA,Maesa indica,6,0,0,0,0,0,0,0,0,0,NA
+2023-04-21T00:00:00Z,TATA AG Office,AGO_02R,Restored,NA,Litsea coriacea,0,0,0,1,0,0,0,0,0,0,NA
+2023-04-21T00:00:00Z,TATA AG Office,AGO_02R,Restored,Litsea oleiodes,Litsea nigrescens,1,0,0,0,0,0,0,0,0,0,Planted
+2023-04-21T00:00:00Z,TATA AG Office,AGO_02R,Restored,NA,Diospyros paniculata,1,0,0,0,0,0,0,0,0,0,Planted
+2023-04-21T00:00:00Z,TATA AG Office,AGO_02R,Restored,NA,Atalantia racemosa,1,0,0,0,0,0,0,0,0,0,Planted
+2023-04-21T00:00:00Z,TATA AG Office,AGO_02R,Restored,NA,Aglaia elaeagnoidea,1,0,0,0,0,0,0,0,0,0,Planted
+2023-04-21T00:00:00Z,TATA AG Office,AGO_02R,Restored,NA,Heynea trijuga,1,0,0,0,0,0,0,0,0,0,Planted
+2023-04-21T00:00:00Z,TATA AG Office,AGO_03R,Restored,NA,Maesa indica,3,0,1,0,0,0,0,0,0,0,NA
+2023-04-21T00:00:00Z,TATA AG Office,AGO_03R,Restored,NA,Actinodaphne bourdillonii,1,0,0,0,0,0,0,0,0,0,Planted
+2023-04-21T00:00:00Z,TATA AG Office,AGO_03R,Restored,NA,Cinnamomum malabatrum,1,0,1,1,0,0,0,0,0,0,NA
+2023-04-21T00:00:00Z,TATA AG Office,AGO_03R,Restored,NA,Litsea nigrescens,1,0,0,0,0,0,0,0,0,0,Planted
+2023-04-21T00:00:00Z,TATA AG Office,AGO_03R,Restored,NA,Aglaia canarana,1,0,0,0,0,0,0,0,0,0,Planted
+2023-04-21T00:00:00Z,TATA AG Office,AGO_03R,Restored,NA,Clerodendrum infortunatum,2,0,0,0,0,0,0,0,0,1,NA

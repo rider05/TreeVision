@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+# ML artifacts
+artifacts/
+*.keras
+*.h5
+*.tflite
+*.onnx
+# Dataset images (large, licensed) — never commit raw images
+dataset/raw/
+dataset/cleaned/
+dataset/train/
+dataset/validation/
+dataset/test/
+!dataset/raw/.gitkeep
+!dataset/cleaned/.gitkeep
+# Node / RN
+node_modules/
+.expo/
+# OS
+.DS_Store
+Thumbs.db

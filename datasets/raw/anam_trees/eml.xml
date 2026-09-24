@@ -1,0 +1,579 @@
+<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+         xmlns:dc="http://purl.org/dc/terms/"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://rs.gbif.org/schema/eml-gbif-profile/1.3/eml.xsd"
+         packageId="https://cloud.gbif.org/asia/resource?id=anam-trees-occurrence/v1.0" system="http://gbif.org" scope="system"
+         xml:lang="eng">
+    <dataset>
+        <alternateIdentifier>https://cloud.gbif.org/asia/resource?r=anam-trees-occurrence</alternateIdentifier>
+        <shortName>Trees and plants occurrence in Anamalai Hills</shortName>
+        <title xml:lang="eng">Tree and other plant species occurrences in the Valparai Plateau and Anamalai Tiger Reserve, Western Ghats, India</title>
+        <creator>
+            <individualName>
+                <givenName>T. R. Shankar</givenName>
+                <surName>Raman</surName>
+            </individualName>
+            <organizationName>Nature Conservation Foundation</organizationName>
+            <positionName>Senior Scientist</positionName>
+            <address>
+                <deliveryPoint>1311, 12th A Main,Vijayanagar 1st Stage</deliveryPoint>
+                <city>Mysuru</city>
+                <administrativeArea>Karnataka</administrativeArea>
+                <postalCode>570017</postalCode>
+                <country>IN</country>
+            </address>
+            <electronicMailAddress>trsr@ncf-india.org</electronicMailAddress>
+            <userId directory="https://orcid.org/">0000-0002-1347-3953</userId>
+        </creator>
+        <creator>
+            <individualName>
+                <givenName>A.P.</givenName>
+                <surName>Madhavan</surName>
+            </individualName>
+            <organizationName>Nature Conservation Foundation</organizationName>
+            <address>
+                <deliveryPoint>1311, 12th A Main,Vijayanagar 1st Stage</deliveryPoint>
+                <city>Mysuru</city>
+                <administrativeArea>Karnataka</administrativeArea>
+                <postalCode>570017</postalCode>
+                <country>IN</country>
+            </address>
+            <userId directory="https://orcid.org/">0009-0009-2754-8256</userId>
+        </creator>
+        <creator>
+            <individualName>
+                <givenName>Srinivasan</givenName>
+                <surName>Kasinathan</surName>
+            </individualName>
+            <organizationName>Nature Conservation Foundation</organizationName>
+            <address>
+                <deliveryPoint>1311, 12th A Main,Vijayanagar 1st Stage</deliveryPoint>
+                <city>Mysuru</city>
+                <administrativeArea>Karnataka</administrativeArea>
+                <postalCode>570017</postalCode>
+                <country>IN</country>
+            </address>
+            <userId directory="https://orcid.org/">0000-0001-7323-6653</userId>
+        </creator>
+        <creator>
+            <individualName>
+                <givenName>Kshama</givenName>
+                <surName>Bhat</surName>
+            </individualName>
+            <organizationName>Nature Conservation Foundation</organizationName>
+            <address>
+                <deliveryPoint>1311, 12th A Main,Vijayanagar 1st Stage</deliveryPoint>
+                <city>Mysuru</city>
+                <administrativeArea>Karnataka</administrativeArea>
+                <postalCode>570017</postalCode>
+                <country>IN</country>
+            </address>
+            <userId directory="https://orcid.org/">0000-0002-6190-2687</userId>
+        </creator>
+        <creator>
+            <individualName>
+                <givenName>Navendu</givenName>
+                <surName>Page</surName>
+            </individualName>
+            <organizationName>Thackeray Wildlife Foundation</organizationName>
+            <address>
+                <city>Kolhapur</city>
+                <administrativeArea>Maharashtra</administrativeArea>
+                <postalCode>416001</postalCode>
+                <country>IN</country>
+            </address>
+            <userId directory="https://orcid.org/">0000-0002-9413-7571</userId>
+        </creator>
+        <creator>
+            <individualName>
+                <givenName>G.</givenName>
+                <surName>Moorthi</surName>
+            </individualName>
+            <organizationName>Nature Conservation Foundation</organizationName>
+            <address>
+                <deliveryPoint>1311, 12th A Main,Vijayanagar 1st Stage</deliveryPoint>
+                <city>Mysuru</city>
+                <administrativeArea>Karnataka</administrativeArea>
+                <postalCode>570017</postalCode>
+                <country>IN</country>
+            </address>
+            <userId directory="https://orcid.org/">0000-0002-0174-9895</userId>
+        </creator>
+        <creator>
+            <individualName>
+                <givenName>T.</givenName>
+                <surName>Sundarraj</surName>
+            </individualName>
+            <organizationName>Nature Conservation Foundation</organizationName>
+            <address>
+                <deliveryPoint>1311, 12th A Main,Vijayanagar 1st Stage</deliveryPoint>
+                <city>Mysuru</city>
+                <administrativeArea>Karnataka</administrativeArea>
+                <postalCode>570017</postalCode>
+                <country>IN</country>
+            </address>
+            <userId directory="https://orcid.org/">0000-0002-3546-4417</userId>
+        </creator>
+        <creator>
+            <individualName>
+                <givenName>R.</givenName>
+                <surName>Rajesh</surName>
+            </individualName>
+            <organizationName>Nature Conservation Foundation</organizationName>
+            <address>
+                <deliveryPoint>1311, 12th A Main,Vijayanagar 1st Stage</deliveryPoint>
+                <city>Mysuru</city>
+                <administrativeArea>Karnataka</administrativeArea>
+                <postalCode>570017</postalCode>
+                <country>IN</country>
+            </address>
+            <userId directory="https://orcid.org/">0009-0007-2666-8956</userId>
+        </creator>
+        <creator>
+            <individualName>
+                <givenName>Divya</givenName>
+                <surName>Mudappa</surName>
+            </individualName>
+            <organizationName>Nature Conservation Foundation</organizationName>
+            <positionName>Senior Scientist</positionName>
+            <address>
+                <deliveryPoint>1311, 12th A Main,Vijayanagar 1st Stage</deliveryPoint>
+                <city>Mysuru</city>
+                <administrativeArea>Karnataka</administrativeArea>
+                <postalCode>570017</postalCode>
+                <country>IN</country>
+            </address>
+            <electronicMailAddress>divya@ncf-india.org</electronicMailAddress>
+            <onlineUrl>https://www.ncf-india.org</onlineUrl>
+            <userId directory="https://orcid.org/">0000-0001-9708-4826</userId>
+        </creator>
+        <pubDate>
+            2026-03-06
+        </pubDate>
+        <language>eng</language>
+        <abstract>
+            <para>This dataset includes data on occurrences of 11 threatened tree species, trees recorded in point-centred quarter (PCQ) plots around many individuals of those 11 tree species, and an inventory of plant species along 65 trails surveyed between Oct 2020 to Mar 2022 in rainforests of the Valparai Plateau and Anamalai Tiger Reserve, Western Ghats, India.</para>
+        </abstract>
+        <keywordSet>
+            <keyword>Occurrence</keyword>
+            <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type_2015-07-10.xml</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+            <keyword>Observation</keyword>
+            <keywordThesaurus>GBIF Dataset Subtype Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_subtype.xml</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+            <keyword>Tropical Forests</keyword>
+            <keyword>Tropical Tree Plantations</keyword>
+            <keyword>Natural Areas Conservation</keyword>
+            <keywordThesaurus>IRIS Keyword Thesaurus: http://cooper.library.uiuc.edu/iris/docs/keyword_thesaurus.pdf</keywordThesaurus>
+        </keywordSet>
+        <keywordSet>
+            <keyword>Anamalai Hills</keyword>
+            <keyword>Tropical Rainforests</keyword>
+            <keyword>Threatened Species</keyword>
+            <keyword>Western Ghats</keyword>
+            <keyword>Plant Diversity</keyword>
+            <keyword>Species Distributions</keyword>
+            <keywordThesaurus>n/a</keywordThesaurus>
+        </keywordSet>
+        <intellectualRights>
+            <para>This work is licensed under a <ulink url="http://creativecommons.org/licenses/by/4.0/legalcode"><citetitle>Creative Commons Attribution (CC-BY 4.0) License</citetitle></ulink>.</para>
+        </intellectualRights>
+        <licensed>
+            <licenseName>Creative Commons Attribution 4.0 International</licenseName>
+            <url>https://spdx.org/licenses/CC-BY-4.0.html</url>
+            <identifier>CC-BY-4.0</identifier>
+        </licensed>
+        <distribution scope="document">
+            <online>
+                <url function="information">https://doi.org/10.5281/zenodo.10888937</url>
+            </online>
+        </distribution>
+        <coverage>
+            <geographicCoverage>
+                <geographicDescription>Rainforest fragments within Valparai Plateau and Anamalai Tiger Reserve, Tamil Nadu, India.
+Valparai Plateau (10°24- 10°46&apos;N, 76°82&apos; - 77°05&apos;E)
+Anamalai Tiger Reserve (10°22&apos; - 10°56&apos;N, 76°815&apos; - 77°418&apos;E)</geographicDescription>
+                <boundingCoordinates>
+                    <westBoundingCoordinate>76.8297</westBoundingCoordinate>
+                    <eastBoundingCoordinate>77.04728</eastBoundingCoordinate>
+                    <northBoundingCoordinate>10.48085</northBoundingCoordinate>
+                    <southBoundingCoordinate>10.24681</southBoundingCoordinate>
+                </boundingCoordinates>
+            </geographicCoverage>
+            <temporalCoverage>
+                <rangeOfDates>
+                    <beginDate>
+                        <calendarDate>2020-10-03</calendarDate>
+                    </beginDate>
+                    <endDate>
+                        <calendarDate>2022-03-18</calendarDate>
+                    </endDate>
+                </rangeOfDates>
+            </temporalCoverage>
+            <taxonomicCoverage>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Celastrales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Dipsacales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Cucurbitales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Asterales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Cardiopteridales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Ericales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Solanales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Poales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>class</taxonRankName>
+                    <taxonRankValue>Polypodiopsida</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Malpighiales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Marattiales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>class</taxonRankName>
+                    <taxonRankValue>Liliopsida</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Boraginales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Lamiales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Caryophyllales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Buxales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Gnetales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Rosales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Piperales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Metteniusales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Brassicales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Sapindales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Gentianales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Pinales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Magnoliales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Santalales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Crossosomatales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Chloranthales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>phylum</taxonRankName>
+                    <taxonRankValue>Tracheophyta</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>class</taxonRankName>
+                    <taxonRankValue>Pinopsida</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>kingdom</taxonRankName>
+                    <taxonRankValue>Plantae</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Dilleniales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Arecales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Pandanales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Alismatales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>class</taxonRankName>
+                    <taxonRankValue>Magnoliopsida</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Laurales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Ranunculales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>class</taxonRankName>
+                    <taxonRankValue>Gnetopsida</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Myrtales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Zingiberales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>NA</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Malvales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Nymphaeales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Proteales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Liliales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Vitales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Icacinales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Fabales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Saxifragales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Cornales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>class</taxonRankName>
+                    <taxonRankValue>NA</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Oxalidales</taxonRankValue>
+                </taxonomicClassification>
+                <taxonomicClassification>
+                    <taxonRankName>order</taxonRankName>
+                    <taxonRankValue>Apiales</taxonRankValue>
+                </taxonomicClassification>
+            </taxonomicCoverage>
+        </coverage>
+        <acknowledgements><para>The field study on threatened tree species and the compilation and publication of this dataset was supported by Fondation Franklinia. The project was also supported by Rohini Nilekani Philanthropies and Rainmatter Foundation. We thank the Tamil Nadu Forest Department and the Field Director, Deputy Directors, and Range Officers of Anamalai Tiger Reserve for research permits and their cooperation. </para></acknowledgements>
+        <maintenance>
+            <description>
+                <para></para>
+            </description>
+            <maintenanceUpdateFrequency>asNeeded</maintenanceUpdateFrequency>
+        </maintenance>
+        <contact>
+            <individualName>
+                <givenName>T. R. Shankar</givenName>
+                <surName>Raman</surName>
+            </individualName>
+            <organizationName>Nature Conservation Foundation</organizationName>
+            <positionName>Senior Scientist</positionName>
+            <address>
+                <deliveryPoint>1311, 12th A Main,Vijayanagar 1st Stage</deliveryPoint>
+                <city>Mysuru</city>
+                <administrativeArea>Karnataka</administrativeArea>
+                <postalCode>570017</postalCode>
+                <country>IN</country>
+            </address>
+            <electronicMailAddress>trsr@ncf-india.org</electronicMailAddress>
+            <userId directory="https://orcid.org/">0000-0002-1347-3953</userId>
+        </contact>
+        <contact>
+            <individualName>
+                <givenName>A.P.</givenName>
+                <surName>Madhavan</surName>
+            </individualName>
+            <organizationName>Nature Conservation Foundation</organizationName>
+            <address>
+                <city>Mysuru</city>
+                <administrativeArea>Karnataka</administrativeArea>
+                <postalCode>570017</postalCode>
+                <country>IN</country>
+            </address>
+            <userId directory="https://orcid.org/">0009-0009-2754-8256</userId>
+        </contact>
+        <contact>
+            <individualName>
+                <givenName>Srinivasan</givenName>
+                <surName>Kasinathan</surName>
+            </individualName>
+            <organizationName>Nature Conservation Foundation</organizationName>
+            <address>
+                <city>Mysuru</city>
+                <administrativeArea>Karnataka</administrativeArea>
+                <postalCode>570017</postalCode>
+                <country>IN</country>
+            </address>
+            <userId directory="https://orcid.org/">0000-0001-7323-6653</userId>
+        </contact>
+        <contact>
+            <individualName>
+                <givenName>Divya</givenName>
+                <surName>Mudappa</surName>
+            </individualName>
+            <organizationName>Nature Conservation Foundation</organizationName>
+            <positionName>Senior Scientist</positionName>
+            <address>
+                <deliveryPoint>1311, 12th A Main,Vijayanagar 1st Stage</deliveryPoint>
+                <city>Mysuru</city>
+                <administrativeArea>Karnataka</administrativeArea>
+                <postalCode>570017</postalCode>
+                <country>IN</country>
+            </address>
+            <electronicMailAddress>divya@ncf-india.org</electronicMailAddress>
+            <onlineUrl>https://www.ncf-india.org</onlineUrl>
+            <userId directory="https://orcid.org/">0000-0001-9708-4826</userId>
+        </contact>
+        <methods>
+            <methodStep>
+                <description>
+                    <para>Data from three sources (focal tree survey, PCQs and inventory of plants) was combined and converted to GBIF Darwin Core format using R programming language. The full ecological dataset is also available on Zenodo.</para>
+                </description>
+            </methodStep>
+            <sampling>
+                <studyExtent>
+                    <description>
+                        <para>The study was carried out within the Anamalai Tiger Reserve (ATR), Tamil Nadu, India (core zone: 958 km², (10°22&apos; - 10°56&apos;N, 76°815&apos; - 77°418&apos;E) and the adjoining Valparai Plateau (220 km², 10°24- 10°46&apos;N, 76°82&apos; - 77°05&apos;E) in the Anamalai Hills of the Western Ghats. Field surveys were carried out in some rainforest fragments on the Valparai Plateau and rainforest tracts in ATR.</para>
+                    </description>
+                </studyExtent>
+                <samplingDescription>
+                    <para>The project focused particularly on 11 threatened tree species: Cryptocarya anamalayana, Diospyros paniculata, Dipterocarpus bourdillonii, Drypetes wightii, Dysoxylum malabaricum, Myristica beddomei, Orophea thomsonii, Palaquium ravii, Phyllanthus anamalayanus, Syzygium densiflorum, and Vateria indica. 
+
+Between October 2020 and March 2022, we carried out intensive field surveys in 29 sites along 65 trails of 113.35 km total length in rainforest fragments of the Valparai Plateau and mature tropical rainforests within the Anamalai Tiger Reserve (ATR). Upon discovery of a population of the Critically Endangered Dipterocarpus bourdillonii, this 11th species was included in the surveys. We recorded 1948 individuals of the 11 target species and laid 620 tree-centred PCQ plots to record measurements and associated species. Significant new distributional records of CR species included the new population record of D. bourdillonii with at least 40 mature trees, and multiple sub-populations of Phyllanthus anamalayanus in the Valparai Plateau and ATR. The rare Palaquium ravii (EN), earlier known from very few records in the southern Western Ghats, was found in 3 small clusters. The surveys yielded new information on geographic and elevational range, besides abundance information on all 11 species. Species such as P. anamalayanus and Orophea thomsonii were found to be locally abundant. This information, along with compilation of past records that yielded around 2000 occurrences, was used for species distribution models and IUCN Redlist threat assessments. 
+
+Along each trail, we recorded occurrence of the focal 11 threatened tree species within 10 m on either side of these trails, and made a checklist of all tree species. At focal study trees, we noted tree characteristics such as location, elevation, girth at breast height, height, canopy shape, damage, and other attributes. Taking a sample of the focal trees as the centre, we used the point-centred quadrat (PCQ) plots for 4 nearest trees, and 5 m radius circular plots to count conspecific seedlings and saplings. The survey trails enabled rapid coverage across wider areas to document species occurrence, while the PCQs around focal trees helped document associated tree species. PCQ plots were placed around trees selected about 30 m from previously measured conspecific trees to ensure independence of samples.</para>
+                </samplingDescription>
+            </sampling>
+            <qualityControl>
+                <description>
+                    <para>Trees were directly identified in the field or herbarium specimens collected to identify using field guides cited in identification references. Taxa that could not be identified to species were identified to Genus or Family, or occasionally higher taxa. Species names were updated to GBIF taxonomy using the species name matching tool.
+
+The coordinates of focal trees were used in the DarwinCore GBIF dataset, with a 10 m uncertainty to account for conspecifics around the focal tree: the number of individuals included the focal individual plus all conspecifics around it in a 5 m radius.
+
+Second, and for a subset of focal trees, trees around the focal tree were sampled using the point-centred quarter (PCQ) method. The coordinates of focal trees were used in the DarwinCore GBIF dataset, with a 10 m uncertainty to account for the four individual trees selected in four cardinal directions around the focal tree.
+
+Third, an inventory of plant species – including shrubs, herbs and lianas – along the trail was prepared. Since focal trees were recorded in sequence along the trail, we used the coordinates of the median focal tree as the approximate centre of the trail. For trails with five or fewer detections, we manually selected the approximate centre of the GPS track. The uncertainty around these data, given a single coordinate for all detections at the centre of the trail, was half the length of the trail.</para>
+                </description>
+            </qualityControl>
+        </methods>
+        <project id="ncf-arrp">
+            <title>Tropical Rainforest Research and Ecological Restoration in the Anamalai Hills, Western Ghats, India</title>
+            <personnel>
+                <individualName>
+                    <givenName>Divya</givenName>
+                    <surName>Mudappa</surName>
+                </individualName>
+                <userId directory="https://orcid.org/">0000-0001-9708-4826</userId>
+                <role>principalInvestigator</role>
+            </personnel>
+            <personnel>
+                <individualName>
+                    <givenName>T. R. Shankar</givenName>
+                    <surName>Raman</surName>
+                </individualName>
+                <userId directory="https://orcid.org/">0000-0002-1347-3953</userId>
+                <role>principalInvestigator</role>
+            </personnel>
+            <abstract>
+                <para>Our research and restoration programme focuses on the region’s unique, biologically diverse tropical rainforests in the Western Ghats, with a specific focus on the Anamalai Hills.
+
+This dataset focuses on 11 threatened tree species and other plant species recorded during the surveys.</para>
+            </abstract>
+            <funding>
+                <para>The threatened trees surveys and compilation and publication of this dataset was supported by Fondation Franklinia. The project was also supported by Rohini Nilekani Philanthropies and Rainmatter Foundation.</para>
+            </funding>
+            <studyAreaDescription>
+                <descriptor name="generic"
+                            citableClassificationSystem="false">
+                    <descriptorValue>The study was carried out within the Anamalai Tiger Reserve (ATR), Tamil Nadu, India (core zone: 958 km², (10°22&apos; - 10°56&apos;N, 76°815&apos; - 77°418&apos;E) and the adjoining Valparai Plateau (220 km², 10°24- 10°46&apos;N, 76°82&apos; - 77°05&apos;E) in the Anamalai Hills of the Western Ghats. Field surveys were carried out in some rainforest fragments on the Valparai Plateau and rainforest tracts in ATR.</descriptorValue>
+                </descriptor>
+            </studyAreaDescription>
+        </project>
+    </dataset>
+    <additionalMetadata>
+        <metadata>
+            <gbif>
+                <dateStamp>2026-03-06T08:05:35.827+00:00</dateStamp>
+                <hierarchyLevel>dataset</hierarchyLevel>
+                <citation>Raman T R S, Madhavan A, Kasinathan S, Bhat K, Page N, Moorthi G, Sundarraj T, Rajesh R, Mudappa D (2026). Tree and other plant species occurrences in the Valparai Plateau and Anamalai Tiger Reserve, Western Ghats, India. Version 1.0. Nature Conservation Foundation. Occurrence dataset. https://cloud.gbif.org/asia/resource?r=anam-trees-occurrence&amp;v=1.0</citation>
+            </gbif>
+        </metadata>
+    </additionalMetadata>
+</eml:eml>

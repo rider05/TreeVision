@@ -1,0 +1,15 @@
+{
+  "name": "valparai_anamalai",
+  "source": "Nature Conservation Foundation (Kasinathan et al.)",
+  "official_url": "https://zenodo.org/records/21986107",
+  "license": "CC-BY-4.0",
+  "version": "v1 (published 2026-08-17)",
+  "download_date": "2026-09-24",
+  "description": "Woody vegetation monitoring (20x20m tree records, 5x5m seedlings/saplings, cover scores) from restoration/degraded/benchmark forest plots, Valparai Plateau, Anamalai Hills (2016-2025). Occurrence/biodiversity data only; contains no training images.",
+  "record_count": 12510,
+  "image_count": 0,
+  "species_count": 393,
+  "citation": "Kasinathan S. et al. (2026). Tree and plant occurrence from long-term vegetation plot monitoring in restoration and forest areas, Valparai Plateau, Anamalai Hills, Tamil Nadu, India (2016-2025). Zenodo. DOI 10.5281/zenodo.21986107. Supplement to DOI 10.1111/rec.13558 and DOI 10.1002/ecs2.2860.",
+  "redistribution_allowed": true,
+  "notes": "10 CSV/TXT files downloaded in full (~2.4 MB). GBIF-reconciled names in 07_specieslist.csv (species_gbif); verbatim names preserved per file. DOI 10.15468/svz7gp is listed as variant form (GBIF mirror)."
+}

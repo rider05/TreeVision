@@ -1,0 +1,15 @@
+{
+  "name": "barkvisionai",
+  "source": "Indian School of Business / Himachal Pradesh Forest Department (Chhatre et al.); code: Forest-Economy-Alliance/BarkVisionAI",
+  "official_url": "https://zenodo.org/records/14650999",
+  "license": "CC-BY-4.0",
+  "version": "1.0.0 (published 2025-01-15)",
+  "download_date": "2026-09-24",
+  "description": "Tree bark image dataset, 13 mostly Himalayan/north-Indian species. Full image archive (~26 GB, 13 zips) NOT downloaded. Only the 6.8 MB training metadata sample (metadata.csv, 39000 rows, 3000/species) was downloaded for overlap/inventory analysis.",
+  "record_count": 39000,
+  "image_count": 0,
+  "species_count": 13,
+  "citation": "Chhatre A. et al. BarkVisionAI: Dataset for Tree Species Classification. Zenodo. DOI 10.5281/zenodo.14650999.",
+  "redistribution_allowed": true,
+  "notes": "Count discrepancy across sources: Zenodo description says 167361 images; project GitHub README says 156001; downloaded metadata.csv holds 39000 rows. Image zips intentionally not downloaded (26 GB, low regional overlap). Direct species overlap with TreeVision targets is limited to Eucalyptus globulus and Phyllanthus emblica; Mangifera sylvatica is a wild relative of cultivated mango (NOT the same species). Bark-only images (processed 512x512)."
+}

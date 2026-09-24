@@ -1,0 +1,15 @@
+{
+  "name": "plantclef",
+  "source": "Kaggle competition page (PlantCLEF-2026)",
+  "official_url": "https://www.kaggle.com/competitions/plantclef-2026/data",
+  "license": "UNKNOWN",
+  "version": "UNKNOWN (page requires Kaggle login; not inspected)",
+  "download_date": "NOT_DOWNLOADED",
+  "description": "Plant image competition dataset. Not downloaded: requires Kaggle account/competition rules acceptance and is typically >100 GB. Species overlap not yet checked.",
+  "record_count": 0,
+  "image_count": 0,
+  "species_count": 0,
+  "citation": "UNKNOWN",
+  "redistribution_allowed": false,
+  "notes": "Do not use for training until license verified and only a species-filtered subset is obtained. Check competition rules + per-file licenses first."
+}

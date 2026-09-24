@@ -1,0 +1,15 @@
+{
+  "name": "anam_trees",
+  "source": "Nature Conservation Foundation (Raman et al.), via GBIF Asia IPT",
+  "official_url": "https://cloud.gbif.org/asia/resource?r=anam-trees-occurrence",
+  "license": "CC-BY-4.0",
+  "version": "1.0 (published 2026-03-06)",
+  "download_date": "2026-09-24",
+  "description": "Occurrences of 11 threatened tree species + PCQ-plot associates + trail inventories, Valparai Plateau and Anamalai Tiger Reserve (Oct 2020-Mar 2022). Darwin Core Archive; occurrence data only, no training images.",
+  "record_count": 8397,
+  "image_count": 0,
+  "species_count": 480,
+  "citation": "Raman T R S, Madhavan A, Kasinathan S, Bhat K, Page N, Moorthi G, Sundarraj T, Rajesh R, Mudappa D (2026). Tree and other plant species occurrences in the Valparai Plateau and Anamalai Tiger Reserve, Western Ghats, India. Version 1.0. Nature Conservation Foundation. Occurrence dataset. GBIF UUID eb88b65e-8ce5-4ea4-84cc-234df5e4763e.",
+  "redistribution_allowed": true,
+  "notes": "DwC-A zip (346 KB) + EML downloaded; occurrence.txt extracted (15.3 MB, 8397 records). Focal-tree coords carry 10 m uncertainty; trail-checklist coords use median focal tree with half-trail-length uncertainty. Full ecological dataset also on Zenodo (DOI 10.5281/zenodo.10888937)."
+}

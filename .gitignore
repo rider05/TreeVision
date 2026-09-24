@@ -17,6 +17,16 @@ dataset/validation/
 dataset/test/
 !dataset/raw/.gitkeep
 !dataset/cleaned/.gitkeep
+# Acquired/reference datasets (reproducible via datasets/collect_inaturalist.py + build_metadata.py)
+datasets/raw/**/*.jpg
+datasets/raw/**/*.jpeg
+datasets/raw/**/*.png
+datasets/raw/**/*.webp
+datasets/raw/**/*.zip
+datasets/raw/anam_trees/occurrence.txt
+datasets/raw/anam_trees/meta.xml
+datasets/raw/barkvisionai/metadata.csv
+datasets/metadata/image_inventory.csv
 # Node / RN
 node_modules/
 .expo/

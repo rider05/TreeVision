@@ -30,6 +30,27 @@ datasets/metadata/image_inventory.csv
 # Node / RN
 node_modules/
 .expo/
+.expo-shared/
+web-build/
+dist/
+expo-env.d.ts
+# Expo / app local
+app_src_tmp.json
+# Auth / secrets
+*.session
+tg_session.session
+.env
+.env.local
+.env.*.local
+# Logs / tmp
+stats_out.txt
+stats_err.txt
+npm-debug.log*
+# Local data mirrors (reproducible)
+dataset_base/
+quarantine/
 # OS
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "TreeVision",
+    "slug": "treevision",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "treevision",
+    "plugins": ["expo-router", "expo-camera"],
+    "experiments": { "typedRoutes": true },
+    "android": { "package": "com.treevision.app" }
+  }
+}

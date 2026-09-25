@@ -1,0 +1,502 @@
+[
+ {
+  "id": "T001",
+  "commonName": "Neem",
+  "scientificName": "Azadirachta indica",
+  "family": "Meliaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 403,
+  "notes": ""
+ },
+ {
+  "id": "T002",
+  "commonName": "Pungam",
+  "scientificName": "Pongamia pinnata",
+  "family": "Fabaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 446,
+  "notes": ""
+ },
+ {
+  "id": "T003",
+  "commonName": "Mango",
+  "scientificName": "Mangifera indica",
+  "family": "Anacardiaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 23,
+  "fieldImages": 498,
+  "notes": "BarkVisionAI holds M. sylvatica (wild relative), NOT M. indica"
+ },
+ {
+  "id": "T004",
+  "commonName": "Tamarind",
+  "scientificName": "Tamarindus indica",
+  "family": "Fabaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 418,
+  "notes": ""
+ },
+ {
+  "id": "T005",
+  "commonName": "Banyan",
+  "scientificName": "Ficus benghalensis",
+  "family": "Moraceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 470,
+  "notes": ""
+ },
+ {
+  "id": "T006",
+  "commonName": "Peepal",
+  "scientificName": "Ficus religiosa",
+  "family": "Moraceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 426,
+  "notes": ""
+ },
+ {
+  "id": "T007",
+  "commonName": "Jamun",
+  "scientificName": "Syzygium cumini",
+  "family": "Myrtaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 19,
+  "fieldImages": 304,
+  "notes": ""
+ },
+ {
+  "id": "T008",
+  "commonName": "Guava",
+  "scientificName": "Psidium guajava",
+  "family": "Myrtaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 1,
+  "fieldImages": 303,
+  "notes": ""
+ },
+ {
+  "id": "T009",
+  "commonName": "Jackfruit",
+  "scientificName": "Artocarpus heterophyllus",
+  "family": "Moraceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 50,
+  "fieldImages": 265,
+  "notes": ""
+ },
+ {
+  "id": "T010",
+  "commonName": "Rain tree",
+  "scientificName": "Samanea saman",
+  "family": "Fabaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 2,
+  "fieldImages": 364,
+  "notes": ""
+ },
+ {
+  "id": "T011",
+  "commonName": "Gulmohar",
+  "scientificName": "Delonix regia",
+  "family": "Fabaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 433,
+  "notes": ""
+ },
+ {
+  "id": "T012",
+  "commonName": "Teak",
+  "scientificName": "Tectona grandis",
+  "family": "Lamiaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 356,
+  "notes": ""
+ },
+ {
+  "id": "T013",
+  "commonName": "Eucalyptus",
+  "scientificName": "Eucalyptus globulus",
+  "family": "Myrtaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 4,
+  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
+ },
+ {
+  "id": "T014",
+  "commonName": "Drumstick",
+  "scientificName": "Moringa oleifera",
+  "family": "Moringaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 241,
+  "notes": ""
+ },
+ {
+  "id": "T015",
+  "commonName": "Golden shower",
+  "scientificName": "Cassia fistula",
+  "family": "Fabaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 3,
+  "fieldImages": 503,
+  "notes": ""
+ },
+ {
+  "id": "T016",
+  "commonName": "Indian almond",
+  "scientificName": "Terminalia catappa",
+  "family": "Combretaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 510,
+  "notes": ""
+ },
+ {
+  "id": "T017",
+  "commonName": "Casuarina",
+  "scientificName": "Casuarina equisetifolia",
+  "family": "Casuarinaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 12,
+  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
+ },
+ {
+  "id": "T018",
+  "commonName": "Palmyra",
+  "scientificName": "Borassus flabellifer",
+  "family": "Arecaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 424,
+  "notes": ""
+ },
+ {
+  "id": "T019",
+  "commonName": "Amla",
+  "scientificName": "Phyllanthus emblica",
+  "family": "Phyllanthaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 2,
+  "fieldImages": 127,
+  "notes": ""
+ },
+ {
+  "id": "T020",
+  "commonName": "Arjun",
+  "scientificName": "Terminalia arjuna",
+  "family": "Combretaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 276,
+  "notes": ""
+ },
+ {
+  "id": "T021",
+  "commonName": "Kadamba",
+  "scientificName": "Neolamarckia cadamba",
+  "family": "Rubiaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 1,
+  "fieldImages": 92,
+  "notes": ""
+ },
+ {
+  "id": "T022",
+  "commonName": "Ashoka",
+  "scientificName": "Saraca asoca",
+  "family": "Fabaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 95,
+  "notes": ""
+ },
+ {
+  "id": "T023",
+  "commonName": "Copperpod",
+  "scientificName": "Peltophorum pterocarpum",
+  "family": "Fabaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 262,
+  "notes": ""
+ },
+ {
+  "id": "T024",
+  "commonName": "Siris",
+  "scientificName": "Albizia odoratissima",
+  "family": "Fabaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 1,
+  "fieldImages": 14,
+  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
+ },
+ {
+  "id": "T025",
+  "commonName": "Vaagai",
+  "scientificName": "Albizia lebbeck",
+  "family": "Fabaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 109,
+  "notes": ""
+ },
+ {
+  "id": "T026",
+  "commonName": "Vengai",
+  "scientificName": "Pterocarpus marsupium",
+  "family": "Fabaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 101,
+  "notes": ""
+ },
+ {
+  "id": "T027",
+  "commonName": "Poovarasu",
+  "scientificName": "Thespesia populnea",
+  "family": "Malvaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 444,
+  "notes": ""
+ },
+ {
+  "id": "T028",
+  "commonName": "Silk cotton",
+  "scientificName": "Ceiba pentandra",
+  "family": "Malvaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 99,
+  "notes": ""
+ },
+ {
+  "id": "T029",
+  "commonName": "Sandalwood",
+  "scientificName": "Santalum album",
+  "family": "Santalaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 250,
+  "notes": ""
+ },
+ {
+  "id": "T030",
+  "commonName": "Rosewood",
+  "scientificName": "Dalbergia latifolia",
+  "family": "Fabaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 4,
+  "fieldImages": 58,
+  "notes": ""
+ },
+ {
+  "id": "T031",
+  "commonName": "Vellai Nangai",
+  "scientificName": "Vateria indica",
+  "family": "Dipterocarpaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 524,
+  "fieldImages": 55,
+  "notes": ""
+ },
+ {
+  "id": "T032",
+  "commonName": "Myristica",
+  "scientificName": "Myristica beddomei",
+  "family": "Myristicaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 355,
+  "fieldImages": 18,
+  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
+ },
+ {
+  "id": "T033",
+  "commonName": "White dhup",
+  "scientificName": "Cullenia exarillata",
+  "family": "Malvaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 108,
+  "fieldImages": 119,
+  "notes": ""
+ },
+ {
+  "id": "T034",
+  "commonName": "Nagappu",
+  "scientificName": "Mesua ferrea",
+  "family": "Calophyllaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 69,
+  "fieldImages": 77,
+  "notes": ""
+ },
+ {
+  "id": "T035",
+  "commonName": "Anamalai dipterocarp",
+  "scientificName": "Dipterocarpus bourdillonii",
+  "family": "Dipterocarpaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 44,
+  "fieldImages": 20,
+  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
+ },
+ {
+  "id": "T036",
+  "commonName": "Anamalai jamun",
+  "scientificName": "Syzygium densiflorum",
+  "family": "Myrtaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 183,
+  "fieldImages": 44,
+  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
+ },
+ {
+  "id": "T037",
+  "commonName": "Coconut",
+  "scientificName": "Cocos nucifera",
+  "family": "Arecaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 439,
+  "notes": ""
+ },
+ {
+  "id": "T038",
+  "commonName": "Papaya",
+  "scientificName": "Carica papaya",
+  "family": "Caricaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 473,
+  "notes": ""
+ },
+ {
+  "id": "T039",
+  "commonName": "Banana",
+  "scientificName": "Musa paradisiaca",
+  "family": "Musaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 65,
+  "notes": ""
+ },
+ {
+  "id": "T040",
+  "commonName": "Curry leaf",
+  "scientificName": "Murraya koenigii",
+  "family": "Rutaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 126,
+  "notes": ""
+ },
+ {
+  "id": "T041",
+  "commonName": "Custard apple",
+  "scientificName": "Annona squamosa",
+  "family": "Annonaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 186,
+  "notes": ""
+ },
+ {
+  "id": "T042",
+  "commonName": "Lemon",
+  "scientificName": "Citrus limon",
+  "family": "Rutaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 11,
+  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
+ },
+ {
+  "id": "T043",
+  "commonName": "Babul",
+  "scientificName": "Vachellia nilotica",
+  "family": "Fabaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 137,
+  "notes": ""
+ },
+ {
+  "id": "T044",
+  "commonName": "Subabul",
+  "scientificName": "Leucaena leucocephala",
+  "family": "Fabaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 137,
+  "notes": ""
+ },
+ {
+  "id": "T045",
+  "commonName": "Mahogany",
+  "scientificName": "Swietenia macrophylla",
+  "family": "Meliaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 53,
+  "notes": ""
+ },
+ {
+  "id": "T046",
+  "commonName": "Tabebuia",
+  "scientificName": "Tabebuia rosea",
+  "family": "Bignoniaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 18,
+  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
+ },
+ {
+  "id": "T047",
+  "commonName": "Cluster fig",
+  "scientificName": "Ficus racemosa",
+  "family": "Moraceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 2,
+  "fieldImages": 295,
+  "notes": ""
+ },
+ {
+  "id": "T048",
+  "commonName": "Jacaranda",
+  "scientificName": "Jacaranda mimosifolia",
+  "family": "Bignoniaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 99,
+  "notes": ""
+ },
+ {
+  "id": "T049",
+  "commonName": "Millingtonia",
+  "scientificName": "Millingtonia hortensis",
+  "family": "Bignoniaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 158,
+  "notes": ""
+ },
+ {
+  "id": "T050",
+  "commonName": "Bamboo",
+  "scientificName": "Bambusa bambos",
+  "family": "Poaceae",
+  "region": "Coimbatore/Tamil Nadu",
+  "occurrenceRecords": 0,
+  "fieldImages": 8,
+  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
+ }
+]

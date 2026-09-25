@@ -1,0 +1,87 @@
+# TreeVision Swin Transformer Fine-tuning Configuration
+# Based on OttoYu/TreeClassification (Swin-Base-like architecture)
+
+model:
+  name: "OttoYu/TreeClassification"
+  num_classes: 41
+  # Original model has 13 classes: Araucaria columnaris, Archontophenix alexandrae, 
+  # Bischofia javanica, Callistemon viminalis, Casuarina equisetifolia, 
+  # Cinnamomum burmannii, Dicranopteris pedata, Hibiscus tiliaceus, 
+  # Livistona chinensis, Machilus chekiangensis, Melaleuca cajuputi subsp. cumingiana, 
+  # Psychotria asiatica, Terminalia mantaly
+
+training:
+  # 5-epoch pilot first, then full fine-tuning if pilot passes
+  pilot_epochs: 5
+  full_epochs: 30
+  warmup_epochs: 2
+  
+  # Learning rates
+  classifier_lr: 1e-4
+  backbone_lr: 1e-5
+  weight_decay: 0.01
+  label_smoothing: 0.1
+  
+  # Optimization
+  optimizer: "adamw"
+  scheduler: "cosine"
+  mixed_precision: true
+  gradient_accumulation: 1
+  
+  # Early stopping
+  patience: 7
+  min_delta: 1e-4
+
+data:
+  class_config: "configs/classes_41.txt"
+  data_root: "dataset"
+  train_split: "train"
+  val_split: "validation"
+  test_split: "test"
+  
+  # Image processing
+  image_size: 224
+  use_processor_normalization: true
+  
+  # Augmentation (training only)
+  train_augmentation:
+    random_resized_crop: true
+    crop_scale: [0.8, 1.0]
+    horizontal_flip: true
+    random_rotation: 15
+    color_jitter:
+      brightness: 0.15
+      contrast: 0.15
+    random_erasing: 0.1
+  
+  # Validation/Test (deterministic)
+  val_test_resize: 256  # 1.14 * 224
+  val_test_crop: 224
+
+dataloader:
+  batch_size: 8
+  num_workers: 2
+  pin_memory: true
+  persistent_workers: true
+
+sampler:
+  train: "weighted_random"
+  validation: "none"
+  test: "none"
+
+evaluation:
+  top_k: [1, 3, 5]
+  per_class_metrics: true
+  macro_f1: true
+  weighted_f1: true
+
+logging:
+  print_every: 1
+  save_best: true
+  save_dir: "artifacts/swin_41"
+
+checkpoint:
+  save_best: true
+  metric: "val_loss"
+  mode: "min"
+  keep_last: true

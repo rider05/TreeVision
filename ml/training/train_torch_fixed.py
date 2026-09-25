@@ -40,6 +40,8 @@ def set_backbone_frozen(model: nn.Module, frozen: bool) -> None:
     hp = {head.weight, head.bias}
     for p in model.parameters(): p.requires_grad = (p in hp) if frozen else True
 
+def _to_rgb(img):
+    return img.convert("RGB") if hasattr(img, "convert") else img
 def topk_acc(out, y, k): _, pred = out.topk(min(k, out.size(1)), dim=1); return (pred == y.view(-1,1)).any(dim=1).float().mean().item()
 def run_epoch(model, loader, device, opt=None, scaler=None, loss_f=None, mixup_alpha=0.0):
     train = opt is not None
@@ -124,7 +126,7 @@ def main():
 
     # Transforms: train aug, val deterministic, SAME normalize, RGB handling
     # Explicit RGB conversion via Lambda before ToTensor
-    to_rgb = transforms.Lambda(lambda img: img.convert("RGB"))
+    to_rgb = transforms.Lambda(_to_rgb)
     base_ops=[to_rgb, transforms.RandomResizedCrop(a.img, scale=(0.8,1.0)), transforms.RandomHorizontalFlip(), transforms.RandomRotation(15), transforms.RandomAffine(degrees=0, translate=(0.05,0.05), scale=(0.9,1.1)), transforms.ColorJitter(brightness=0.15, contrast=0.15)]
     if a.aug=="randaugment": base_ops.append(transforms.RandAugment(num_ops=2, magnitude=7))
     train_tf=transforms.Compose(base_ops + [transforms.ToTensor(), transforms.Normalize(IMAGENET_MEAN, IMAGENET_STD), transforms.RandomErasing(p=0.1)])

@@ -1,0 +1,45 @@
+# TreeVision 41-class MVP configuration
+# Excludes extremely thin species from the 50-class list
+# Based on existing 41-class baseline that achieved ~65% val/test Top-1
+
+amla
+arjun
+ashoka
+babul
+banana
+banyan
+clusterfig
+coconut
+copperpod
+cullenia
+curryleaf
+custardapple
+drumstick
+goldenshower
+guava
+gulmohar
+indianalmond
+jacaranda
+jackfruit
+jamun
+kadamba
+mahogany
+mango
+mesua
+millingtonia
+neem
+palmyra
+papaya
+peepal
+poovarasu
+pungam
+raintree
+rosewood
+sandalwood
+silkcotton
+subabul
+tamarind
+teak
+vaagai
+vateria
+vengai

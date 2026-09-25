@@ -1,502 +1,1455 @@
 [
- {
-  "id": "T001",
-  "commonName": "Neem",
-  "scientificName": "Azadirachta indica",
-  "family": "Meliaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 403,
-  "notes": ""
- },
- {
-  "id": "T002",
-  "commonName": "Pungam",
-  "scientificName": "Pongamia pinnata",
-  "family": "Fabaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 446,
-  "notes": ""
- },
- {
-  "id": "T003",
-  "commonName": "Mango",
-  "scientificName": "Mangifera indica",
-  "family": "Anacardiaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 23,
-  "fieldImages": 498,
-  "notes": "BarkVisionAI holds M. sylvatica (wild relative), NOT M. indica"
- },
- {
-  "id": "T004",
-  "commonName": "Tamarind",
-  "scientificName": "Tamarindus indica",
-  "family": "Fabaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 418,
-  "notes": ""
- },
- {
-  "id": "T005",
-  "commonName": "Banyan",
-  "scientificName": "Ficus benghalensis",
-  "family": "Moraceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 470,
-  "notes": ""
- },
- {
-  "id": "T006",
-  "commonName": "Peepal",
-  "scientificName": "Ficus religiosa",
-  "family": "Moraceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 426,
-  "notes": ""
- },
- {
-  "id": "T007",
-  "commonName": "Jamun",
-  "scientificName": "Syzygium cumini",
-  "family": "Myrtaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 19,
-  "fieldImages": 304,
-  "notes": ""
- },
- {
-  "id": "T008",
-  "commonName": "Guava",
-  "scientificName": "Psidium guajava",
-  "family": "Myrtaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 1,
-  "fieldImages": 303,
-  "notes": ""
- },
- {
-  "id": "T009",
-  "commonName": "Jackfruit",
-  "scientificName": "Artocarpus heterophyllus",
-  "family": "Moraceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 50,
-  "fieldImages": 265,
-  "notes": ""
- },
- {
-  "id": "T010",
-  "commonName": "Rain tree",
-  "scientificName": "Samanea saman",
-  "family": "Fabaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 2,
-  "fieldImages": 364,
-  "notes": ""
- },
- {
-  "id": "T011",
-  "commonName": "Gulmohar",
-  "scientificName": "Delonix regia",
-  "family": "Fabaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 433,
-  "notes": ""
- },
- {
-  "id": "T012",
-  "commonName": "Teak",
-  "scientificName": "Tectona grandis",
-  "family": "Lamiaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 356,
-  "notes": ""
- },
- {
-  "id": "T013",
-  "commonName": "Eucalyptus",
-  "scientificName": "Eucalyptus globulus",
-  "family": "Myrtaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 4,
-  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
- },
- {
-  "id": "T014",
-  "commonName": "Drumstick",
-  "scientificName": "Moringa oleifera",
-  "family": "Moringaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 241,
-  "notes": ""
- },
- {
-  "id": "T015",
-  "commonName": "Golden shower",
-  "scientificName": "Cassia fistula",
-  "family": "Fabaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 3,
-  "fieldImages": 503,
-  "notes": ""
- },
- {
-  "id": "T016",
-  "commonName": "Indian almond",
-  "scientificName": "Terminalia catappa",
-  "family": "Combretaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 510,
-  "notes": ""
- },
- {
-  "id": "T017",
-  "commonName": "Casuarina",
-  "scientificName": "Casuarina equisetifolia",
-  "family": "Casuarinaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 12,
-  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
- },
- {
-  "id": "T018",
-  "commonName": "Palmyra",
-  "scientificName": "Borassus flabellifer",
-  "family": "Arecaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 424,
-  "notes": ""
- },
- {
-  "id": "T019",
-  "commonName": "Amla",
-  "scientificName": "Phyllanthus emblica",
-  "family": "Phyllanthaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 2,
-  "fieldImages": 127,
-  "notes": ""
- },
- {
-  "id": "T020",
-  "commonName": "Arjun",
-  "scientificName": "Terminalia arjuna",
-  "family": "Combretaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 276,
-  "notes": ""
- },
- {
-  "id": "T021",
-  "commonName": "Kadamba",
-  "scientificName": "Neolamarckia cadamba",
-  "family": "Rubiaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 1,
-  "fieldImages": 92,
-  "notes": ""
- },
- {
-  "id": "T022",
-  "commonName": "Ashoka",
-  "scientificName": "Saraca asoca",
-  "family": "Fabaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 95,
-  "notes": ""
- },
- {
-  "id": "T023",
-  "commonName": "Copperpod",
-  "scientificName": "Peltophorum pterocarpum",
-  "family": "Fabaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 262,
-  "notes": ""
- },
- {
-  "id": "T024",
-  "commonName": "Siris",
-  "scientificName": "Albizia odoratissima",
-  "family": "Fabaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 1,
-  "fieldImages": 14,
-  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
- },
- {
-  "id": "T025",
-  "commonName": "Vaagai",
-  "scientificName": "Albizia lebbeck",
-  "family": "Fabaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 109,
-  "notes": ""
- },
- {
-  "id": "T026",
-  "commonName": "Vengai",
-  "scientificName": "Pterocarpus marsupium",
-  "family": "Fabaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 101,
-  "notes": ""
- },
- {
-  "id": "T027",
-  "commonName": "Poovarasu",
-  "scientificName": "Thespesia populnea",
-  "family": "Malvaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 444,
-  "notes": ""
- },
- {
-  "id": "T028",
-  "commonName": "Silk cotton",
-  "scientificName": "Ceiba pentandra",
-  "family": "Malvaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 99,
-  "notes": ""
- },
- {
-  "id": "T029",
-  "commonName": "Sandalwood",
-  "scientificName": "Santalum album",
-  "family": "Santalaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 250,
-  "notes": ""
- },
- {
-  "id": "T030",
-  "commonName": "Rosewood",
-  "scientificName": "Dalbergia latifolia",
-  "family": "Fabaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 4,
-  "fieldImages": 58,
-  "notes": ""
- },
- {
-  "id": "T031",
-  "commonName": "Vellai Nangai",
-  "scientificName": "Vateria indica",
-  "family": "Dipterocarpaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 524,
-  "fieldImages": 55,
-  "notes": ""
- },
- {
-  "id": "T032",
-  "commonName": "Myristica",
-  "scientificName": "Myristica beddomei",
-  "family": "Myristicaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 355,
-  "fieldImages": 18,
-  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
- },
- {
-  "id": "T033",
-  "commonName": "White dhup",
-  "scientificName": "Cullenia exarillata",
-  "family": "Malvaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 108,
-  "fieldImages": 119,
-  "notes": ""
- },
- {
-  "id": "T034",
-  "commonName": "Nagappu",
-  "scientificName": "Mesua ferrea",
-  "family": "Calophyllaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 69,
-  "fieldImages": 77,
-  "notes": ""
- },
- {
-  "id": "T035",
-  "commonName": "Anamalai dipterocarp",
-  "scientificName": "Dipterocarpus bourdillonii",
-  "family": "Dipterocarpaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 44,
-  "fieldImages": 20,
-  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
- },
- {
-  "id": "T036",
-  "commonName": "Anamalai jamun",
-  "scientificName": "Syzygium densiflorum",
-  "family": "Myrtaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 183,
-  "fieldImages": 44,
-  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
- },
- {
-  "id": "T037",
-  "commonName": "Coconut",
-  "scientificName": "Cocos nucifera",
-  "family": "Arecaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 439,
-  "notes": ""
- },
- {
-  "id": "T038",
-  "commonName": "Papaya",
-  "scientificName": "Carica papaya",
-  "family": "Caricaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 473,
-  "notes": ""
- },
- {
-  "id": "T039",
-  "commonName": "Banana",
-  "scientificName": "Musa paradisiaca",
-  "family": "Musaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 65,
-  "notes": ""
- },
- {
-  "id": "T040",
-  "commonName": "Curry leaf",
-  "scientificName": "Murraya koenigii",
-  "family": "Rutaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 126,
-  "notes": ""
- },
- {
-  "id": "T041",
-  "commonName": "Custard apple",
-  "scientificName": "Annona squamosa",
-  "family": "Annonaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 186,
-  "notes": ""
- },
- {
-  "id": "T042",
-  "commonName": "Lemon",
-  "scientificName": "Citrus limon",
-  "family": "Rutaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 11,
-  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
- },
- {
-  "id": "T043",
-  "commonName": "Babul",
-  "scientificName": "Vachellia nilotica",
-  "family": "Fabaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 137,
-  "notes": ""
- },
- {
-  "id": "T044",
-  "commonName": "Subabul",
-  "scientificName": "Leucaena leucocephala",
-  "family": "Fabaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 137,
-  "notes": ""
- },
- {
-  "id": "T045",
-  "commonName": "Mahogany",
-  "scientificName": "Swietenia macrophylla",
-  "family": "Meliaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 53,
-  "notes": ""
- },
- {
-  "id": "T046",
-  "commonName": "Tabebuia",
-  "scientificName": "Tabebuia rosea",
-  "family": "Bignoniaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 18,
-  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
- },
- {
-  "id": "T047",
-  "commonName": "Cluster fig",
-  "scientificName": "Ficus racemosa",
-  "family": "Moraceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 2,
-  "fieldImages": 295,
-  "notes": ""
- },
- {
-  "id": "T048",
-  "commonName": "Jacaranda",
-  "scientificName": "Jacaranda mimosifolia",
-  "family": "Bignoniaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 99,
-  "notes": ""
- },
- {
-  "id": "T049",
-  "commonName": "Millingtonia",
-  "scientificName": "Millingtonia hortensis",
-  "family": "Bignoniaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 158,
-  "notes": ""
- },
- {
-  "id": "T050",
-  "commonName": "Bamboo",
-  "scientificName": "Bambusa bambos",
-  "family": "Poaceae",
-  "region": "Coimbatore/Tamil Nadu",
-  "occurrenceRecords": 0,
-  "fieldImages": 8,
-  "notes": "THIN (<50) — exclude from first baseline or top up with --india-bbox"
- }
+  {
+    "id": "azadirachta-indica",
+    "commonName": "Neem Tree",
+    "tamilName": "வேப்ப மரம் (Veppam)",
+    "scientificName": "Azadirachta indica",
+    "family": "Meliaceae",
+    "region": "Coimbatore Plains & Dry Deciduous",
+    "habitat": "Drought-tolerant, semi-arid plains, urban avenues, temple groves",
+    "leafType": "Imparipinnate compound, serrated margin, asymmetric lanceolate leaflets (20-30 pairs)",
+    "barkDescription": "Hard, rough, deeply fissured vertically, dark grey-brown with reddish inner wood",
+    "flowerDescription": "Fragrant small white star-shaped flowers in drooping axillary panicles",
+    "fruitDescription": "Smooth ellipsoidal drupe, greenish-yellow when ripe, 1-seeded with sweet pulp",
+    "uses": [
+      "Traditional Siddha & Ayurvedic antimicrobial medicine",
+      "Organic bio-pesticide and Azadirachtin extraction",
+      "Air purification and high carbon sequestration",
+      "Dental care (neem twigs/datun)"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Flora of Tamil Nadu (K.M. Matthew, 1983); Forest College & Research Institute Mettupalayam",
+    "fieldImagesCount": 240,
+    "occurrenceRecords": 1820,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1629853974488-8889ff0a9f5f?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "ficus-religiosa",
+    "commonName": "Peepal / Sacred Fig",
+    "tamilName": "அரச மரம் (Arasa Maram)",
+    "scientificName": "Ficus religiosa",
+    "family": "Moraceae",
+    "region": "Tamil Nadu widespread & Coimbatore Foothills",
+    "habitat": "Deciduous forests, sacred groves, urban avenue plantings, rock crevices",
+    "leafType": "Broad ovate with a distinctive slender tapering tail/drip-tip (2-5 cm), prominent reticulate venation",
+    "barkDescription": "Smooth light grey or ash-colored, flaking in irregular plates on older trunks",
+    "flowerDescription": "Hypanthodium (inconspicuous enclosed inflorescence pollinated by blastophaga wasps)",
+    "fruitDescription": "Small paired axillary figs (syconia), 1-1.5 cm diameter, purple-black when ripe",
+    "uses": [
+      "Sacred biodiversity keystone supporting birds and bats",
+      "Continuous day-night oxygen release (crassulacean acid metabolism)",
+      "Asthma and skin ailments in Siddha formulations",
+      "Shade canopy for public squares"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Botanical Survey of India (Southern Circle Coimbatore); Tamil Nadu Forest Dept",
+    "fieldImagesCount": 185,
+    "occurrenceRecords": 1450,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "ficus-benghalensis",
+    "commonName": "Banyan Tree",
+    "tamilName": "ஆல மரம் (Aala Maram)",
+    "scientificName": "Ficus benghalensis",
+    "family": "Moraceae",
+    "region": "Tamil Nadu & Siruvani / Western Ghats slopes",
+    "habitat": "Moist & dry deciduous forest edges, rural landscapes, roadside canopies",
+    "leafType": "Thick, leathery, elliptic-ovate with obtuse base and 5-7 pairs of secondary nerves",
+    "barkDescription": "Smooth silvery grey with massive woody aerial prop roots anchoring to soil",
+    "flowerDescription": "Enclosed syconium inflorescence internal to round fig structures",
+    "fruitDescription": "Globose sessile figs in pairs, 1.5-2 cm across, bright scarlet-red when ripe",
+    "uses": [
+      "National Tree of India; primary keystone fruiting species for frugivorous birds",
+      "Astringent bark used for ulcer healing and tooth powder in Ayurveda",
+      "Soil erosion mitigation along riverbanks and slopes",
+      "Extensive microclimate cooling canopy"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Western Ghats Biodiversity Portal; Forest College & Research Institute Mettupalayam",
+    "fieldImagesCount": 195,
+    "occurrenceRecords": 1320,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "tectona-grandis",
+    "commonName": "Teak Tree",
+    "tamilName": "தேக்கு மரம் (Thekku)",
+    "scientificName": "Tectona grandis",
+    "family": "Lamiaceae",
+    "region": "Anaimalai Hills, Pollachi & Western Ghats",
+    "habitat": "Dry and moist deciduous high-canopy forests, red loamy soil",
+    "leafType": "Large, rough, opposite ovate (30-60 cm long), sandpaper-like upper texture with stellate hairs beneath",
+    "barkDescription": "Light brown or greyish, fibrous with shallow longitudinal fissures peeling in thin strips",
+    "flowerDescription": "Large erect terminal panicles of tiny creamy-white flowers (40-60 cm tall)",
+    "fruitDescription": "Subglobose drupe enclosed in an inflated bladder-like papery calyx",
+    "uses": [
+      "Premier grade timber resistant to termites and fungal decay",
+      "Shipbuilding and high-end structural furniture",
+      "Leaves produce natural red dye used in tribal textiles"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Tamil Nadu Forest Plantation Corporation; Anaimalai Tiger Reserve Working Plan",
+    "fieldImagesCount": 142,
+    "occurrenceRecords": 890,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "tamarindus-indica",
+    "commonName": "Tamarind Tree",
+    "tamilName": "புளிய மரம் (Puliya Maram)",
+    "scientificName": "Tamarindus indica",
+    "family": "Fabaceae",
+    "region": "Coimbatore District & Bhavani Basin",
+    "habitat": "Semi-arid plains, rural roadways, agroforestry landscapes",
+    "leafType": "Paripinnate compound, 10-18 pairs of small oblong leaflets, nocturnal nyctinastic folding",
+    "barkDescription": "Dark grey to blackish, rough, deeply square-fissured vertically and horizontally",
+    "flowerDescription": "Pale yellow petals streaked with red-orange veins, in small racemes",
+    "fruitDescription": "Thick curved brown pod with brittle shell, tart sticky acidic pulp and shiny brown seeds",
+    "uses": [
+      "Essential culinary acidifier in South Indian cuisine (sambar, rasam)",
+      "High wind-break capability and highway shading",
+      "Hard dense timber for pestles, mortars and wheel hubs"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Flora of Coimbatore (Chandrabose & Nair, 1988)",
+    "fieldImagesCount": 210,
+    "occurrenceRecords": 1780,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "cassia-fistula",
+    "commonName": "Golden Shower / Indian Laburnum",
+    "tamilName": "கொன்றை / சரக்கொன்றை (Sarakondrai)",
+    "scientificName": "Cassia fistula",
+    "family": "Fabaceae",
+    "region": "Marudhamalai Foothills & Western Ghats deciduous belts",
+    "habitat": "Dry deciduous forests, hillside rocky slopes, urban ornamental avenues",
+    "leafType": "Pinnate compound with 4-8 pairs of broad ovate glossy bright green leaflets",
+    "barkDescription": "Smooth pale grey when young, becoming dark brown and rough with age",
+    "flowerDescription": "Pendulous cascades (30-50 cm) of vibrant bright golden-yellow 5-petaled flowers",
+    "fruitDescription": "Long cylindrical dark brown woody pods (40-60 cm long), containing sweetish black pulp",
+    "uses": [
+      "State flower of Kerala; revered Tamil Sangam poetic flower (Mullai tract)",
+      "Mild herbal laxative and purgative in Siddha and Ayurvedic medicine",
+      "Durable heavy timber for agricultural implements"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Sangam Literature Flora Index; Tamil Nadu Forest Dept Research Wing",
+    "fieldImagesCount": 165,
+    "occurrenceRecords": 980,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "syzygium-cumini",
+    "commonName": "Jamun / Black Plum",
+    "tamilName": "நாவல் மரம் (Naaval)",
+    "scientificName": "Syzygium cumini",
+    "family": "Myrtaceae",
+    "region": "Noyyal Riverbanks & Siruvani Catchment",
+    "habitat": "Riverine fringes, moist riparian corridors, wet lowlands",
+    "leafType": "Opposite, leathery, oblong-oval with prominent close parallel secondary veins and turpentine aroma",
+    "barkDescription": "Rough, dark grey to pale brown, cracked with shallow fissures",
+    "flowerDescription": "Small fragrant greenish-white flowers in branched cymes",
+    "fruitDescription": "Oblong purple-black fleshy berry, astringent-sweet edible pulp staining tongue purple",
+    "uses": [
+      "High antidiabetic value; seed powder lowers blood glycemic levels (Jamboline)",
+      "Water-durable timber used for well curbs and water troughs",
+      "Nectar source for honeybees and foraging birds"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Flora of Coimbatore (BSI, 1988); ICMR Medicinal Plants Monograph",
+    "fieldImagesCount": 130,
+    "occurrenceRecords": 720,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "millettia-pinnata",
+    "commonName": "Pongamia / Indian Beech",
+    "tamilName": "புங்க மரம் (Pungan)",
+    "scientificName": "Millettia pinnata",
+    "family": "Fabaceae",
+    "region": "Coimbatore Urban Canopies & Lake Margins",
+    "habitat": "Riverbanks, wetland margins, urban street planting, drought tolerant",
+    "leafType": "Odd-pinnate, 5-9 ovate glossy dark green leaflets, soft texture",
+    "barkDescription": "Smooth greyish-brown with faint horizontal lenticels and shallow striations",
+    "flowerDescription": "Fragrant pea-like flowers, pale pink to lilac-white in axillary racemes",
+    "fruitDescription": "Woody elliptic flattened pod (4-7 cm), unwinged, containing 1-2 oily kidney seeds",
+    "uses": [
+      "Karanja seed oil for non-edible biodiesel and bio-lubricant production",
+      "Nitrogen-fixing root nodules enrich urban soil",
+      "Natural shade tree cooling road surfaces in tropical heat"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Tamil Nadu Forest Dept Agroforestry Manual; Singanallur Lake Biodiversity Register",
+    "fieldImagesCount": 178,
+    "occurrenceRecords": 1540,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "thespesia-populnea",
+    "commonName": "Portia Tree / Indian Tulip",
+    "tamilName": "பூவரசு (Poovarasu)",
+    "scientificName": "Thespesia populnea",
+    "family": "Malvaceae",
+    "region": "Tamil Nadu plains & Coimbatore garden avenues",
+    "habitat": "Coastal plains, river banks, tropical urban soils, tolerant to salinity",
+    "leafType": "Simple, alternate, heart-shaped (cordate) with 5-7 radiating basal veins, resembling peepal leaf but without drip-tail",
+    "barkDescription": "Fibrous grey-brown, longitudinally fissured on mature specimens",
+    "flowerDescription": "Large cup-shaped hibiscus-like flowers, bright yellow with crimson centre, turning purple-red by dusk",
+    "fruitDescription": "Depressed globose capsule, 5-celled, exuding yellow latex when cut",
+    "uses": [
+      "Musical instrument wood (Thavil and Nadaswaram resonance parts)",
+      "Traditional yellow dye extracted from flowers and fruits",
+      "Bark decoction for cutaneous skin treatment in Siddha"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Flora of the Presidency of Madras (J.S. Gamble); FC&RI Mettupalayam",
+    "fieldImagesCount": 92,
+    "occurrenceRecords": 450,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "albizia-saman",
+    "commonName": "Rain Tree",
+    "tamilName": "தூங்குமூஞ்சி மரம் (Thoongumoonji)",
+    "scientificName": "Albizia saman",
+    "family": "Fabaceae",
+    "region": "Coimbatore Urban Corridors & Race Course",
+    "habitat": "Sprawling umbrella canopy tree planted in parks, educational campuses, wide avenues",
+    "leafType": "Bipinnate compound, 2-6 pairs of pinnae, leaflets folding up at night and before rain showers",
+    "barkDescription": "Rough greyish-black, deeply cracked with rough vertical ridges",
+    "flowerDescription": "Puffball heads with numerous pinkish-white silky stamens resembling powder puffs",
+    "fruitDescription": "Straight oblong flattened blackish pod (15-20 cm), sweet edible sticky pulp",
+    "uses": [
+      "Massive umbrella shade canopy reducing urban heat island effect",
+      "Nitrogen fixation augmenting urban roadside fertility",
+      "Pod forage favored by cattle and domestic herbivores"
+    ],
+    "conservationStatus": "Introduced / Naturalized (IUCN Least Concern)",
+    "citation": "Coimbatore City Corporation Tree Inventory 2024",
+    "fieldImagesCount": 160,
+    "occurrenceRecords": 1100,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "butea-monosperma",
+    "commonName": "Flame of the Forest / Palas",
+    "tamilName": "பலாச மரம் (Palasam / Porasu)",
+    "scientificName": "Butea monosperma",
+    "family": "Fabaceae",
+    "region": "Western Ghats scrub & Siruvani deciduous tracts",
+    "habitat": "Open dry grasslands, dry deciduous tracts, saline plains",
+    "leafType": "Trifoliolate, massive leathery round-rhomboid terminal leaflet (15-20 cm), velvety underside",
+    "barkDescription": "Rough fibrous grey-brown, exudes ruby-red astringent gum (Bengal Kino)",
+    "flowerDescription": "Spectacular brilliant orange-vermilion curved pea-like flowers forming a fiery blaze in spring",
+    "fruitDescription": "Flat velvety silvery-grey pod, containing one compressed brown seed at apex",
+    "uses": [
+      "Tesu flower dye used for festival colors and textile pigments",
+      "Host tree for lac insects producing natural shellac",
+      "Plates crafted from broad durable leaves in temple annadhanam"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Flora of Coimbatore (BSI, 1988); Western Ghats Biodiversity Portal",
+    "fieldImagesCount": 115,
+    "occurrenceRecords": 580,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "pterocarpus-santalinus",
+    "commonName": "Red Sandalwood",
+    "tamilName": "செஞ்சந்தனம் (Senchanthanam)",
+    "scientificName": "Pterocarpus santalinus",
+    "family": "Fabaceae",
+    "region": "Eastern slopes & South Indian dry deciduous rocky tracts",
+    "habitat": "Stony dry hillsides, quartzite formations, low rainfall slopes",
+    "leafType": "Trifoliolate (rarely 5-foliolate), round-elliptic with notched emarginate apex",
+    "barkDescription": "Blackish-brown, deeply squared and tessellated resembling crocodile skin, exudates red sap",
+    "flowerDescription": "Yellow flowers in short axillary racemes, fragrant",
+    "fruitDescription": "Circular flat winged pod (samara), with 1-2 seeds in center",
+    "uses": [
+      "Highly prized therapeutic red heartwood (Santalin pigment)",
+      "Traditional carved carvings, musical instruments, luxury craftsmanship",
+      "Skin cooling and anti-inflammatory paste"
+    ],
+    "conservationStatus": "Endangered (IUCN Red List; CITES Appendix II)",
+    "citation": "IUCN Red List Assessment 2020; Institute of Forest Genetics & Tree Breeding Coimbatore",
+    "fieldImagesCount": 38,
+    "occurrenceRecords": 190,
+    "isWesternGhats": false,
+    "isThin": true,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "santalum-album",
+    "commonName": "Indian Sandalwood",
+    "tamilName": "சந்தன மரம் (Santhana Maram)",
+    "scientificName": "Santalum album",
+    "family": "Santalaceae",
+    "region": "Anaimalai Foothills, Sathyamangalam & Western Ghats",
+    "habitat": "Semi-parasitic root habit, dry scrub and deciduous forest slopes",
+    "leafType": "Opposite, simple, thin, ovate-lanceolate, glaucous pale green underside",
+    "barkDescription": "Dark brown or grey-black, rough with vertical cracks, highly aromatic core wood",
+    "flowerDescription": "Small purplish-brown unscented flowers in terminal cymes",
+    "fruitDescription": "Globose fleshy drupe, blackish-purple when ripe, crowned with persistent perianth",
+    "uses": [
+      "Distillation of East Indian Sandalwood Oil (alpha & beta santalol)",
+      "Sacred ritual paste in temples and natural perfumery",
+      "High anti-inflammatory and cooling properties in Siddha"
+    ],
+    "conservationStatus": "Vulnerable (IUCN Red List)",
+    "citation": "Institute of Forest Genetics and Tree Breeding (IFGTB) Coimbatore; TNFD",
+    "fieldImagesCount": 64,
+    "occurrenceRecords": 310,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "dalbergia-latifolia",
+    "commonName": "Indian Rosewood",
+    "tamilName": "ஈட்டி மரம் (Eeti Maram)",
+    "scientificName": "Dalbergia latifolia",
+    "family": "Fabaceae",
+    "region": "Valparai, Anaimalai Tiger Reserve & Western Ghats",
+    "habitat": "Moist deciduous and semi-evergreen hill forests up to 1000m",
+    "leafType": "Odd-pinnate with 5-7 alternate broad circular or orbicular leaflets with emarginate apex",
+    "barkDescription": "Thin, grey, peeling in longitudinal fibrous flakes",
+    "flowerDescription": "Small white or creamy pea-flowers in lax axillary panicles",
+    "fruitDescription": "Flat oblong-lanceolate pod (4-8 cm) containing 1-4 flat seeds",
+    "uses": [
+      "Luxury timber with deep purple-brown grain for premium instruments and cabinets",
+      "Valuable nitrogen fixing capability in shola-fringe ecotones",
+      "Decoction used for dyspepsia and leprotic ulcers"
+    ],
+    "conservationStatus": "Vulnerable (IUCN Red List)",
+    "citation": "Anaimalai Tiger Reserve Biodiversity Working Plan; IFGTB Coimbatore",
+    "fieldImagesCount": 42,
+    "occurrenceRecords": 220,
+    "isWesternGhats": true,
+    "isThin": true,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "delonix-regia",
+    "commonName": "Gulmohar / Royal Poinciana",
+    "tamilName": "செம்மயிர்க்கொன்றை (Gulmohar)",
+    "scientificName": "Delonix regia",
+    "family": "Fabaceae",
+    "region": "Coimbatore Urban Avenues & Campus Landscapes",
+    "habitat": "Wide tropical avenues, sunny open soils, broad umbrella habit",
+    "leafType": "Fine bipinnate, feathery fern-like foliage with 20-40 pairs of tiny oblong leaflets",
+    "barkDescription": "Greyish-brown, smooth to slightly rugose with fine horizontal striations",
+    "flowerDescription": "Brilliant flame-scarlet flowers with 4 spreading red petals and 1 white-yellow variegated standard petal",
+    "fruitDescription": "Enormous woody dark brown strap-like pods (40-60 cm), persisting through winter",
+    "uses": [
+      "Premier ornamental flowering avenue tree for Coimbatore spring canopy",
+      "Broad shade canopy during pre-monsoon heat",
+      "Wood used for fuel and light packaging"
+    ],
+    "conservationStatus": "Least Concern (IUCN / Cultivated globally)",
+    "citation": "Urban Biodiversity Register, Coimbatore City Corporation",
+    "fieldImagesCount": 182,
+    "occurrenceRecords": 1390,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "swietenia-mahagoni",
+    "commonName": "West Indian / Small-leaf Mahogany",
+    "tamilName": "மகாகனி (Mahogany)",
+    "scientificName": "Swietenia mahagoni",
+    "family": "Meliaceae",
+    "region": "Forest plantations & Coimbatore institutional campuses",
+    "habitat": "Tropical deep fertile soils, shaded avenues, timber plantations",
+    "leafType": "Even-pinnate, 4-8 pairs of asymmetric sickle-shaped lanceolate leaflets",
+    "barkDescription": "Smooth grey when young, turning dark reddish-brown and scaly on mature trunks",
+    "flowerDescription": "Small greenish-yellow flowers in axillary panicles",
+    "fruitDescription": "Large woody pear-shaped 5-valved capsule (6-10 cm), releasing winged wind-dispersed seeds",
+    "uses": [
+      "High-value dense reddish heartwood for high-end cabinetry",
+      "Extensive carbon storage in agroforestry buffer zones",
+      "Bark decoction containing bitter limonoids"
+    ],
+    "conservationStatus": "Endangered (IUCN Red List / CITES)",
+    "citation": "IFGTB Coimbatore Mahogany Trial Documentation",
+    "fieldImagesCount": 78,
+    "occurrenceRecords": 340,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "phyllanthus-emblica",
+    "commonName": "Amla / Indian Gooseberry",
+    "tamilName": "நெல்லி மரம் (Nelli)",
+    "scientificName": "Phyllanthus emblica",
+    "family": "Phyllanthaceae",
+    "region": "Anaikatti, Marudhamalai & Western Ghats deciduous slopes",
+    "habitat": "Dry deciduous hillsides, light rocky soils, home orchards",
+    "leafType": "Feathery branchlets closely resembling pinnate leaves with numerous small oblong distichous leaflets",
+    "barkDescription": "Greenish-grey, peeling in irregular papery flakes exposing yellowish under-bark",
+    "flowerDescription": "Tiny greenish-yellow flowers densely clustered in leaf axils",
+    "fruitDescription": "Globose greenish-yellow fleshy drupe with 6 faint vertical ribs, highly acidic and rich in vitamin C",
+    "uses": [
+      "Cornerstone of Ayurvedic Triphala and Chyawanprash rasayanas",
+      "Richest natural plant source of bioavailable ascorbic acid and polyphenols",
+      "Hair nourishment oils and Siddha liver tonics"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Medicinal Plants of Tamil Nadu (CCRAS); Anaikatti Field Survey",
+    "fieldImagesCount": 118,
+    "occurrenceRecords": 670,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "aegle-marmelos",
+    "commonName": "Bael / Golden Apple",
+    "tamilName": "வில்வ மரம் (Vilvam)",
+    "scientificName": "Aegle marmelos",
+    "family": "Rutaceae",
+    "region": "Perur, Marudhamalai temple groves & dry deciduous scrub",
+    "habitat": "Dry scrub forests, temple gardens, rocky sub-mountainous zones",
+    "leafType": "Trifoliolate (sacred triad leaf), ovate leaflets with crenate margin and aromatic oil glands",
+    "barkDescription": "Pale greyish-white, soft and corky with sharp axillary thorns on twigs",
+    "flowerDescription": "Sweetly scented greenish-white 4-5 petaled flowers in lateral cymes",
+    "fruitDescription": "Globose hard woody-shelled berry (5-15 cm), orange aromatic sweet mucilaginous pulp with hairy seeds",
+    "uses": [
+      "Sacred leaves offered in Shiva worship across South Indian shrines",
+      "Specific cure for bacillary dysentery and chronic digestive irritation",
+      "Pulp sherbet cools the system in harsh summer months"
+    ],
+    "conservationStatus": "Near Threatened (IUCN)",
+    "citation": "Botanical Survey of India Southern Circle; Perur Temple Sthala Vriksham Record",
+    "fieldImagesCount": 98,
+    "occurrenceRecords": 510,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "neolamarckia-cadamba",
+    "commonName": "Kadamba Tree",
+    "tamilName": "கடம்ப மரம் (Kadambu)",
+    "scientificName": "Neolamarckia cadamba",
+    "family": "Rubiaceae",
+    "region": "Siruvani River Valley & Western Ghats foothills",
+    "habitat": "Moist evergreen to moist deciduous alluvial soils near streams",
+    "leafType": "Large, opposite, glossy dark green, elliptic-oblong (15-30 cm) with prominent pale pinnate veins",
+    "barkDescription": "Dark grey, rough and longitudinally fissured on mature specimens",
+    "flowerDescription": "Exquisite globose dense heads of scented orange-yellow flowers with protruding white stigmas",
+    "fruitDescription": "Small fleshy composite pseudocarp, orange-yellow when ripe",
+    "uses": [
+      "Historic Sangam tree associated with Murugan and ancient Madurai Kadambavanam",
+      "Attar perfumery distillation and sacred garland flowers",
+      "Fast-growing timber used for pulp and match splints"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Flora of the Nilgiris & Western Ghats; Tamil University Thanjavur",
+    "fieldImagesCount": 84,
+    "occurrenceRecords": 410,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "terminalia-arjuna",
+    "commonName": "Arjuna Tree",
+    "tamilName": "மருத மரம் (Marutha Maram)",
+    "scientificName": "Terminalia arjuna",
+    "family": "Combretaceae",
+    "region": "Noyyal River Corridor, Aliyar & Siruvani Riparian Zones",
+    "habitat": "Riverbanks, stream beds, ravines, high water table soils",
+    "leafType": "Sub-opposite, oblong-elliptic (8-15 cm) with 1-2 distinct raised glands near the petiole base",
+    "barkDescription": "Very smooth, greenish-white or pale pinkish-grey, exfoliating in large thin curved plates",
+    "flowerDescription": "Pale yellow or white small sessile flowers in axillary spikes and drooping terminal panicles",
+    "fruitDescription": "Hard woody ovoid 5-winged fibrous drupe (2.5-5 cm), wings narrow with upward oblique striations",
+    "uses": [
+      "Primary cardio-tonic bark used in traditional and modern herbal cardiology (Arjunolic acid)",
+      "Riverbank embankment stabilization preventing watercourse erosion",
+      "Natural host for tasar silkworms"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Noyyal River Basin Riparian Ecological Assessment; BSI Coimbatore",
+    "fieldImagesCount": 110,
+    "occurrenceRecords": 690,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "ceiba-pentandra",
+    "commonName": "White Silk Cotton / Kapok",
+    "tamilName": "இலவம் பஞ்சு மரம் (Ilavam Panju)",
+    "scientificName": "Ceiba pentandra",
+    "family": "Malvaceae",
+    "region": "Coimbatore agro-plantations & foothills",
+    "habitat": "Secondary moist deciduous zones, village borders, cottage farming",
+    "leafType": "Palmately compound, 5-9 lanceolate leaflets radiating from central petiole tip",
+    "barkDescription": "Greenish-grey with conical sharp woody prickles, mature trees forming massive buttress roots",
+    "flowerDescription": "Creamy-white or rose-tinted 5-petaled flowers clustered on leafless branches",
+    "fruitDescription": "Oblong woody pendulous capsule (10-25 cm), splitting to expose fluffy white silky fibers and black seeds",
+    "uses": [
+      "Natural waterproof, buoyant kapok fiber for mattresses, pillows and flotation gear",
+      "Seed oil for soap manufacturing and biofuel blends",
+      "Lightweight soft timber for packing cases"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "FC&RI Mettupalayam Agroforestry Extension Manual",
+    "fieldImagesCount": 105,
+    "occurrenceRecords": 620,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "millingtonia-hortensis",
+    "commonName": "Indian Cork Tree",
+    "tamilName": "மரமல்லி (Maramalli)",
+    "scientificName": "Millingtonia hortensis",
+    "family": "Bignoniaceae",
+    "region": "Coimbatore City residential avenues & gardens",
+    "habitat": "Tall erect columnar habit in residential avenues, institutional gardens",
+    "leafType": "Bipinnate to tripinnate, ovate leaflets with serrated margins, dark lustrous green",
+    "barkDescription": "Deeply grooved, spongy, soft yellowish-grey corky bark",
+    "flowerDescription": "Long tubular fragrant pure-white trumpet flowers (5-7 cm long) opening at dusk",
+    "fruitDescription": "Very slender flat elongated capsule (30-40 cm), pointed at both ends with winged seeds",
+    "uses": [
+      "Night-blooming sweet fragrance scenting city evenings; flowers woven in Tamil hair garlands",
+      "Inferior cork substitute stripped from thick bark",
+      "Stem bark containing anti-asthmatic hispidulin"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Coimbatore Urban Flora Checklist 2024",
+    "fieldImagesCount": 132,
+    "occurrenceRecords": 850,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "peltophorum-pterocarpum",
+    "commonName": "Copperpod / Yellow Gulmohar",
+    "tamilName": "இயல்வாகை (Iyalvaagai)",
+    "scientificName": "Peltophorum pterocarpum",
+    "family": "Fabaceae",
+    "region": "Coimbatore Avinashi Road & Urban parks",
+    "habitat": "Urban roadside avenues, parks, tropical gardens",
+    "leafType": "Bipinnate, feathery with 4-15 pairs of pinnae, tiny oblong leaflets dark green above",
+    "barkDescription": "Smooth grey, becoming lightly fissured with age",
+    "flowerDescription": "Erect terminal panicles of crinkled bright yellow fragrant flowers with rusty-brown hairy buds",
+    "fruitDescription": "Prominent flattened copper-red to dark brown winged woody pods (5-10 cm), persistent on tree",
+    "uses": [
+      "Splendid avenue shade and visual contrast with red copper pods",
+      "Bark decoction used in Southeast Asia for traditional textile dyeing (soga batik)",
+      "High biomass producer for urban mulch"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Avenue Trees of Coimbatore (TNAU Horticultural Department)",
+    "fieldImagesCount": 154,
+    "occurrenceRecords": 1260,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "jacaranda-mimosifolia",
+    "commonName": "Jacaranda / Blue Jacaranda",
+    "tamilName": "நீல குல்மொஹர் (Neela Gulmohar)",
+    "scientificName": "Jacaranda mimosifolia",
+    "family": "Bignoniaceae",
+    "region": "Nilgiri Foothills, Mettupalayam & Hill stations",
+    "habitat": "Sub-tropical elevated zones, foothill slopes, ornamental hillside gardens",
+    "leafType": "Finely divided bipinnate fern-like leaves with dozens of tiny rhomboid-elliptic leaflets",
+    "barkDescription": "Thin, greyish-brown, flaky with shallow interlacing ridges",
+    "flowerDescription": "Spectacular dense trusses of trumpet-shaped lavender-blue to violet flowers",
+    "fruitDescription": "Round flattened woody disc-like capsule resembling oyster shells, splitting to release winged seeds",
+    "uses": [
+      "Stunning ornamental bloom transforming hill slopes into lilac carpets",
+      "Pale yellowish timber for light carpentry",
+      "Pollinator magnet for solitary bees and butterflies"
+    ],
+    "conservationStatus": "Vulnerable (IUCN Red List)",
+    "citation": "Flora of Nilgiris District (BSI, 2001)",
+    "fieldImagesCount": 88,
+    "occurrenceRecords": 390,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "sterculia-urens",
+    "commonName": "Gum Karaya / Ghost Tree",
+    "tamilName": "செந்தணக்கு (Senthanakku)",
+    "scientificName": "Sterculia urens",
+    "family": "Malvaceae",
+    "region": "Marudhamalai rocky crags & Siruvani dry ridges",
+    "habitat": "Steep rocky slopes, barren quartzite ridges, skeletal soils",
+    "leafType": "Palmately 5-lobed, velvety hairy underside, clustered at branch ends",
+    "barkDescription": "Striking ghostly papery whitish or pale pink bark peeling in papery scrolls, smooth and gleaming in sunlight",
+    "flowerDescription": "Small greenish-yellow flowers covered in sticky brown hairs in erect terminal panicles",
+    "fruitDescription": "Follicles in clusters of 5, covered in stinging reddish-brown bristles releasing black seeds",
+    "uses": [
+      "Exudation of commercial Gum Karaya used in pharmaceuticals and dental adhesives",
+      "Roasted seeds eaten by Kadar and Irula tribes",
+      "Bark fiber used for strong jungle cordage"
+    ],
+    "conservationStatus": "Least Concern (IUCN / Overharvested locally)",
+    "citation": "Ethnobotany of Coimbatore Tribes (FC&RI Mettupalayam)",
+    "fieldImagesCount": 31,
+    "occurrenceRecords": 140,
+    "isWesternGhats": true,
+    "isThin": true,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "semecarpus-anacardium",
+    "commonName": "Marking Nut Tree",
+    "tamilName": "சேராங்கொட்டை (Serankottai)",
+    "scientificName": "Semecarpus anacardium",
+    "family": "Anacardiaceae",
+    "region": "Western Ghats lower deciduous tracts & Anaimalai",
+    "habitat": "Sub-canopy of dry and moist deciduous forests on rocky slopes",
+    "leafType": "Large, alternate, obovate-oblong (20-40 cm) with prominent pale yellowish midrib and secondary nerves",
+    "barkDescription": "Dark brown, rough, exuding an acrid black resinous juice that stains skin indelibly",
+    "flowerDescription": "Small greenish-white flowers in terminal panicles",
+    "fruitDescription": "Heart-shaped drupe seated on a fleshy orange-yellow cup-like hypocarp; nut yields corrosive black liquid",
+    "uses": [
+      "Purified nut used in Siddha medicine for arthritis, vitiligo and malignancies",
+      "Corrosive juice historically used as permanent laundry marker and wood preservative",
+      "Edible orange hypocarp sweet when fully ripe"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Siddha Pharmacopoeia of India; Anaimalai Medicinal Plant Survey",
+    "fieldImagesCount": 26,
+    "occurrenceRecords": 115,
+    "isWesternGhats": true,
+    "isThin": true,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "albizia-lebbeck",
+    "commonName": "Black Siris / Woman's Tongue",
+    "tamilName": "வாகை மரம் (Vaagai)",
+    "scientificName": "Albizia lebbeck",
+    "family": "Fabaceae",
+    "region": "Coimbatore Plains & Sangam Historical Tracts",
+    "habitat": "Dry open forests, village groves, degraded farmland boundaries",
+    "leafType": "Bipinnate with 2-4 pairs of pinnae, 6-12 pairs of asymmetric oblong leaflets per pinna",
+    "barkDescription": "Greyish-brown, rough, irregular fissures and red inside",
+    "flowerDescription": "Fragrant greenish-yellow puffball heads with numerous long stamens",
+    "fruitDescription": "Flat straw-yellow papery pods (15-30 cm) that rattle persistently in the breeze",
+    "uses": [
+      "Sacred Sangam victory tree; warriors crowned with Vaagai flowers after triumph",
+      "Deep nitrogen fixing root system rehabilitating dry soils",
+      "Durable timber known as East Indian Walnut"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Sangam Literature Botanical Anthology; Tamil Nadu Forest Department",
+    "fieldImagesCount": 125,
+    "occurrenceRecords": 790,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "albizia-procera",
+    "commonName": "White Siris",
+    "tamilName": "வெள்வாகை (Velvaagai)",
+    "scientificName": "Albizia procera",
+    "family": "Fabaceae",
+    "region": "Siruvani slopes & riparian margins",
+    "habitat": "Riverine alluvium, moist valleys, deciduous forest transitions",
+    "leafType": "Bipinnate with 2-6 pairs of pinnae, leaflets oblique ovate, pale underneath",
+    "barkDescription": "Smooth greenish-white or pale yellowish-grey, peeling in thin horizontal strips",
+    "flowerDescription": "Sessile greenish-white flowers in heads arranged in terminal panicles",
+    "fruitDescription": "Thin flat reddish-brown shiny pods (10-20 cm), with 6-12 seeds",
+    "uses": [
+      "High quality carriage and wheel timber",
+      "Fodder foliage highly palatable to domestic goats and cattle",
+      "Soil conservation on slope washes"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Working Plan of Coimbatore Forest Division (2018-2028)",
+    "fieldImagesCount": 68,
+    "occurrenceRecords": 290,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "madhuca-longifolia",
+    "commonName": "Mahua / Indian Butter Tree",
+    "tamilName": "இலுப்பை மரம் (Iluppai)",
+    "scientificName": "Madhuca longifolia",
+    "family": "Sapotaceae",
+    "region": "Coimbatore rural temple tanks & Western Ghats foothills",
+    "habitat": "Deep sandy loams along watercourses, temple tank bunds, deciduous woodlands",
+    "leafType": "Clustered at branch terminals, elliptic-oblong, copper-red when young maturing to dark green",
+    "barkDescription": "Dark greyish-black, deeply cracked with vertical fissures, exuding milky latex",
+    "flowerDescription": "Fleshy cream-colored juicy corollas clustered near twig ends, emitting a sweet musky fermented scent",
+    "fruitDescription": "Ovoid fleshy greenish berry (3-5 cm) containing 1-4 shiny brown oil-rich seeds",
+    "uses": [
+      "Traditional temple lamp oil pressed from seeds (Iluppai ennai)",
+      "Nutritious sugar-rich fleshy flowers consumed by forest tribes and wildlife",
+      "Rot-resistant wood used for water-immersed temple structures"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Sacred Groves of Tamil Nadu (CPREEC Chennai); Forest Flora of Coimbatore",
+    "fieldImagesCount": 75,
+    "occurrenceRecords": 380,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "limonia-acidissima",
+    "commonName": "Wood Apple / Elephant Apple",
+    "tamilName": "விளா மரம் (Vilaa Maram)",
+    "scientificName": "Limonia acidissima",
+    "family": "Rutaceae",
+    "region": "Dry scrub zones of Sulur, Palladam & Kinathukadavu",
+    "habitat": "Dry arid tracts, open stony ground, thorn scrub edges",
+    "leafType": "Alternate, imparipinnate, 5-7 obovate leaflets with winged rhachis and citrus fragrance when crushed",
+    "barkDescription": "Grey, rough, with deep vertical fissures and sharp rigid straight spines on branches",
+    "flowerDescription": "Small dull greenish-red or cream flowers in loose axillary panicles",
+    "fruitDescription": "Large spherical hard woody berry (6-10 cm), rough grey shell with dark brown sticky pulp and white seeds",
+    "uses": [
+      "Traditional digestive chutney and festive Vinayakar Chaturthi delicacy",
+      "Hard woody shell crafted into small vessels and snuff-boxes",
+      "Gum exudate used as herbal binder and demulcent"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Dry Zone Agro-biodiversity of Tamil Nadu (TNAU Coimbatore)",
+    "fieldImagesCount": 82,
+    "occurrenceRecords": 490,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "couroupita-guianensis",
+    "commonName": "Cannonball Tree",
+    "tamilName": "நாகலிங்க மரம் (Nagalingam)",
+    "scientificName": "Couroupita guianensis",
+    "family": "Lecythidaceae",
+    "region": "Coimbatore Perur Patteeswarar & historic temples",
+    "habitat": "Temple courtyards, botanical gardens, moisture-rich deep soils",
+    "leafType": "Alternate, obovate-oblong, serrulate margins, clustered at twig ends",
+    "barkDescription": "Rough brown, fissured with tangled mass of woody flowering racemes covering lower trunk",
+    "flowerDescription": "Magnificent cauliflorous flowers with six fleshy pinkish-red petals and hood-like staminal column resembling a snake's hood (Nagalingam)",
+    "fruitDescription": "Enormous spherical woody brown cannonball-like fruits (15-25 cm) packed with foul-smelling pulp",
+    "uses": [
+      "Deeply revered sacred tree representing Lord Shiva and the five-headed serpent",
+      "Antibacterial and antifungal extracts from flowers and leaves",
+      "Aromatic oil used in rare traditional perfumes"
+    ],
+    "conservationStatus": "Least Concern (IUCN / Introduced botanical)",
+    "citation": "TNAU Botanical Garden Specimen Registry Coimbatore",
+    "fieldImagesCount": 94,
+    "occurrenceRecords": 380,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "muntingia-calabura",
+    "commonName": "Singapore Cherry / Jamaica Cherry",
+    "tamilName": "தேன் பழ மரம் (Then Pazham)",
+    "scientificName": "Muntingia calabura",
+    "family": "Muntingiaceae",
+    "region": "Coimbatore residential colonies & school campuses",
+    "habitat": "Disturbed urban lots, garden edges, opportunistic quick grower",
+    "leafType": "Alternate, distichous, lanceolate with oblique base and serrated edge, soft hairy texture",
+    "barkDescription": "Smooth grey-brown, tough fibrous bark used for rustic tying strings",
+    "flowerDescription": "Solitary white 5-petaled flowers resembling strawberry blooms, with golden stamens",
+    "fruitDescription": "Small round juicy bright red berries (1-1.5 cm) bursting with sweet honey-cotton candy flavor",
+    "uses": [
+      "Favorite sweet wild snack for urban children and frugivorous birds (bulbul, barbet)",
+      "High antioxidant berry infusion consumed for headache relief",
+      "Rapid shade canopy providing immediate urban micro-cooling"
+    ],
+    "conservationStatus": "Least Concern (Naturalized)",
+    "citation": "Urban Ecology of Coimbatore (SACON, 2021)",
+    "fieldImagesCount": 112,
+    "occurrenceRecords": 690,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "terminalia-catappa",
+    "commonName": "Country Almond / Indian Almond",
+    "tamilName": "நாட்டு வாதுமை (Naattu Baadaam)",
+    "scientificName": "Terminalia catappa",
+    "family": "Combretaceae",
+    "region": "Coimbatore wide avenues & public parks",
+    "habitat": "Sub-tropical gardens, coastal sand plains, well-drained red loam",
+    "leafType": "Large, obovate (15-30 cm) with narrow cordate base, turns vivid scarlet-crimson before falling",
+    "barkDescription": "Grey-brown, rough and lightly checked with age",
+    "flowerDescription": "Inconspicuous greenish-white spikes, male flowers at top and bisexual flowers below",
+    "fruitDescription": "Ellipsoidal flattened drupe (4-7 cm) with thick fibrous husk and edible almond-like kernel",
+    "uses": [
+      "Edible nutty kernel rich in minerals and unsaturated fats",
+      "Dry fallen red leaves release beneficial humic tannins into aquarium water",
+      "Broad horizontal tiered pagoda canopy providing extensive shade"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Urban Forestry Guide (TNFD Southern Zone)",
+    "fieldImagesCount": 140,
+    "occurrenceRecords": 950,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "calophyllum-inophyllum",
+    "commonName": "Alexandrian Laurel / Tamanu",
+    "tamilName": "புன்னை மரம் (Punnai)",
+    "scientificName": "Calophyllum inophyllum",
+    "family": "Calophyllaceae",
+    "region": "Tamil Nadu sacred groves & Coimbatore botanical collections",
+    "habitat": "Sandy coastal plains, riparian edges, temple groves",
+    "leafType": "Opposite, thick, glossy dark green, elliptic with extremely fine and dense parallel lateral veins",
+    "barkDescription": "Dark grey-black, cracked vertically, exudates bright yellow sticky resin",
+    "flowerDescription": "Fragrant pure white 4-8 petaled flowers in axillary racemes with numerous yellow stamens",
+    "fruitDescription": "Globose smooth greenish-yellow drupe (3-4 cm) containing a woody stone with bitter oil",
+    "uses": [
+      "Punnai seed oil (Tamanu oil) famous for regenerative skin healing and scar reduction",
+      "Hard water-resistant wood used for boat keels and masts",
+      "Sacred flower celebrated in Kapaleeshwarar and ancient Tamil temple traditions"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Flora of Tamil Nadu Carnatic; Tamil Sangam Floral Heritage",
+    "fieldImagesCount": 72,
+    "occurrenceRecords": 310,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "bombax-ceiba",
+    "commonName": "Red Silk Cotton Tree",
+    "tamilName": "முள்ளிலவு (Mullilavu)",
+    "scientificName": "Bombax ceiba",
+    "family": "Malvaceae",
+    "region": "Siruvani foothills, Aliyar & Anaimalai slopes",
+    "habitat": "Deciduous forest slopes, moist foothills, riverbanks",
+    "leafType": "Large digitate / palmately compound, 5-7 long-pointed leaflets on sturdy petioles",
+    "barkDescription": "Greyish-white with prominent hard conical woody prickles covering trunk when young; massive plank buttresses on old trees",
+    "flowerDescription": "Enormous cup-shaped fleshy crimson-scarlet flowers blooming profusely on bare winter branches",
+    "fruitDescription": "Woody 5-valved capsule (10-18 cm) opening to discharge clouds of silky white floss carrying dark seeds",
+    "uses": [
+      "Natural silky tree cotton harvested for premium buoyant pillows",
+      "Gum Semul used as restorative tonic and astringent",
+      "Early spring flowers provide essential nectar for dozens of bird species"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Western Ghats Deciduous Forest Ecology (SACON Research Monograph)",
+    "fieldImagesCount": 134,
+    "occurrenceRecords": 780,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "erythrina-variegata",
+    "commonName": "Indian Coral Tree",
+    "tamilName": "கல்யாண முருங்கை (Kalyana Murungai)",
+    "scientificName": "Erythrina variegata",
+    "family": "Fabaceae",
+    "region": "Coimbatore agricultural hedges & homesteads",
+    "habitat": "Live fencing, backyard gardens, tropical moist agricultural lands",
+    "leafType": "Trifoliolate, rhomboid-ovate leaflets with two small glands at base of petiolules",
+    "barkDescription": "Smooth greenish-grey, with fine vertical pale stripes and scattered small black prickles",
+    "flowerDescription": "Brilliant fiery-scarlet pea-like flowers packed in dense erect terminal racemes",
+    "fruitDescription": "Cylindrical curved dark brown pod (15-25 cm), constricted between seeds",
+    "uses": [
+      "Traditional Siddha remedy for menstrual irregularities and female reproductive health",
+      "Live support poles for black pepper and betel vine cultivation",
+      "Nutritious nitrogen-rich leaves used as organic green manure"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Traditional Agroforestry Systems of Western Tamil Nadu (TNAU)",
+    "fieldImagesCount": 45,
+    "occurrenceRecords": 260,
+    "isWesternGhats": false,
+    "isThin": true,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "borassus-flabellifer",
+    "commonName": "Palmyra Palm",
+    "tamilName": "பனை மரம் (Panai Maram - TN State Tree)",
+    "scientificName": "Borassus flabellifer",
+    "family": "Arecaceae",
+    "region": "Tamil Nadu State Tree & Coimbatore arid plains",
+    "habitat": "Dry arid plains, field borders, lake bunds, saline sandy belts",
+    "leafType": "Massive fan-shaped leaves (1-3 m across) with 60-80 stiff linear-lanceolate segments on spiny petiole",
+    "barkDescription": "Robust unbranched columnar trunk covered with remnants of dry leaf bases when young, bare grey and ringed when mature",
+    "flowerDescription": "Dioecious; male flowers small in branched spadices, female flowers larger on simple spikes",
+    "fruitDescription": "Large subglobose brown-black drupe (15-20 cm) containing 3 translucent jelly-like seeds (Nongu)",
+    "uses": [
+      "Official State Tree of Tamil Nadu; all 801 parts of the tree utilized in Tamil folk culture",
+      "Padaneer sap converted to mineral-rich palm jaggery (Karupatti)",
+      "Leaves woven into traditional baskets, mats, roofing and Sangam palm-leaf manuscripts"
+    ],
+    "conservationStatus": "Least Concern (IUCN / High Cultural Keystone)",
+    "citation": "Tamil Nadu Palm Products Development Board; Sangam Classical Texts",
+    "fieldImagesCount": 190,
+    "occurrenceRecords": 2400,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "mitragyna-parvifolia",
+    "commonName": "Kadam / Little Burflower",
+    "tamilName": "சின்னக் கடம்பு (Chinna Kadambu)",
+    "scientificName": "Mitragyna parvifolia",
+    "family": "Rubiaceae",
+    "region": "Siruvani foothills & Bhavani river valleys",
+    "habitat": "Deciduous river valleys, damp depressions, foothill streams",
+    "leafType": "Opposite, variable ovate to elliptic, rounded at base, conspicuous interpetiolar stipules",
+    "barkDescription": "Smooth light grey with dark fissures, peeling in small scaly pieces",
+    "flowerDescription": "Spherical dense ball-like heads (2-2.5 cm) of creamy-white or pale yellow scented flowers",
+    "fruitDescription": "Globose composite head of small 2-valved capsules with minute winged seeds",
+    "uses": [
+      "Bark and root extract used in tribal medicine for muscular fever and colic",
+      "Lightweight smooth timber used for wood carving, bobbins and picture frames",
+      "Valuable riparian buffer preventing stream undercut"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Flora of Coimbatore (BSI Southern Circle, 1988)",
+    "fieldImagesCount": 35,
+    "occurrenceRecords": 170,
+    "isWesternGhats": true,
+    "isThin": true,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "mesua-ferrea",
+    "commonName": "Ceylon Ironwood / Cobra's Saffron",
+    "tamilName": "நாகப்பூ மரம் (Naagappoo)",
+    "scientificName": "Mesua ferrea",
+    "family": "Calophyllaceae",
+    "region": "Topslip, Valparai & Western Ghats rainforests",
+    "habitat": "Wet evergreen and shola fringe montane rainforests (600-1500m)",
+    "leafType": "Opposite, rigid, lanceolate, intense blood-crimson when tender, turning dark green with waxy white powdery bloom underneath",
+    "barkDescription": "Rough dark ash-grey, with deep vertical fissures, heartwood extremely heavy and iron-hard",
+    "flowerDescription": "Large solitary pure white 4-petaled flowers with massive central pompom of bright golden-yellow fragrant stamens",
+    "fruitDescription": "Ovoid woody capsule surrounded by persistent enlarged woody sepals",
+    "uses": [
+      "Extremely dense, heavy 'ironwood' resistant to bullets and marine borers",
+      "Nagakesar aromatic stamens cornerstone of Ayurvedic skincare and digestive tonics",
+      "High cultural significance in Western Ghats evergreen sanctuaries"
+    ],
+    "conservationStatus": "Least Concern (IUCN / Restricted evergreen endemic)",
+    "citation": "Anaimalai Tiger Reserve Floristic Inventory (TNFD); Western Ghats Portal",
+    "fieldImagesCount": 48,
+    "occurrenceRecords": 210,
+    "isWesternGhats": true,
+    "isThin": true,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "kydia-calycina",
+    "commonName": "Roxburgh's Kydia",
+    "tamilName": "பூலா மரம் (Poolaa)",
+    "scientificName": "Kydia calycina",
+    "family": "Malvaceae",
+    "region": "Siruvani slopes & Bhavani river valleys",
+    "habitat": "Dry and mixed deciduous hill slopes, secondary forest gaps",
+    "leafType": "Alternate, palmately 3-7 lobed, suborbicular with stellate hairy underside",
+    "barkDescription": "Grey, exfoliating in irregular thin woody scales",
+    "flowerDescription": "Small white or pale pink flowers in dense axillary and terminal panicles",
+    "fruitDescription": "Small 3-valved globose capsule enclosed in enlarged persistent calyx",
+    "uses": [
+      "Tough inner bark mucilage utilized in jaggery clarifying and sugar refining",
+      "Strong wild cordage and fiber extracted by tribal communities",
+      "Soft timber used for wood carving and matchbox veneers"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Flora of Coimbatore (BSI, 1988)",
+    "fieldImagesCount": 24,
+    "occurrenceRecords": 110,
+    "isWesternGhats": true,
+    "isThin": true,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "diospyros-ebenum",
+    "commonName": "Indian Ebony",
+    "tamilName": "கருங்காலி (Karungaali)",
+    "scientificName": "Diospyros ebenum",
+    "family": "Ebenaceae",
+    "region": "Marudhamalai, Pollachi foothills & Southern dry evergreen scrub",
+    "habitat": "Dry evergreen scrub, rocky granite foothills, temple sacred zones",
+    "leafType": "Alternate, coriaceous, elliptic-oblong (5-12 cm), glossy dark green above, paler beneath",
+    "barkDescription": "Dark charcoal-black, rough, deeply fissured into small rectangular blocks; heartwood pure jet-black",
+    "flowerDescription": "Small solitary creamy-yellow bell-shaped 4-lobed flowers in axillary clusters",
+    "fruitDescription": "Subglobose fleshy berry (1.5-2 cm) seated on persistent enlarged woody calyx",
+    "uses": [
+      "Legendary jet-black ebony heartwood used for temple temple idols, Gopuram spires and scepters",
+      "Electromagnetic shielding qualities believed in traditional temple architecture",
+      "High value furniture inlays and classical violin fingerboards"
+    ],
+    "conservationStatus": "Vulnerable (IUCN Red List / Highly protected)",
+    "citation": "Institute of Forest Genetics & Tree Breeding; Tamil Nadu Forest Act",
+    "fieldImagesCount": 33,
+    "occurrenceRecords": 160,
+    "isWesternGhats": true,
+    "isThin": true,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "gmelina-arborea",
+    "commonName": "Gmelina / White Teak",
+    "tamilName": "குமிழ் மரம் (Kumizh Maram)",
+    "scientificName": "Gmelina arborea",
+    "family": "Lamiaceae",
+    "region": "Valparai foothills & Anaimalai slopes",
+    "habitat": "Moist fertile valleys, secondary deciduous hill slopes",
+    "leafType": "Opposite, broad ovate-cordate (10-20 cm) with yellow star-shaped hairs on underside",
+    "barkDescription": "Smooth pale yellowish-grey or buff, corky and shedding in light flakes",
+    "flowerDescription": "Showy brownish-yellow trumpet-like flowers in terminal panicles",
+    "fruitDescription": "Ovoid fleshy glossy yellow drupe (2-2.5 cm) with sweetish pulp and 1-2 seeds",
+    "uses": [
+      "Core ingredient in classical Dashamula Ayurvedic preparations",
+      "Lightweight dimensionally stable wood used for sitars, veenas and drums",
+      "Fast agroforestry rotation timber"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "IFGTB Coimbatore Fast-Growing Species Database",
+    "fieldImagesCount": 62,
+    "occurrenceRecords": 310,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "lannea-coromandelica",
+    "commonName": "Indian Ash Tree",
+    "tamilName": "ஒதிய மரம் (Othiya Maram)",
+    "scientificName": "Lannea coromandelica",
+    "family": "Anacardiaceae",
+    "region": "Marudhamalai, Madukkarai limestone belts & dry plains",
+    "habitat": "Dry stony hillsides, skeletal soils, agricultural boundary fences",
+    "leafType": "Imparipinnate, clustered at twig tips, 7-11 ovate leaflets, turns bright gold before winter leaf drop",
+    "barkDescription": "Smooth ash-grey, with red blaze beneath, peeling in irregular flakes, oozes clear jhingan gum",
+    "flowerDescription": "Tiny greenish-yellow unisexual flowers appearing in drooping sprays on bare branches",
+    "fruitDescription": "Small compressed red kidney-shaped drupe (1 cm)",
+    "uses": [
+      "Hardy live fence post in Coimbatore rural farming; root strikes easily from cuttings",
+      "Bark decoction for sprains, bruises and postpartum bath herbal water",
+      "Clear mucilaginous gum used in confectionery and calico printing"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Flora of Coimbatore (BSI, 1988); Traditional Agricultural Practices of Kongunad",
+    "fieldImagesCount": 78,
+    "occurrenceRecords": 490,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "cinnamomum-iners",
+    "commonName": "Wild Cinnamon",
+    "tamilName": "காட்டு இலவங்கப்பட்டை (Kattu Lavangam)",
+    "scientificName": "Cinnamomum iners",
+    "family": "Lauraceae",
+    "region": "Siruvani Hills, Sholayar & Western Ghats rainforest fringes",
+    "habitat": "Moist evergreen and sub-montane shola margins (400-1200m)",
+    "leafType": "Opposite or sub-opposite, elliptic-oblong, glossy dark green with 3 distinctive longitudinal primary ribs running from base to apex, strong spicy scent when crushed",
+    "barkDescription": "Smooth brownish-grey with aromatic inner bark containing cinnamaldehyde",
+    "flowerDescription": "Small creamy-white flowers in long-stalked axillary panicles",
+    "fruitDescription": "Small ovoid berry (1-1.5 cm) seated on a 6-lobed persistent cup-like perianth, dark purple when ripe",
+    "uses": [
+      "Aromatic leaf used as spice condiment (Tejpata substitute)",
+      "Traditional carminative and fever reduction decoction in Western Ghats tribal medicine",
+      "Shola-fringe biodiversity indicator species"
+    ],
+    "conservationStatus": "Least Concern (IUCN / Shola indicator)",
+    "citation": "Western Ghats Biodiversity Portal; Forest College & Research Institute Mettupalayam",
+    "fieldImagesCount": 29,
+    "occurrenceRecords": 130,
+    "isWesternGhats": true,
+    "isThin": true,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "mammea-suriga",
+    "commonName": "Surangi / Alexandrian Laurel Relative",
+    "tamilName": "சுராபுன்னை (Surapunnai)",
+    "scientificName": "Mammea suriga",
+    "family": "Calophyllaceae",
+    "region": "Western Ghats evergreen slopes & Anaimalai",
+    "habitat": "Evergreen and semi-evergreen hill valleys along stream banks",
+    "leafType": "Opposite, simple, thick leathery oblong-lanceolate with prominent reticulate veins",
+    "barkDescription": "Rough brown, with shallow longitudinal cracks",
+    "flowerDescription": "Intensely fragrant white 4-petaled flowers with orange-red globose flower buds clustered on older bare branches",
+    "fruitDescription": "Ovoid 1-seeded fleshy berry (2.5-3 cm) with aromatic pulp",
+    "uses": [
+      "Surangi flowers prized for intoxicating perfume and high-value traditional garlands",
+      "Bark decoction used in tribal medicine for throat inflammation",
+      "Rare endemic evergreen tree"
+    ],
+    "conservationStatus": "Vulnerable (IUCN Red List)",
+    "citation": "Red Data Book of Indian Plants; BSI Western Ghats Circle",
+    "fieldImagesCount": 22,
+    "occurrenceRecords": 95,
+    "isWesternGhats": true,
+    "isThin": true,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "terminalia-crenulata",
+    "commonName": "Black Murdah",
+    "tamilName": "கருமருது (Karumaruthu)",
+    "scientificName": "Terminalia crenulata",
+    "family": "Combretaceae",
+    "region": "Siruvani, Anaikatti & Western Ghats deciduous belts",
+    "habitat": "Dry and moist deciduous high forest canopies",
+    "leafType": "Sub-opposite, elliptic-oblong with crenulate margin and 2 distinct glands at base of blade",
+    "barkDescription": "Dark grey to black, deeply fissured into regular rectangular blocks resembling alligator hide",
+    "flowerDescription": "Small dull yellow flowers in axillary spikes or terminal panicles",
+    "fruitDescription": "Ovoid woody drupe with 5 large broad papery wings marked with horizontal striations",
+    "uses": [
+      "Heavy construction timber resistant to fungal decay and pests",
+      "Bark contains over 25% tannins used in leather tanning",
+      "Known colloquially as 'water storage tree' as trunk cavities store potable fluid"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Working Plan of Coimbatore Forest Division; TNFD",
+    "fieldImagesCount": 54,
+    "occurrenceRecords": 280,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "ficus-racemosa",
+    "commonName": "Cluster Fig / Gular",
+    "tamilName": "அத்தி மரம் (Atthi Maram)",
+    "scientificName": "Ficus racemosa",
+    "family": "Moraceae",
+    "region": "Noyyal Riverbanks & Siruvani waterways",
+    "habitat": "Riparian banks, damp ravines, canal borders, temple groves",
+    "leafType": "Alternate, ovate to elliptic-lanceolate (7-15 cm), glaucous beneath",
+    "barkDescription": "Smooth reddish-grey or pale greenish-brown, with prominent lenticels, exuding copious white latex",
+    "flowerDescription": "Internal hypanthodium, pollinated by Ceratosolen wasps",
+    "fruitDescription": "Subglobose figs (2.5-4 cm) borne in dense cauliflorous clusters directly from trunk and thick branches, turning dull red when ripe",
+    "uses": [
+      "Sacred Athi wood used for ancient temple carvings and coronation seats (Aththi Varadar)",
+      "High medicinal value for diabetes, liver inflammation and wound healing",
+      "Vital keystone food resource sustaining macaques, squirrels and hornbills"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Riparian Flora of Tamil Nadu (SACON); Coimbatore Temple Flora",
+    "fieldImagesCount": 145,
+    "occurrenceRecords": 890,
+    "isWesternGhats": true,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "plumeria-rubra",
+    "commonName": "Frangipani / Temple Tree",
+    "tamilName": "செண்பகம் / பெருங்கள்ளி (Perunkalli)",
+    "scientificName": "Plumeria rubra",
+    "family": "Apocynaceae",
+    "region": "Coimbatore temples, cemetery gardens & park groves",
+    "habitat": "Dry open sunny locations, temple precincts, drought-resistant succulent habit",
+    "leafType": "Large, leathery, obovate-oblong (20-40 cm), clustered near swollen branch tips, prominent parallel secondary veins",
+    "barkDescription": "Thick, grey, smooth to knobby, exuding sticky white caustic latex when severed",
+    "flowerDescription": "Waxy highly fragrant 5-petaled flowers, white, yellow or deep rose-pink with golden throat",
+    "fruitDescription": "Two cylindrical rigid diverging follicles (12-25 cm) containing winged seeds",
+    "uses": [
+      "Temple floral offerings and spiritual symbolism in Tamil culture",
+      "Essential oil used in exotic high-end perfumery",
+      "Extreme drought resilience ideal for zero-irrigation urban median planting"
+    ],
+    "conservationStatus": "Least Concern (Introduced / Naturalized globally)",
+    "citation": "Coimbatore Urban Flora Checklist 2024",
+    "fieldImagesCount": 168,
+    "occurrenceRecords": 1150,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "tamarix-gallica",
+    "commonName": "Tamarisk / Salt Cedar",
+    "tamilName": "கோரக்கள்ளி (Korakkalli)",
+    "scientificName": "Tamarix gallica",
+    "family": "Tamaricaceae",
+    "region": "Sulur lake beds, Noyyal saline sandbanks & dry washes",
+    "habitat": "Saline sandy soils, lake shores, dry ephemeral riverbanks",
+    "leafType": "Minute scale-like overlapping leaves (1-3 mm), greyish-green, encrusted with secreted salt crystals",
+    "barkDescription": "Dark purple-brown, rough, fissured with age",
+    "flowerDescription": "Tiny pinkish-purple to white 5-petaled flowers in dense slender catkin-like racemes",
+    "fruitDescription": "Small 3-valved pyramidal capsule releasing numerous tufted seeds with silky coma hairs",
+    "uses": [
+      "Pioneer stabilizer of saline river deposits and eroded wetland beds",
+      "Foliage extracts contain astringent tannins and medicinal gallic acid",
+      "Fine twigs woven into traditional fish traps"
+    ],
+    "conservationStatus": "Least Concern (IUCN)",
+    "citation": "Wetlands of Coimbatore District (SACON Study Report)",
+    "fieldImagesCount": 18,
+    "occurrenceRecords": 85,
+    "isWesternGhats": false,
+    "isThin": true,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    "id": "polyalthia-longifolia",
+    "commonName": "False Ashoka / Mast Tree",
+    "tamilName": "நெட்டிலிங்கம் (Nettilingam)",
+    "scientificName": "Polyalthia longifolia",
+    "family": "Annonaceae",
+    "region": "Coimbatore institutional boundaries & residential roads",
+    "habitat": "Tall columnar fastigiate growth in narrow urban avenues, sound barriers",
+    "leafType": "Alternate, long, narrow lanceolate (15-25 cm) with undulate wavy margins and glossy deep green sheen",
+    "barkDescription": "Smooth dark greyish-brown with faint horizontal ridges",
+    "flowerDescription": "Delicate star-like pale yellowish-green flowers with 6 wavy petals clustered in short umbels",
+    "fruitDescription": "Clusters of 10-20 ovoid fleshy drupes, purplish-black when ripe, favored by fruit bats",
+    "uses": [
+      "Effective urban acoustic buffer dampening traffic noise",
+      "Evergreen leaves woven into auspicious festoons (thoranam) for Tamil entrances",
+      "Lightweight masts and drums historically crafted from straight trunk"
+    ],
+    "conservationStatus": "Least Concern (IUCN / Extensively planted)",
+    "citation": "Avenue Trees of Tamil Nadu (TNAU Coimbatore)",
+    "fieldImagesCount": 155,
+    "occurrenceRecords": 1420,
+    "isWesternGhats": false,
+    "isThin": false,
+    "sampleImages": {
+      "leaf": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+      "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
+    }
+  }
 ]

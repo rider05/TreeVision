@@ -9,6 +9,11 @@ artifacts/
 *.h5
 *.tflite
 *.onnx
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.safetensors
 # Dataset images (large, licensed) — never commit raw images
 dataset/raw/
 dataset/cleaned/
@@ -49,6 +54,14 @@ npm-debug.log*
 # Local data mirrors (reproducible)
 dataset_base/
 quarantine/
+# Local backups / temp downloads (never commit)
+AGENTS.zip
+app_backup_*/
+*_backup/
+*.tmp
+*.tsbuildinfo
+.eslintcache
+.metro-health-check*
 # OS
 .DS_Store
 Thumbs.db

@@ -1,0 +1,265 @@
+/* TreeVision Professional & Animated Botanical Design System */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --font-display: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Botanical Core Palette */
+  --c-primary: #1B5E20;
+  --c-primary-light: #E8F5E9;
+  --c-emerald: #10B981;
+  --c-mint: #34D399;
+  --c-gold: #F59E0B;
+  --c-amber: #D97706;
+  --c-forest-dark: #09260E;
+  --c-surface-glass: rgba(255, 255, 255, 0.82);
+  --c-surface-glass-dark: rgba(18, 26, 20, 0.82);
+  --c-border-glass: rgba(46, 125, 50, 0.16);
+  --c-glow: rgba(16, 185, 129, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background-color: #F4F7F3;
+  overflow-x: hidden;
+}
+
+/* 🌿 Living Ambient Gradient Background */
+.animated-botanical-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background: radial-gradient(circle at 10% 20%, rgba(232, 245, 233, 0.85) 0%, rgba(244, 247, 243, 1) 40%, rgba(220, 237, 222, 0.7) 100%);
+}
+
+.dark .animated-botanical-bg {
+  background: radial-gradient(circle at 10% 20%, rgba(13, 35, 18, 0.95) 0%, rgba(10, 15, 12, 1) 50%, rgba(18, 30, 22, 0.9) 100%);
+}
+
+/* Floating Ambient Orbs */
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  animation: orbDrift 22s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(46, 125, 50, 0.35) 0%, rgba(16, 185, 129, 0) 70%);
+  top: -100px;
+  left: -100px;
+  animation-duration: 18s;
+}
+
+.orb-2 {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.18) 0%, rgba(217, 119, 6, 0) 70%);
+  bottom: 10%;
+  right: -120px;
+  animation-duration: 25s;
+  animation-delay: -5s;
+}
+
+.orb-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, rgba(5, 150, 105, 0) 70%);
+  top: 45%;
+  left: 30%;
+  animation-duration: 20s;
+  animation-delay: -10s;
+}
+
+@keyframes orbDrift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(60px, 45px) scale(1.12);
+  }
+  100% {
+    transform: translate(-45px, 80px) scale(0.92);
+  }
+}
+
+/* 🍃 Drifting Botanical Leaves Particle Canvas */
+.particle-leaf {
+  position: absolute;
+  opacity: 0.22;
+  pointer-events: none;
+  animation: leafFloat linear infinite;
+}
+
+@keyframes leafFloat {
+  0% {
+    transform: translateY(105vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.35;
+  }
+  85% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(90px) rotate(380deg);
+    opacity: 0;
+  }
+}
+
+/* ✨ Glassmorphic Panel Styles */
+.glass-card {
+  background: var(--c-surface-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--c-border-glass);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.dark .glass-card {
+  background: var(--c-surface-glass-dark);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* 🌟 Rich Hover Effects for Web */
+.interactive-hover {
+  cursor: pointer;
+  transition: transform 0.26s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.26s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.26s ease,
+              background-color 0.26s ease;
+}
+
+.interactive-hover:hover {
+  transform: translateY(-5px) scale(1.015);
+  box-shadow: 0 14px 30px rgba(27, 94, 32, 0.16), 0 0 0 1px rgba(46, 125, 50, 0.3);
+}
+
+.interactive-hover:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* Shimmer Highlight Effect on CTA Buttons */
+.shimmer-button {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+.shimmer-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(27, 94, 32, 0.35);
+}
+
+.shimmer-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 80%
+  );
+  transform: rotate(25deg) translateY(-100%);
+  transition: transform 0.75s ease;
+}
+
+.shimmer-button:hover::after {
+  transform: rotate(25deg) translateY(100%);
+}
+
+/* 🌲 Tree Icon Hover Animations */
+.tree-menu-symbol {
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.28s ease;
+}
+
+.tree-menu-symbol:hover {
+  transform: scale(1.22) rotate(-4deg);
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.65));
+}
+
+/* Laser Scan Animation for Identify Screen */
+@keyframes laserSweep {
+  0% {
+    top: 5%;
+    opacity: 0.3;
+  }
+  50% {
+    top: 90%;
+    opacity: 0.95;
+  }
+  100% {
+    top: 5%;
+    opacity: 0.3;
+  }
+}
+
+.laser-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00E676 25%, #69F0AE 50%, #00E676 75%, transparent);
+  box-shadow: 0 0 14px #00E676, 0 0 24px #69F0AE;
+  animation: laserSweep 2.4s ease-in-out infinite;
+  z-index: 5;
+}
+
+/* Pulsing Beacon Indicator */
+.pulse-beacon {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #10B981;
+  position: relative;
+}
+
+.pulse-beacon::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  border: 2px solid #10B981;
+  animation: pulseRipple 1.8s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes pulseRipple {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}

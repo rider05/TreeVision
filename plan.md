@@ -1025,6 +1025,81 @@ The final report should clearly distinguish:
 
 ---
 
+# 33. Swin Transformer Transfer Learning Experiment (2026-09-25)
+
+## Objective
+Evaluate whether fine-tuning a pretrained Swin Transformer (OttoYu/TreeClassification) improves TreeVision's 41-class accuracy compared to the MobileNetV3 baseline.
+
+## Pretrained Model
+- **Model:** `OttoYu/TreeClassification` (Swin Transformer)
+- **Architecture:** Swin Transformer (depths=[2,2,18,2], embed_dim=128, 86.8M params)
+- **Original task:** 13-class tree classification (tropical/subtropical species)
+- **Source:** https://huggingface.co/OttoYu/TreeClassification
+- **License:** Verify before production use
+
+## Experimental Setup
+- **Data:** TreeVision 41-class MVP (configs/classes_41.txt)
+- **Split:** train 7477 / val 1532 / test 1586 (treeID-grouped)
+- **Fine-tuning strategy:** Two-phase (2 epochs frozen backbone + 3 epochs full)
+- **Optimizer:** AdamW (backbone LR=1e-5, classifier LR=1e-4, WD=0.01)
+- **Mixed precision:** FP16
+- **Batch size:** 8 (VRAM-limited)
+- **5-epoch pilot** before full training decision
+
+## Results Summary
+
+| Metric | MobileNetV3 Baseline | Swin Fine-tuned | Delta |
+|---|---|---|---|
+| Validation Top-1 | 65.8% | **85.77%** | +19.97% |
+| Test Top-1 | 65.3% | **85.75%** | +20.45% |
+| Validation Top-3 | ~80.3% | **93.67%** | +13.37% |
+| Test Top-3 | ~79.8% | **93.38%** | +13.58% |
+| Test Macro F1 | ~55% | **81.98%** | +27% |
+| Parameters | 4.25M | 86.8M | 20.4x |
+| FP32 Size | ~17 MB | 331.5 MB | 19.5x |
+| GPU Inference | ~5-10 ms | 76 ms | 10-15x slower |
+
+## Key Findings
+
+1. **Significant accuracy improvement:** Swin achieves +20% absolute Top-1 accuracy over MobileNetV3 baseline
+2. **Macro F1 jump:** +27% (55% → 82%), meaning previously weak classes now perform well
+3. **No overfitting in 5 epochs:** Both train and validation losses decrease steadily
+4. **All dataset checks pass:** TreeID leakage PASS, Class mapping PASS, Integrity PASS
+
+## Mobile Deployment Assessment
+
+| Factor | MobileNetV3 | Swin | Verdict |
+|---|---|---|---|
+| Model size (FP32) | 17 MB | 331 MB | Swin too large |
+| Model size (FP16) | 8.5 MB | 166 MB | Swin too large |
+| Inference time (GPU) | 5-10 ms | 76 ms | Swin 10x slower |
+| FPS (GPU) | 100-200 | 13 | Swin too slow for real-time |
+
+**Verdict:** Swin is **unsuitable for mobile deployment** without:
+- INT8 quantization (target: <50 MB)
+- ONNX export + TensorRT/ONNX Runtime optimization
+- Possible architecture distillation
+
+## Decision
+- **Server/cloud deployment:** Use Swin for maximum accuracy
+- **Mobile/edge deployment:** Continue with MobileNetV3 baseline
+- **50-class experiment:** Deferred until thin species have ≥150 images/class
+- **Future work:** Swin distillation to MobileNetV3, INT8 quantization pipeline
+
+## Artifacts
+All artifacts saved to `artifacts/swin_41/`:
+- `best_model/` — Hugging Face compatible export
+- `best_torch.pth` — PyTorch checkpoint
+- `confusion_matrix_val.png`, `confusion_matrix_test.png`
+- `classification_report_val.txt`, `classification_report_test.txt`
+- `per_class_metrics_val.csv`, `per_class_metrics_test.csv`
+- `training_history.csv`, `training_curves.png`
+- `metrics.json`, `treevision_41_class_mapping.json`
+- `treeid_split_check.txt` (PASS)
+- `mobile_benchmark.json`
+
+---
+
 # 32. Final Project Goal
 
 The final system should demonstrate this complete workflow:

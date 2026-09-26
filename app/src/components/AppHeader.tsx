@@ -33,7 +33,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
       <View style={styles.titleArea}>
         <View style={styles.titleRow}>
           {showTreeEmblem && (
-            <div className="tree-menu-symbol" style={{ marginRight: 10, display: 'inline-flex' }}>
+            <View style={{ marginRight: 10 }}>
               <View
                 style={[
                   styles.treeEmblemCircle,
@@ -42,7 +42,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
               >
                 <TreeCanopyIcon size={18} color={colors.primary} focused={true} />
               </View>
-            </div>
+            </View>
           )}
           <View style={{ flex: 1 }}>
             <Text style={[styles.title, { color: colors.text }]} numberOfLines={1}>
@@ -50,7 +50,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
             </Text>
             {subtitle ? (
               <View style={styles.subtitleRow}>
-                <div className="pulse-beacon" style={{ marginRight: 6, transform: 'scale(0.8)' }} />
+                <View style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: colors.primary, marginRight: 6 }} />
                 <Text style={[styles.subtitle, { color: colors.muted }]} numberOfLines={1}>
                   {subtitle}
                 </Text>

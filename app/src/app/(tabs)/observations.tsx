@@ -18,7 +18,6 @@ import { ConfidenceBadge } from '../../components/ConfidenceBadge';
 import { EmptyState } from '../../components/EmptyState';
 import { getSavedObservations, deleteObservation } from '../../services/storage';
 import { Observation } from '../../types';
-import { TreeLogbookIcon } from '../../components/TreeIcons';
 
 export default function ObservationsScreen() {
   const router = useRouter();
@@ -27,23 +26,20 @@ export default function ObservationsScreen() {
 
   const [observations, setObservations] = useState<Observation[]>([]);
   const [filter, setFilter] = useState<'All' | 'Verified' | 'Pending'>('All');
-  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    loadData();
+    let mounted = true;
+    getSavedObservations()
+      .then((data) => {
+        if (mounted) {
+          setObservations(() => data);
+        }
+      })
+      .catch((e) => {
+        console.warn('Failed to load observations:', e);
+      });
+    return () => { mounted = false; };
   }, []);
-
-  const loadData = async () => {
-    try {
-      setIsLoading(true);
-      const data = await getSavedObservations();
-      setObservations(data);
-    } catch (e) {
-      console.warn('Failed to load observations:', e);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   const handleDelete = (id: string, name: string) => {
     Alert.alert(

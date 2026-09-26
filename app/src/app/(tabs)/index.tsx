@@ -49,9 +49,7 @@ export default function HomeScreen() {
         >
           {/* Top Brand Bar */}
           <View style={styles.heroTopRow}>
-            <div className="tree-menu-symbol" style={{ cursor: 'pointer' }}>
-              <BanyanBrandEmblem size={48} />
-            </div>
+            <BanyanBrandEmblem size={48} />
 
             <View style={styles.heroBrandText}>
               <View style={styles.wordmarkRow}>
@@ -78,7 +76,7 @@ export default function HomeScreen() {
                 { backgroundColor: isDark ? '#102A14' : '#E8F5E9' },
               ]}
             >
-              <div className="pulse-beacon" style={{ marginRight: 6 }} />
+              <View style={{ width: 8, height: 8, borderRadius: 4, backgroundColor: colors.primary, marginRight: 6 }} />
               <Text style={[styles.liveStatusText, { color: colors.primary }]}>READY</Text>
             </View>
           </View>

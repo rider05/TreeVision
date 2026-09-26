@@ -2,11 +2,12 @@
 // Real on-device inference using ONNX Runtime (Expo/React Native)
 // Loads model from app/assets/ and runs actual neural network inference
 
-import { Platform, PlatformConstants } from 'react-native';
-import * as FileSystem from 'expo-file-system';
-import * as Asset from 'expo-asset';
+import { Platform } from 'react-native';
+import * as FileSystem from 'expo-file-system/legacy';
+import { Asset } from 'expo-asset';
+import { manipulateAsync, SaveFormat } from 'expo-image-manipulator';
 import { decode } from 'base64-arraybuffer';
-import * as ort from 'onnxruntime-react-native';
+import * as jpeg from 'jpeg-js';
 import treesData from '../data/trees.json';
 import classMappingData from '../../assets/class_mapping.json'; // Generated at build time
 import { TreeSpecies, Prediction, PredictionAlternative, LibraryFilter } from '../types';
@@ -22,16 +23,51 @@ const ALL_TREES: TreeSpecies[] = treesData as TreeSpecies[];
 // Class mapping: index -> speciesId (matches training checkpoint)
 const IDX_TO_CLASS: Record<number, string> = classMappingData;
 
-// Model file paths (bundled in app)
-const MODEL_FILES = {
-  mobilenetv3: 'mobilenetv3_41.onnx',
-  swin: 'swin_41.onnx',
+// Model binaries bundled via Metro (see metro.config.js `assetExts`).
+// Metro requires static `require(...)` calls — dynamic template paths like
+// require(`../assets/${name}`) fail at bundle time with "Invalid call".
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const MOBILENET_MODEL_MODULE = require('../../assets/mobilenetv3_41.onnx');
+
+// NOTE: swin_41.pt is a TorchScript checkpoint, not ONNX, so it cannot be
+// loaded by onnxruntime-react-native. Only mobilenetv3 is bundled for now.
+const MODEL_MODULES = {
+  mobilenetv3: { model: MOBILENET_MODEL_MODULE },
 } as const;
+
+// onnxruntime-react-native ships native code that only exists in a dev build
+// (not in Expo Go, not on web). A top-level import evaluates the native
+// binding at load time and crashes every importing screen with
+// "Cannot read property 'install' of null", so the module is loaded lazily
+// inside initializeInference instead.
+let Ort: typeof import('onnxruntime-react-native') | null = null;
+
+function loadOrtModule(): typeof import('onnxruntime-react-native') {
+  if (Platform.OS === 'web') {
+    throw new Error('On-device inference is not supported on web. Use an Android/iOS dev build.');
+  }
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const mod = require('onnxruntime-react-native');
+    // Metro's guardedLoadModule swallows native-init failures and returns
+    // undefined instead of throwing, so validate the module shape here —
+    // otherwise this fails later as "InferenceSession of undefined".
+    if (!mod?.InferenceSession || !mod?.Tensor) {
+      throw new Error('native binding unavailable');
+    }
+    return mod;
+  } catch {
+    throw new Error(
+      'ONNX Runtime native module is missing. Use a dev client instead of Expo Go: ' +
+        'npx expo run:android (local) or eas build --profile development (cloud).'
+    );
+  }
+}
 
 type ModelType = 'mobilenetv3' | 'swin';
 
 // Singleton model session
-let ortSession: ort.InferenceSession | null = null;
+let ortSession: any = null;
 let currentModelType: ModelType = 'mobilenetv3';
 let modelLoaded = false;
 let loadError: string | null = null;
@@ -44,40 +80,47 @@ export async function initializeInference(modelType: ModelType = 'mobilenetv3'):
   if (modelLoaded && currentModelType === modelType) {
     return; // Already loaded
   }
+  if (modelType !== 'mobilenetv3') {
+    throw new Error(
+      `Model '${modelType}' is not bundled: only mobilenetv3_41.onnx can be ` +
+        `loaded by ONNX Runtime. swin_41.pt is a TorchScript file, not ONNX.`
+    );
+  }
 
   try {
-    // Initialize ONNX Runtime
-    await ort.initialize();
-    
-    // Get model file path (bundled asset)
-    const modelAsset = Asset.fromModule(require(`../assets/${MODEL_FILES[modelType]}`));
+    Ort = loadOrtModule();
+    // Resolve bundled model asset to a local file.
+    const modelAsset = Asset.fromModule(MODEL_MODULES.mobilenetv3.model);
     await modelAsset.downloadAsync();
-    const modelPath = modelAsset.localUri || modelAsset.uri;
-    
-    if (!modelPath) {
-      throw new Error(`Model file not found: ${MODEL_FILES[modelType]}`);
+    const modelUri = modelAsset.localUri ?? modelAsset.uri;
+    if (!modelUri) {
+      throw new Error('Model asset could not be resolved to a local file.');
     }
 
-    // Create inference session
-    // For React Native, we use the 'cpu' provider (or 'nnap' for iOS, 'android' for Android)
-    const executionProviders = Platform.OS === 'ios' 
-      ? ['nnap', 'cpu'] 
-      : Platform.OS === 'android'
-      ? ['android', 'cpu']
-      : ['cpu'];
+    const modelsDir = `${FileSystem.documentDirectory}models/`;
+    const dirInfo = await FileSystem.getInfoAsync(modelsDir);
+    if (!dirInfo.exists) {
+      await FileSystem.makeDirectoryAsync(modelsDir, { intermediates: true });
+    }
+    const stagedModelUri = `${modelsDir}mobilenetv3_41.onnx`;
+    const stagedModelInfo = await FileSystem.getInfoAsync(stagedModelUri);
+    if (!stagedModelInfo.exists) {
+      await FileSystem.copyAsync({ from: modelUri, to: stagedModelUri });
+    }
 
-    ortSession = await ort.InferenceSession.create(modelPath, {
-      executionProviders,
-      graphOptimizationLevel: 'all',
-      enableMemPattern: true,
-      enableCpuMemArena: true,
-    });
+    // Default (CPU) execution provider — matches official onnxruntime-react-native usage:
+    const session = await Ort.InferenceSession.create(stagedModelUri);
 
+    ortSession = session;
     currentModelType = modelType;
     modelLoaded = true;
     loadError = null;
-    
-    console.log(`[TreeVision] Model loaded: ${modelType} (${ortSession.inputNames.join(', ')} -> ${ortSession.outputNames.join(', ')})`);
+
+    console.log(`[TreeVision] Model loaded: ${modelType}`);
+    const inputMeta = session.inputMetadata[0] as any;
+    const outputMeta = session.outputMetadata[0] as any;
+    console.log(`[TreeVision] Input: ${inputMeta.name} ${inputMeta.type} ${inputMeta.shape}`);
+    console.log(`[TreeVision] Output: ${outputMeta.name} ${outputMeta.type} ${outputMeta.shape}`);
   } catch (error) {
     loadError = error instanceof Error ? error.message : 'Unknown error';
     console.error('[TreeVision] Failed to load model:', loadError);
@@ -101,52 +144,47 @@ export function getLoadError(): string | null {
 
 /**
  * Preprocess image for model input
- * Resize to 224x224, normalize with ImageNet stats, convert to tensor
+ * Resize to 224x224, decode JPEG to RGB pixels, normalize with ImageNet stats, convert to tensor
  */
-async function preprocessImage(imageUri: string): Promise<ort.Tensor> {
-  // Load image as base64
-  const base64 = await FileSystem.readAsStringAsync(imageUri, {
-    encoding: FileSystem.EncodingType.Base64,
-  });
-  
-  // Decode base64 to ArrayBuffer
-  const arrayBuffer = decode(base64);
-  const bytes = new Uint8Array(arrayBuffer);
-  
-  // Create image bitmap for processing
-  // Use expo-image or create a canvas-like processing
-  // For React Native, we'll use a simpler approach: resize via ImageManipulator
-  const { manipulateAsync } = await import('expo-image-manipulator');
-  
-  const manipulated = await manipulateAsync(imageUri, [
-    { resize: { width: MODEL_INPUT_SIZE, height: MODEL_INPUT_SIZE } },
-  ], {
-    format: 'rgba',
-    base64: true,
-  });
-  
-  // Convert base64 to Float32Array with normalization
-  const imgBase64 = manipulated.base64!;
-  const imgBuffer = decode(imgBase64);
-  const imgData = new Uint8Array(imgBuffer);
-  
-  // RGBA -> RGB Float32 [1, 3, 224, 224]
-  const input = new Float32Array(1 * 3 * MODEL_INPUT_SIZE * MODEL_INPUT_SIZE);
-  
-  for (let i = 0; i < MODEL_INPUT_SIZE * MODEL_INPUT_SIZE; i++) {
-    const rgbaIdx = i * 4;
-    const r = imgData[rgbaIdx] / 255.0;
-    const g = imgData[rgbaIdx + 1] / 255.0;
-    const b = imgData[rgbaIdx + 2] / 255.0;
-    
-    // Normalize: (pixel - mean) / std
-    input[i] = (r - MODEL_MEAN[0]) / MODEL_STD[0];
-    input[i + MODEL_INPUT_SIZE * MODEL_INPUT_SIZE] = (g - MODEL_MEAN[1]) / MODEL_STD[1];
-    input[i + 2 * MODEL_INPUT_SIZE * MODEL_INPUT_SIZE] = (b - MODEL_MEAN[2]) / MODEL_STD[2];
+async function preprocessImage(imageUri: string): Promise<any> {
+  const manipulated = await manipulateAsync(
+    imageUri,
+    [{ resize: { width: MODEL_INPUT_SIZE, height: MODEL_INPUT_SIZE } }],
+    {
+      format: SaveFormat.JPEG,
+      base64: true,
+      compress: 0.9,
+    }
+  );
+
+  const imgBase64 = manipulated.base64;
+  if (!imgBase64) {
+    throw new Error('Image manipulation failed: base64 data missing.');
   }
-  
-  // Create ONNX tensor: [1, 3, 224, 224]
-  return new ort.Tensor('float32', input, [1, 3, MODEL_INPUT_SIZE, MODEL_INPUT_SIZE]);
+
+  const imgBuffer = decode(imgBase64);
+  const rawImage = jpeg.decode(imgBuffer, { useTArray: true });
+  const { data, width, height } = rawImage;
+
+  const area = width * height;
+  const input = new Float32Array(3 * area);
+
+  // Layout: CHW (Channel, Height, Width) with ImageNet mean/std normalization
+  for (let i = 0; i < area; i++) {
+    const rgbaIdx = i * 4;
+    const r = data[rgbaIdx] / 255.0;
+    const g = data[rgbaIdx + 1] / 255.0;
+    const b = data[rgbaIdx + 2] / 255.0;
+
+    input[i] = (r - MODEL_MEAN[0]) / MODEL_STD[0];
+    input[i + area] = (g - MODEL_MEAN[1]) / MODEL_STD[1];
+    input[i + 2 * area] = (b - MODEL_MEAN[2]) / MODEL_STD[2];
+  }
+
+  if (!Ort) {
+    throw new Error('Model not loaded. Call initializeInference() first.');
+  }
+  return new Ort.Tensor('float32', input, [1, 3, height, width]);
 }
 
 /**
@@ -182,11 +220,13 @@ export async function predictTree(
   const inputTensor = await preprocessImage(imageUri);
   
   // Run inference
-  const feeds: Record<string, ort.Tensor> = {};
-  feeds[ortSession.inputNames[0]] = inputTensor;
+  const feeds: Record<string, any> = {};
+  const inputMeta = ortSession.inputMetadata[0] as any;
+  feeds[inputMeta.name] = inputTensor;
   
   const results = await ortSession.run(feeds);
-  const logits = results[ortSession.outputNames[0]];
+  const outputMeta = ortSession.outputMetadata[0] as any;
+  const logits = results[outputMeta.name];
   
   // Apply softmax to get probabilities
   const probs = softmax(logits.data as Float32Array);
@@ -357,5 +397,5 @@ export const SAMPLE_TEST_LEAVES = [
   },
 ];
 
-// Type for filter
-export type LibraryFilter = 'All' | 'Common' | 'Western Ghats' | 'Thin';
+// Type for filter (avoid duplicate declaration)
+export type { LibraryFilter } from '../types';

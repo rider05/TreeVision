@@ -30,13 +30,16 @@ def export_mobilenetv3(checkpoint_path: str, output_dir: Path, class_mapping: di
     else:
         raise ValueError("Unknown checkpoint format")
     
-    # Build model
+    # Build model with correct classifier structure
     if model_name == "mobilenet_v3_large":
         model = models.mobilenet_v3_large(weights=None)
-        model.classifier[3] = torch.nn.Linear(960, num_classes)
+        # The checkpoint has classifier.3 with 1280->num_classes
+        # Standard structure: Linear(960->1280), Hardswish, Dropout, Linear(1280->1000)
+        # Replace the final Linear layer
+        model.classifier[3] = torch.nn.Linear(1280, num_classes)
     elif model_name == "mobilenet_v3_small":
         model = models.mobilenet_v3_small(weights=None)
-        model.classifier[3] = torch.nn.Linear(576, num_classes)
+        model.classifier[3] = torch.nn.Linear(1280, num_classes)
     else:
         raise ValueError(f"Unknown model: {model_name}")
     
@@ -56,13 +59,22 @@ def export_mobilenetv3(checkpoint_path: str, output_dir: Path, class_mapping: di
         model, example, output_dir / "mobilenetv3_41.onnx",
         input_names=["input"], output_names=["logits"],
         dynamic_axes={"input": {0: "batch"}, "logits": {0: "batch"}},
-        opset_version=17
+        opset_version=17,
+        dynamo=False,
+        verbose=False
     )
     print(f"  Saved: {output_dir}/mobilenetv3_41.onnx")
     
     # Save class mapping
     import json
-    idx_to_class = {i: cls for cls, i in ckpt["class_to_idx"].items()}
+    if "class_to_idx" in ckpt:
+        idx_to_class = {i: cls for cls, i in ckpt["class_to_idx"].items()}
+    elif "class_names" in ckpt:
+        idx_to_class = {i: cls for i, cls in enumerate(ckpt["class_names"])}
+    elif "classes" in ckpt:
+        idx_to_class = {i: cls for i, cls in enumerate(ckpt["classes"])}
+    else:
+        idx_to_class = {}
     with open(output_dir / "class_mapping.json", "w") as f:
         json.dump(idx_to_class, f, indent=2)
     print(f"  Saved: {output_dir}/class_mapping.json")
@@ -120,7 +132,9 @@ def export_swin(checkpoint_path: str, output_dir: Path):
             input_names=["input"], output_names=["logits"],
             dynamic_axes={"input": {0: "batch"}, "logits": {0: "batch"}},
             opset_version=17,
-            do_constant_folding=True
+            dynamo=False,
+            do_constant_folding=True,
+            verbose=False
         )
         print(f"  Saved: {output_dir}/swin_41.onnx")
     except Exception as e:
@@ -128,7 +142,14 @@ def export_swin(checkpoint_path: str, output_dir: Path):
     
     # Save class mapping
     import json
-    idx_to_class = {i: cls for cls, i in ckpt["class_to_idx"].items()}
+    if "class_to_idx" in ckpt:
+        idx_to_class = {i: cls for cls, i in ckpt["class_to_idx"].items()}
+    elif "class_names" in ckpt:
+        idx_to_class = {i: cls for i, cls in enumerate(ckpt["class_names"])}
+    elif "classes" in ckpt:
+        idx_to_class = {i: cls for i, cls in enumerate(ckpt["classes"])}
+    else:
+        idx_to_class = {}
     with open(output_dir / "class_mapping.json", "w") as f:
         json.dump(idx_to_class, f, indent=2)
     print(f"  Saved: {output_dir}/class_mapping.json")
@@ -181,7 +202,7 @@ def main():
             print(f"Swin checkpoint not found: {swin_ckpt}")
     
     if a.model in ["mobilenetv3", "both"]:
-        mb_ckpt = a.checkpoint or "artifacts/best_torch_41headonly.pth"
+        mb_ckpt = a.checkpoint or "artifacts/best_finetune65.pth"
         if Path(mb_ckpt).exists():
             export_mobilenetv3(mb_ckpt, output_dir, {})
         else:
@@ -190,7 +211,7 @@ def main():
     if a.tflite:
         export_tflite(a.checkpoint or "artifacts/best_torch.pth", output_dir, a.model)
     
-    print(f"\n✅ Export complete! Files in {output_dir}/")
+    print(f"\nExport complete! Files in {output_dir}/")
     print("Next: Update app/src/services/inference.ts to load the model")
 
 

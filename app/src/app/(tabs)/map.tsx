@@ -38,16 +38,18 @@ export default function MapScreen() {
   const [filterType, setFilterType] = useState<'All' | 'Verified' | 'Pending'>('All');
 
   useEffect(() => {
-    loadObservations();
+    let mounted = true;
+    getSavedObservations()
+      .then((list) => {
+        if (mounted) {
+          setObservations(() => list);
+          if (list.length > 0) {
+            setSelectedObservation(() => list[0]);
+          }
+        }
+      });
+    return () => { mounted = false; };
   }, []);
-
-  const loadObservations = async () => {
-    const list = await getSavedObservations();
-    setObservations(list);
-    if (list.length > 0) {
-      setSelectedObservation(list[0]);
-    }
-  };
 
   const filteredObservations = observations.filter((obs) => {
     if (filterType === 'Verified') return obs.status === 'Verified';

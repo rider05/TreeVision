@@ -8,7 +8,6 @@ import {
   TextStyle,
   useColorScheme,
   View,
-  Platform,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors, Radius, Typography, Shadows } from '../theme';
@@ -33,7 +32,6 @@ export const PrimaryButton: React.FC<ButtonProps> = ({
   textStyle,
 }) => {
   const isDark = useColorScheme() === 'dark';
-  const colors = isDark ? Colors.dark : Colors.light;
 
   const isDisabled = disabled || loading;
 

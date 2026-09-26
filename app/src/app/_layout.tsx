@@ -4,7 +4,6 @@ import { StatusBar } from 'expo-status-bar';
 import { useColorScheme, View, StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import * as SplashScreen from 'expo-splash-screen';
-import { Colors } from '../theme';
 import { AnimatedBackground } from '../components/AnimatedBackground';
 import '../global.css';
 
@@ -12,7 +11,6 @@ SplashScreen.preventAutoHideAsync().catch(() => {});
 
 export default function RootLayout() {
   const isDark = useColorScheme() === 'dark';
-  const colors = isDark ? Colors.dark : Colors.light;
 
   useEffect(() => {
     // Hide splash screen smoothly after mounting

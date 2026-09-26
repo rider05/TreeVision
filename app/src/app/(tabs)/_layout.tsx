@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
 import { useColorScheme, Platform, StyleSheet, View } from 'react-native';
-import { Colors, Typography, Radius, Shadows } from '../../theme';
+import { Colors, Typography, Radius } from '../../theme';
 import {
   TreeCanopyIcon,
   TreeScanIcon,
@@ -50,9 +50,7 @@ export default function TabLayout() {
           tabBarLabel: 'TreeVision',
           tabBarIcon: ({ color, focused }) => (
             <View style={[styles.iconWrapper, focused && styles.iconWrapperActive]}>
-              <div className="tree-menu-symbol">
-                <TreeCanopyIcon size={24} color={focused ? colors.primary : color} focused={focused} />
-              </div>
+              <TreeCanopyIcon size={24} color={focused ? colors.primary : color} focused={focused} />
               {focused && <View style={[styles.activeDot, { backgroundColor: colors.primary }]} />}
             </View>
           ),
@@ -67,9 +65,7 @@ export default function TabLayout() {
           tabBarLabel: 'Identify',
           tabBarIcon: ({ color, focused }) => (
             <View style={[styles.iconWrapper, focused && styles.iconWrapperActive]}>
-              <div className="tree-menu-symbol">
-                <TreeScanIcon size={24} color={focused ? colors.primary : color} focused={focused} />
-              </div>
+              <TreeScanIcon size={24} color={focused ? colors.primary : color} focused={focused} />
               {focused && <View style={[styles.activeDot, { backgroundColor: colors.primary }]} />}
             </View>
           ),
@@ -84,9 +80,7 @@ export default function TabLayout() {
           tabBarLabel: 'Tree Atlas',
           tabBarIcon: ({ color, focused }) => (
             <View style={[styles.iconWrapper, focused && styles.iconWrapperActive]}>
-              <div className="tree-menu-symbol">
-                <ForestGroveIcon size={24} color={focused ? colors.primary : color} focused={focused} />
-              </div>
+              <ForestGroveIcon size={24} color={focused ? colors.primary : color} focused={focused} />
               {focused && <View style={[styles.activeDot, { backgroundColor: colors.primary }]} />}
             </View>
           ),
@@ -101,9 +95,7 @@ export default function TabLayout() {
           tabBarLabel: 'Eco Map',
           tabBarIcon: ({ color, focused }) => (
             <View style={[styles.iconWrapper, focused && styles.iconWrapperActive]}>
-              <div className="tree-menu-symbol">
-                <TreeMapPinIcon size={24} color={focused ? colors.primary : color} focused={focused} />
-              </div>
+              <TreeMapPinIcon size={24} color={focused ? colors.primary : color} focused={focused} />
               {focused && <View style={[styles.activeDot, { backgroundColor: colors.primary }]} />}
             </View>
           ),
@@ -118,9 +110,7 @@ export default function TabLayout() {
           tabBarLabel: 'Field Log',
           tabBarIcon: ({ color, focused }) => (
             <View style={[styles.iconWrapper, focused && styles.iconWrapperActive]}>
-              <div className="tree-menu-symbol">
-                <TreeLogbookIcon size={24} color={focused ? colors.primary : color} focused={focused} />
-              </div>
+              <TreeLogbookIcon size={24} color={focused ? colors.primary : color} focused={focused} />
               {focused && <View style={[styles.activeDot, { backgroundColor: colors.primary }]} />}
             </View>
           ),

@@ -15,7 +15,7 @@ import { Ionicons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import { Colors, Radius, Typography, Spacing, Shadows } from '../../theme';
 import { AppHeader } from '../../components/AppHeader';
-import { PrimaryButton, SecondaryButton, GhostButton } from '../../components/Buttons';
+import { PrimaryButton, GhostButton } from '../../components/Buttons';
 import { ImageQualityHint } from '../../components/ImageQualityHint';
 import { predictTree, SAMPLE_TEST_LEAVES } from '../../services/inference';
 import { TreeScanIcon } from '../../components/TreeIcons';
@@ -109,7 +109,10 @@ export default function IdentifyScreen() {
       });
     } catch (error) {
       console.error('Inference error:', error);
-      Alert.alert('Inference Failed', 'An error occurred running the LiteRT model.');
+      Alert.alert(
+        'Inference Failed',
+        error instanceof Error ? error.message : 'An error occurred running the LiteRT model.'
+      );
     } finally {
       setIsInferring(false);
     }
@@ -170,7 +173,20 @@ export default function IdentifyScreen() {
               <View style={[styles.cornerBracket, styles.bracketBR]} />
 
               {/* Animated Laser Scanning Line during Inference */}
-              {isInferring && <div className="laser-line" />}
+              {isInferring && (
+                <View
+                  style={{
+                    position: 'absolute',
+                    left: 8,
+                    right: 8,
+                    top: '50%',
+                    height: 2,
+                    borderRadius: 1,
+                    backgroundColor: colors.primary,
+                    opacity: 0.9,
+                  }}
+                />
+              )}
 
               {/* Retake Pill */}
               <View style={styles.retakeOverlay}>

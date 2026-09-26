@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   View,
-  Text,
   ScrollView,
   StyleSheet,
   useColorScheme,
@@ -9,7 +8,7 @@ import {
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, Spacing, Typography } from '../theme';
+import { Colors, Spacing } from '../theme';
 import { AppHeader } from '../components/AppHeader';
 import { ResultCard } from '../components/ResultCard';
 import { PrimaryButton, SecondaryButton, GhostButton } from '../components/Buttons';
@@ -55,7 +54,7 @@ export default function ResultScreen() {
             },
           ],
         };
-  } catch (e) {
+  } catch {
     prediction = {
       speciesId: 'azadirachta-indica',
       commonName: 'Neem Tree',

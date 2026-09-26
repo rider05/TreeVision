@@ -28,7 +28,7 @@ def load_checkpoint(path: str, device: torch.device):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--image", required=True)
-    ap.add_argument("--model", default="artifacts/best_torch.pth")
+    ap.add_argument("--model", default="artifacts/best_finetune65.pth")
     a = ap.parse_args()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model, classes, img_size = load_checkpoint(a.model, device)

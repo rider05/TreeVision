@@ -211,7 +211,7 @@ export function getLoadError(): string | null {
 
 /**
  * Preprocess image for model input
- * Resize to 224x224, decode JPEG to RGB pixels, normalize with ImageNet stats, convert to tensor
+ * Resize to 224x224, decode image to RGB pixels, normalize with ImageNet stats, convert to tensor
  */
 async function preprocessImage(imageUri: string): Promise<any> {
   // Sample leaves are remote URLs — cache them locally first so every photo,
@@ -228,6 +228,7 @@ async function preprocessImage(imageUri: string): Promise<any> {
     localUri = dl.uri;
   }
 
+  // Use expo-image-manipulator to resize and convert to JPEG (handles PNG, JPEG, etc.)
   const manipulated = await manipulateAsync(
     localUri,
     [{ resize: { width: MODEL_INPUT_SIZE, height: MODEL_INPUT_SIZE } }],

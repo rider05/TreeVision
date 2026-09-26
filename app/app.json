@@ -34,7 +34,8 @@
           "imageWidth": 76
         }
       ],
-      "onnxruntime-react-native"
+      "onnxruntime-react-native",
+      "./plugins/withAbiSplits.js"
     ],
     "experiments": {
       "typedRoutes": true,

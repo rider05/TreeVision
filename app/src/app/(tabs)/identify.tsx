@@ -8,6 +8,7 @@ import {
   StyleSheet,
   useColorScheme,
   Alert,
+  ActivityIndicator,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -17,7 +18,7 @@ import { Colors, Radius, Typography, Spacing, Shadows } from '../../theme';
 import { AppHeader } from '../../components/AppHeader';
 import { PrimaryButton, GhostButton } from '../../components/Buttons';
 import { ImageQualityHint } from '../../components/ImageQualityHint';
-import { predictTree, SAMPLE_TEST_LEAVES } from '../../services/inference';
+import { predictTree, SAMPLE_TEST_LEAVES, isOrtNativeAvailable } from '../../services/inference';
 import { TreeScanIcon } from '../../components/TreeIcons';
 
 export default function IdentifyScreen() {
@@ -26,10 +27,10 @@ export default function IdentifyScreen() {
   const colors = isDark ? Colors.dark : Colors.light;
 
   const [selectedUri, setSelectedUri] = useState<string | null>(null);
-  const [selectedSpeciesId, setSelectedSpeciesId] = useState<string | null>(null);
   const [isInferring, setIsInferring] = useState<boolean>(false);
+  const [inferPhase, setInferPhase] = useState<'idle' | 'model' | 'inference'>('idle');
+  const [downloadFrac, setDownloadFrac] = useState<number | null>(null);
   const [qualityWarning, setQualityWarning] = useState<string | null>(null);
-  const [lowConfidenceMode, setLowConfidenceMode] = useState<boolean>(false);
 
   // Take photo with device camera
   const handleTakePhoto = async () => {
@@ -44,7 +45,7 @@ export default function IdentifyScreen() {
       }
 
       const result = await ImagePicker.launchCameraAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        mediaTypes: ['images'],
         allowsEditing: true,
         aspect: [1, 1],
         quality: 0.8,
@@ -52,13 +53,11 @@ export default function IdentifyScreen() {
 
       if (!result.canceled && result.assets?.[0]?.uri) {
         setSelectedUri(result.assets[0].uri);
-        setSelectedSpeciesId(null);
         setQualityWarning(null);
       }
     } catch (e) {
       console.warn('Camera error:', e);
-      setSelectedUri(SAMPLE_TEST_LEAVES[0].image);
-      setSelectedSpeciesId(SAMPLE_TEST_LEAVES[0].speciesId);
+      Alert.alert('Camera Failed', 'Could not capture a photo. Please try again.');
     }
   };
 
@@ -66,7 +65,7 @@ export default function IdentifyScreen() {
   const handlePickGallery = async () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        mediaTypes: ['images'],
         allowsEditing: true,
         aspect: [1, 1],
         quality: 0.8,
@@ -74,19 +73,17 @@ export default function IdentifyScreen() {
 
       if (!result.canceled && result.assets?.[0]?.uri) {
         setSelectedUri(result.assets[0].uri);
-        setSelectedSpeciesId(null);
         setQualityWarning(null);
       }
     } catch (e) {
       console.warn('Picker error:', e);
-      setSelectedUri(SAMPLE_TEST_LEAVES[1].image);
-      setSelectedSpeciesId(SAMPLE_TEST_LEAVES[1].speciesId);
+      Alert.alert('Gallery Failed', 'Could not load the selected photo. Please try again.');
     }
   };
 
   const handleSelectSample = (sample: typeof SAMPLE_TEST_LEAVES[0]) => {
+    // Sample photos are classified by the real model like any other photo.
     setSelectedUri(sample.image);
-    setSelectedSpeciesId(sample.speciesId);
     setQualityWarning(null);
   };
 
@@ -96,9 +93,11 @@ export default function IdentifyScreen() {
 
     try {
       setIsInferring(true);
+      setDownloadFrac(null);
       const prediction = await predictTree(selectedUri, {
-        forcedSpeciesId: selectedSpeciesId || undefined,
-        lowConfidence: lowConfidenceMode,
+        onPhase: (phase) => setInferPhase(phase),
+        onModelDownload: (written, total) =>
+          setDownloadFrac(total && total > 0 ? Math.min(1, written / total) : null),
       });
 
       router.push({
@@ -111,16 +110,17 @@ export default function IdentifyScreen() {
       console.error('Inference error:', error);
       Alert.alert(
         'Inference Failed',
-        error instanceof Error ? error.message : 'An error occurred running the LiteRT model.'
+        error instanceof Error ? error.message : 'An error occurred running the model.'
       );
     } finally {
       setIsInferring(false);
+      setInferPhase('idle');
+      setDownloadFrac(null);
     }
   };
 
   const handleRetake = () => {
     setSelectedUri(null);
-    setSelectedSpeciesId(null);
     setQualityWarning(null);
   };
 
@@ -128,7 +128,7 @@ export default function IdentifyScreen() {
     <SafeAreaView style={styles.safeArea} edges={['top']}>
       <AppHeader
         title="Botanical Scanner"
-        subtitle="LiteRT MobileNetV4 INT8"
+        subtitle={isOrtNativeAvailable() ? "ONNX MobileNetV3 (On-Device)" : "Expo Go Preview Mode"}
         right={
           selectedUri ? (
             <GhostButton title="Clear" onPress={handleRetake} />
@@ -173,7 +173,7 @@ export default function IdentifyScreen() {
               <View style={[styles.cornerBracket, styles.bracketBR]} />
 
               {/* Animated Laser Scanning Line during Inference */}
-              {isInferring && (
+              {isInferring && inferPhase !== 'model' && (
                 <View
                   style={{
                     position: 'absolute',
@@ -186,6 +186,25 @@ export default function IdentifyScreen() {
                     opacity: 0.9,
                   }}
                 />
+              )}
+
+              {/* Model-download progress (first run only; staged afterwards) */}
+              {isInferring && inferPhase === 'model' && (
+                <View style={styles.downloadPill}>
+                  <ActivityIndicator size="small" color="#FFFFFF" />
+                  <View style={styles.downloadTextWrap}>
+                    <Text style={styles.downloadText}>
+                      {downloadFrac !== null
+                        ? `Downloading AI model… ${Math.round(downloadFrac * 100)}%`
+                        : 'Preparing AI model…'}
+                    </Text>
+                    {downloadFrac !== null && (
+                      <View style={styles.downloadTrack}>
+                        <View style={[styles.downloadFill, { width: `${Math.round(downloadFrac * 100)}%` }]} />
+                      </View>
+                    )}
+                  </View>
+                </View>
               )}
 
               {/* Retake Pill */}
@@ -210,45 +229,6 @@ export default function IdentifyScreen() {
 
             {/* Quality Hint (if flagged) */}
             {qualityWarning ? <ImageQualityHint reason={qualityWarning} /> : null}
-
-            {/* Simulation Options */}
-            <View
-              style={[
-                styles.optionsBlock,
-                {
-                  backgroundColor: isDark ? 'rgba(24, 32, 26, 0.85)' : 'rgba(255, 255, 255, 0.88)',
-                  borderColor: isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(46, 125, 50, 0.15)',
-                },
-                Shadows.card,
-              ]}
-              className="glass-card"
-            >
-              <View style={styles.optionRow}>
-                <View style={{ flex: 1 }}>
-                  <Text style={[styles.optionLabel, { color: colors.text }]}>
-                    Confidence Gate Test (&lt;60%)
-                  </Text>
-                  <Text style={[styles.optionSub, { color: colors.muted }]}>
-                    Simulates ambiguous foliage triggering the multi-evidence threshold banner
-                  </Text>
-                </View>
-                <TouchableOpacity
-                  activeOpacity={0.8}
-                  onPress={() => setLowConfidenceMode(!lowConfidenceMode)}
-                  style={[
-                    styles.toggleButton,
-                    {
-                      backgroundColor: lowConfidenceMode ? colors.accent : (isDark ? '#333' : '#E0E0E0'),
-                    },
-                  ]}
-                  className="interactive-hover"
-                >
-                  <Text style={[styles.toggleText, { color: lowConfidenceMode ? '#FFFFFF' : colors.muted }]}>
-                    {lowConfidenceMode ? 'ON' : 'OFF'}
-                  </Text>
-                </TouchableOpacity>
-              </View>
-            </View>
           </View>
         ) : (
           <View style={styles.captureContainer}>
@@ -479,6 +459,40 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 14,
     right: 14,
+  },
+  downloadPill: {
+    position: 'absolute',
+    top: 12,
+    left: 12,
+    right: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.72)',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: Radius.chip,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
+  },
+  downloadTextWrap: {
+    flex: 1,
+    marginLeft: 8,
+  },
+  downloadText: {
+    ...Typography.captionBold,
+    color: '#FFFFFF',
+    fontSize: 11,
+  },
+  downloadTrack: {
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: 'rgba(255,255,255,0.25)',
+    marginTop: 5,
+    overflow: 'hidden',
+  },
+  downloadFill: {
+    height: '100%',
+    backgroundColor: '#10B981',
   },
   retakeChip: {
     flexDirection: 'row',

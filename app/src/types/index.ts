@@ -47,6 +47,10 @@ export interface Prediction {
   imageUri: string;
   gradCamOverlayUri?: string;
   evidenceNotes?: string;
+  /** True when the OOD gate rejected the photo as not-a-tree. */
+  isNonTree?: boolean;
+  /** Human-readable reason, set only when isNonTree is true. */
+  rejectionReason?: string;
 }
 
 export interface Observation {

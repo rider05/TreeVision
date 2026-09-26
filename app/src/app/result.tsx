@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
   View,
+  Text,
   ScrollView,
   StyleSheet,
   useColorScheme,
@@ -8,7 +9,8 @@ import {
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, Spacing } from '../theme';
+import { Ionicons } from '@expo/vector-icons';
+import { Colors, Spacing, Radius, Typography } from '../theme';
 import { AppHeader } from '../components/AppHeader';
 import { ResultCard } from '../components/ResultCard';
 import { PrimaryButton, SecondaryButton, GhostButton } from '../components/Buttons';
@@ -24,53 +26,20 @@ export default function ResultScreen() {
   const [isSaving, setIsSaving] = useState<boolean>(false);
   const [hasSaved, setHasSaved] = useState<boolean>(false);
 
-  // Parse prediction payload from route params
-  let prediction: Prediction;
+  // Parse prediction payload from route params. No fabricated fallback:
+  // without a real model prediction there is nothing to display.
+  let prediction: Prediction | null = null;
   try {
     prediction = params.predictionData
-      ? JSON.parse(params.predictionData as string)
-      : {
-          speciesId: 'azadirachta-indica',
-          commonName: 'Neem Tree',
-          tamilName: 'வேப்ப மரம் (Veppam)',
-          scientificName: 'Azadirachta indica',
-          confidence: 0.934,
-          latencyMs: 142,
-          engine: 'LiteRT (INT8 MobileNetV4 • 224x224)',
-          needsMoreEvidence: false,
-          imageUri: 'https://images.unsplash.com/photo-1629853974488-8889ff0a9f5f?auto=format&fit=crop&w=800&q=80',
-          alternatives: [
-            {
-              speciesId: 'millettia-pinnata',
-              commonName: 'Pongamia',
-              scientificName: 'Millettia pinnata',
-              confidence: 0.043,
-            },
-            {
-              speciesId: 'swietenia-mahagoni',
-              commonName: 'Mahogany',
-              scientificName: 'Swietenia mahagoni',
-              confidence: 0.018,
-            },
-          ],
-        };
+      ? (JSON.parse(params.predictionData as string) as Prediction)
+      : null;
   } catch {
-    prediction = {
-      speciesId: 'azadirachta-indica',
-      commonName: 'Neem Tree',
-      tamilName: 'வேப்ப மரம்',
-      scientificName: 'Azadirachta indica',
-      confidence: 0.912,
-      latencyMs: 156,
-      engine: 'LiteRT (INT8 MobileNetV4)',
-      needsMoreEvidence: false,
-      imageUri: 'https://images.unsplash.com/photo-1629853974488-8889ff0a9f5f?auto=format&fit=crop&w=800&q=80',
-      alternatives: [],
-    };
+    prediction = null;
   }
 
   // Save observation to local logbook (app-design.md §6.3 & §8)
   const handleSaveObservation = async () => {
+    if (!prediction) return;
     try {
       setIsSaving(true);
       const newObs: Observation = {
@@ -113,6 +82,27 @@ export default function ResultScreen() {
     });
   };
 
+  if (!prediction) {
+    return (
+      <SafeAreaView style={[styles.safeArea, { backgroundColor: colors.background }]} edges={['top']}>
+        <AppHeader
+          title="Identification Result"
+          subtitle="Confidence-aware LiteRT classification"
+        />
+        <View style={styles.emptyWrap}>
+          <Text style={[styles.emptyText, { color: colors.muted }]}>
+            No identification result was received. Please run a scan from the Identify tab.
+          </Text>
+          <GhostButton
+            title="Go to Identify"
+            icon="camera-outline"
+            onPress={() => router.push('/identify')}
+          />
+        </View>
+      </SafeAreaView>
+    );
+  }
+
   return (
     <SafeAreaView style={[styles.safeArea, { backgroundColor: colors.background }]} edges={['top']}>
       <AppHeader
@@ -130,40 +120,95 @@ export default function ResultScreen() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Core Result Card containing Hero, Confidence, Alternatives, Grad-CAM (app-design.md §6.3) */}
-        <ResultCard
-          prediction={prediction}
-          onSpeciesPress={handleNavigateSpecies}
-        />
+        {prediction.isNonTree ? (
+          <>
+            {/* Non-tree rejection card (OOD gate in services/inference) */}
+            <View
+              style={[
+                styles.rejectCard,
+                {
+                  backgroundColor: isDark ? 'rgba(46, 20, 20, 0.88)' : 'rgba(255, 243, 238, 0.95)',
+                  borderColor: isDark ? 'rgba(229, 115, 115, 0.35)' : 'rgba(198, 40, 40, 0.25)',
+                },
+              ]}
+            >
+              <View style={styles.rejectHeader}>
+                <Ionicons name="alert-circle-outline" size={26} color={isDark ? '#EF9A9A' : '#C62828'} />
+                <Text style={[styles.rejectTitle, { color: colors.text }]}>
+                  Doesn&apos;t look like a tree
+                </Text>
+              </View>
+              {prediction.rejectionReason ? (
+                <Text style={[styles.rejectBody, { color: colors.text }]}>
+                  {prediction.rejectionReason}
+                </Text>
+              ) : null}
+              {prediction.evidenceNotes ? (
+                <Text style={[styles.rejectBody, { color: colors.muted }]}>
+                  {prediction.evidenceNotes}
+                </Text>
+              ) : null}
+              <View style={styles.tipList}>
+                {[
+                  'Fill the frame with one leaf, bark patch, or the whole tree',
+                  'Avoid people, vehicles, buildings, and food',
+                  'Use daylight, hold steady, and tap to focus',
+                ].map((tip) => (
+                  <View key={tip} style={styles.tipRow}>
+                    <View style={[styles.tipDot, { backgroundColor: colors.primary }]} />
+                    <Text style={[styles.tipText, { color: colors.text }]}>{tip}</Text>
+                  </View>
+                ))}
+              </View>
+            </View>
 
-        {/* Action Buttons (Bottom of Result Screen per app-design.md §6.3) */}
-        <View style={styles.actionButtonGroup}>
-          {/* Action 1: View details → /species/[id] (Primary) */}
-          <PrimaryButton
-            title="View Complete Species Profile"
-            icon="book-outline"
-            onPress={() => handleNavigateSpecies(prediction.speciesId)}
-            style={styles.primaryActionButton}
-          />
+            <View style={styles.actionButtonGroup}>
+              <GhostButton
+                title="Try Another Photo"
+                icon="camera-outline"
+                onPress={() => router.push('/identify')}
+                style={styles.ghostActionButton}
+              />
+            </View>
+          </>
+        ) : (
+          <>
+            {/* Core Result Card containing Hero, Confidence, Alternatives, Grad-CAM (app-design.md §6.3) */}
+            <ResultCard
+              prediction={prediction}
+              onSpeciesPress={handleNavigateSpecies}
+            />
 
-          {/* Action 2: Save observation (Secondary, stores to local DB) */}
-          <SecondaryButton
-            title={hasSaved ? 'Observation Saved ✓' : 'Save to Field Observations'}
-            icon={hasSaved ? 'checkmark-circle' : 'bookmark-outline'}
-            onPress={handleSaveObservation}
-            disabled={hasSaved || isSaving}
-            loading={isSaving}
-            style={styles.secondaryActionButton}
-          />
+            {/* Action Buttons (Bottom of Result Screen per app-design.md §6.3) */}
+            <View style={styles.actionButtonGroup}>
+              {/* Action 1: View details → /species/[id] (Primary) */}
+              <PrimaryButton
+                title="View Complete Species Profile"
+                icon="book-outline"
+                onPress={() => handleNavigateSpecies(prediction.speciesId)}
+                style={styles.primaryActionButton}
+              />
 
-          {/* Action 3: Identify another specimen */}
-          <GhostButton
-            title="Identify Another Leaf Specimen"
-            icon="camera-outline"
-            onPress={() => router.push('/identify')}
-            style={styles.ghostActionButton}
-          />
-        </View>
+              {/* Action 2: Save observation (Secondary, stores to local DB) */}
+              <SecondaryButton
+                title={hasSaved ? 'Observation Saved ✓' : 'Save to Field Observations'}
+                icon={hasSaved ? 'checkmark-circle' : 'bookmark-outline'}
+                onPress={handleSaveObservation}
+                disabled={hasSaved || isSaving}
+                loading={isSaving}
+                style={styles.secondaryActionButton}
+              />
+
+              {/* Action 3: Identify another specimen */}
+              <GhostButton
+                title="Identify Another Leaf Specimen"
+                icon="camera-outline"
+                onPress={() => router.push('/identify')}
+                style={styles.ghostActionButton}
+              />
+            </View>
+          </>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -190,5 +235,58 @@ const styles = StyleSheet.create({
   ghostActionButton: {
     width: '100%',
     paddingVertical: 12,
+  },
+  emptyWrap: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: Spacing.screenPadding,
+  },
+  emptyText: {
+    ...Typography.body,
+    textAlign: 'center',
+    marginBottom: Spacing.md,
+    lineHeight: 22,
+  },
+  rejectCard: {
+    borderRadius: Radius.card,
+    padding: Spacing.md,
+    borderWidth: 1,
+    marginBottom: Spacing.md,
+  },
+  rejectHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: Spacing.sm,
+  },
+  rejectTitle: {
+    ...Typography.h3,
+    marginLeft: 10,
+    flex: 1,
+  },
+  rejectBody: {
+    ...Typography.body,
+    lineHeight: 21,
+    marginBottom: Spacing.sm,
+  },
+  tipList: {
+    marginTop: Spacing.sm,
+  },
+  tipRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginVertical: 4,
+  },
+  tipDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    marginTop: 8,
+    marginRight: 10,
+  },
+  tipText: {
+    ...Typography.body,
+    flex: 1,
+    lineHeight: 20,
   },
 });

@@ -2,7 +2,8 @@
 // Real on-device inference using ONNX Runtime (Expo/React Native)
 // Loads model from app/assets/ and runs actual neural network inference
 
-import { Platform } from 'react-native';
+import { Platform, NativeModules } from 'react-native';
+import Constants, { ExecutionEnvironment } from 'expo-constants';
 import * as FileSystem from 'expo-file-system/legacy';
 import { Asset } from 'expo-asset';
 import { manipulateAsync, SaveFormat } from 'expo-image-manipulator';
@@ -42,9 +43,37 @@ const MODEL_MODULES = {
 // inside initializeInference instead.
 let Ort: typeof import('onnxruntime-react-native') | null = null;
 
+export const isExpoGo =
+  Constants.executionEnvironment === ExecutionEnvironment.StoreClient ||
+  Constants.appOwnership === 'expo';
+
+/**
+ * Detect whether ONNX Runtime native module is available.
+ * In Expo Go or Web, native modules like onnxruntime-react-native are not present.
+ * In a development build (npx expo run:android or EAS build), it is present.
+ */
+export function isOrtNativeAvailable(): boolean {
+  if (Platform.OS === 'web' || isExpoGo) return false;
+  try {
+    return Boolean(
+      NativeModules &&
+      NativeModules.Onnxruntime &&
+      typeof NativeModules.Onnxruntime.install === 'function'
+    );
+  } catch {
+    return false;
+  }
+}
+
 function loadOrtModule(): typeof import('onnxruntime-react-native') {
   if (Platform.OS === 'web') {
     throw new Error('On-device inference is not supported on web. Use an Android/iOS dev build.');
+  }
+  if (!isOrtNativeAvailable()) {
+    throw new Error(
+      'ONNX Runtime native module is missing. Use a dev client instead of Expo Go: ' +
+        'npx expo run:android (local) or eas build --profile development (cloud).'
+    );
   }
   try {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -56,10 +85,10 @@ function loadOrtModule(): typeof import('onnxruntime-react-native') {
       throw new Error('native binding unavailable');
     }
     return mod;
-  } catch {
+  } catch (err) {
     throw new Error(
-      'ONNX Runtime native module is missing. Use a dev client instead of Expo Go: ' +
-        'npx expo run:android (local) or eas build --profile development (cloud).'
+      'ONNX Runtime native module is missing or failed to initialize: ' +
+        (err instanceof Error ? err.message : String(err))
     );
   }
 }
@@ -73,10 +102,43 @@ let modelLoaded = false;
 let loadError: string | null = null;
 
 /**
+ * Stage the bundled .onnx into app storage, reporting download progress.
+ * Dev builds serve the asset over http(s) from Metro → byte-level progress.
+ * Release builds embed it → expo-asset resolves locally, progress is
+ * indeterminate (single jump when done).
+ */
+async function stageModelAssetWithProgress(
+  asset: Asset,
+  targetUri: string,
+  onProgress?: (bytesWritten: number, totalBytes: number | null) => void
+): Promise<void> {
+  const sourceUri = asset.uri;
+  if (sourceUri && (sourceUri.startsWith('http://') || sourceUri.startsWith('https://'))) {
+    const dl = FileSystem.createDownloadResumable(sourceUri, targetUri, {}, (p) => {
+      const total = p.totalBytesExpectedToWrite;
+      onProgress?.(p.totalBytesWritten, total && total > 0 ? total : null);
+    });
+    await dl.downloadAsync();
+    onProgress?.(1, 1);
+    return;
+  }
+  await asset.downloadAsync();
+  const localUri = asset.localUri ?? asset.uri;
+  if (!localUri) {
+    throw new Error('Model asset could not be resolved to a local file.');
+  }
+  await FileSystem.copyAsync({ from: localUri, to: targetUri });
+  onProgress?.(1, 1);
+}
+
+/**
  * Initialize ONNX Runtime and load model
  * Call once at app startup
  */
-export async function initializeInference(modelType: ModelType = 'mobilenetv3'): Promise<void> {
+export async function initializeInference(
+  modelType: ModelType = 'mobilenetv3',
+  onDownload?: (bytesWritten: number, totalBytes: number | null) => void
+): Promise<void> {
   if (modelLoaded && currentModelType === modelType) {
     return; // Already loaded
   }
@@ -87,16 +149,17 @@ export async function initializeInference(modelType: ModelType = 'mobilenetv3'):
     );
   }
 
+  if (!isOrtNativeAvailable()) {
+    console.warn(
+      '[TreeVision] ONNX Runtime native module unavailable (running in Expo Go / Web). ' +
+        'Dev build required for real on-device neural network inference: npx expo run:android'
+    );
+    loadError = 'Running in Expo Go (dev build required for ONNX inference)';
+    return;
+  }
+
   try {
     Ort = loadOrtModule();
-    // Resolve bundled model asset to a local file.
-    const modelAsset = Asset.fromModule(MODEL_MODULES.mobilenetv3.model);
-    await modelAsset.downloadAsync();
-    const modelUri = modelAsset.localUri ?? modelAsset.uri;
-    if (!modelUri) {
-      throw new Error('Model asset could not be resolved to a local file.');
-    }
-
     const modelsDir = `${FileSystem.documentDirectory}models/`;
     const dirInfo = await FileSystem.getInfoAsync(modelsDir);
     if (!dirInfo.exists) {
@@ -105,7 +168,11 @@ export async function initializeInference(modelType: ModelType = 'mobilenetv3'):
     const stagedModelUri = `${modelsDir}mobilenetv3_41.onnx`;
     const stagedModelInfo = await FileSystem.getInfoAsync(stagedModelUri);
     if (!stagedModelInfo.exists) {
-      await FileSystem.copyAsync({ from: modelUri, to: stagedModelUri });
+      await stageModelAssetWithProgress(
+        Asset.fromModule(MODEL_MODULES.mobilenetv3.model),
+        stagedModelUri,
+        onDownload
+      );
     }
 
     // Default (CPU) execution provider — matches official onnxruntime-react-native usage:
@@ -147,8 +214,22 @@ export function getLoadError(): string | null {
  * Resize to 224x224, decode JPEG to RGB pixels, normalize with ImageNet stats, convert to tensor
  */
 async function preprocessImage(imageUri: string): Promise<any> {
+  // Sample leaves are remote URLs — cache them locally first so every photo,
+  // local or remote, goes through the same real preprocessing + inference.
+  let localUri = imageUri;
+  if (imageUri.startsWith('http://') || imageUri.startsWith('https://')) {
+    const cacheDir = `${FileSystem.documentDirectory}incoming/`;
+    const dirInfo = await FileSystem.getInfoAsync(cacheDir);
+    if (!dirInfo.exists) {
+      await FileSystem.makeDirectoryAsync(cacheDir, { intermediates: true });
+    }
+    const target = `${cacheDir}sample-${Date.now()}.jpg`;
+    const dl = await FileSystem.downloadAsync(imageUri, target);
+    localUri = dl.uri;
+  }
+
   const manipulated = await manipulateAsync(
-    imageUri,
+    localUri,
     [{ resize: { width: MODEL_INPUT_SIZE, height: MODEL_INPUT_SIZE } }],
     {
       format: SaveFormat.JPEG,
@@ -188,69 +269,80 @@ async function preprocessImage(imageUri: string): Promise<any> {
 }
 
 /**
- * Run inference on image
+ * Run real on-device inference on an image.
+ *
+ * Realtime predictions only: there are no mock, forced-species, or simulated
+ * fallbacks anywhere in this path. If the ONNX Runtime native module is
+ * unavailable (Expo Go / web), this throws a clear error instead of
+ * fabricating a result — run a dev build for actual inference.
  */
 export async function predictTree(
   imageUri: string,
   options?: {
     modelType?: ModelType;
-    forcedSpeciesId?: string;
-    lowConfidence?: boolean;
+    /** Phase transitions: 'model' while staging/loading, 'inference' while running. */
+    onPhase?: (phase: 'model' | 'inference') => void;
+    /** Model-download progress; totalBytes is null when size is unknown. */
+    onModelDownload?: (bytesWritten: number, totalBytes: number | null) => void;
   }
 ): Promise<Prediction> {
   const startTime = Date.now();
-  
-  // Ensure model is loaded
   const modelType = options?.modelType || 'mobilenetv3';
-  if (!modelLoaded || currentModelType !== modelType) {
-    await initializeInference(modelType);
+
+  // No native module, no prediction — never fabricate one.
+  if (!isOrtNativeAvailable()) {
+    throw new Error(
+      'Real-time inference needs a dev build with the ONNX Runtime native module. ' +
+        'Run `npx expo run:android` (local) or `eas build --profile development` (cloud).'
+    );
   }
-  
+
+  // 3. Real ONNX Runtime inference on Android/iOS dev build
+  if (!modelLoaded || currentModelType !== modelType) {
+    options?.onPhase?.('model');
+    await initializeInference(modelType, options?.onModelDownload);
+  }
+  options?.onPhase?.('inference');
+
   if (!ortSession) {
     throw new Error('Model not loaded. Call initializeInference() first.');
   }
 
-  // Handle forced species (for testing)
-  if (options?.forcedSpeciesId) {
-    const primaryTree = getTree(options.forcedSpeciesId) || ALL_TREES[0];
-    return buildPrediction(primaryTree, 0.95, [], Date.now() - startTime, modelType);
-  }
-
   // Preprocess image
   const inputTensor = await preprocessImage(imageUri);
-  
+
   // Run inference
   const feeds: Record<string, any> = {};
   const inputMeta = ortSession.inputMetadata[0] as any;
   feeds[inputMeta.name] = inputTensor;
-  
+
   const results = await ortSession.run(feeds);
   const outputMeta = ortSession.outputMetadata[0] as any;
   const logits = results[outputMeta.name];
-  
+
   // Apply softmax to get probabilities
   const probs = softmax(logits.data as Float32Array);
-  
+
   // Get top-3 predictions
   const topK = 3;
   const indices = getTopKIndices(probs, topK);
-  
+
   // Map to species
   const primaryIdx = indices[0];
   const primarySpeciesId = IDX_TO_CLASS[primaryIdx];
-  
+
   if (!primarySpeciesId) {
     throw new Error(`Unknown class index: ${primaryIdx}`);
   }
-  
+
   const primaryTree = getTree(primarySpeciesId);
   if (!primaryTree) {
     throw new Error(`Species not found in database: ${primarySpeciesId}`);
   }
-  
+
   const confidence = probs[primaryIdx];
   const needsMoreEvidence = confidence < CONFIDENCE_THRESHOLD;
-  
+
   // Build alternatives
   const alternatives: PredictionAlternative[] = [];
   for (let i = 1; i < indices.length; i++) {
@@ -268,10 +360,28 @@ export async function predictTree(
       }
     }
   }
-  
+
   const latencyMs = Date.now() - startTime;
-  
-  return buildPrediction(primaryTree, confidence, alternatives, latencyMs, modelType, needsMoreEvidence);
+
+  // Non-tree gate (real model output only).
+  const rawConfidence = probs[primaryIdx];
+  const rawMargin = probs[indices[0]] - probs[indices[1]];
+  const energy = computeEnergy(logits.data as Float32Array);
+  const nonTreeReason = detectNonTreeReason(rawConfidence, rawMargin, energy);
+  if (nonTreeReason) {
+    const rejected = buildPrediction(primaryTree, rawConfidence, alternatives, latencyMs, modelType, true);
+    rejected.imageUri = imageUri;
+    rejected.isNonTree = true;
+    rejected.rejectionReason = nonTreeReason;
+    rejected.evidenceNotes =
+      `Closest match was ${primaryTree.commonName} at ${(rawConfidence * 100).toFixed(1)}% — ` +
+      'below the acceptance bar for a reliable identification.';
+    return rejected;
+  }
+
+  const pred = buildPrediction(primaryTree, confidence, alternatives, latencyMs, modelType, needsMoreEvidence);
+  pred.imageUri = imageUri;
+  return pred;
 }
 
 /**
@@ -301,6 +411,51 @@ function getTopKIndices(probs: Float32Array, k: number): number[] {
   const indexed = Array.from(probs).map((prob, idx) => ({ prob, idx }));
   indexed.sort((a, b) => b.prob - a.prob);
   return indexed.slice(0, k).map(item => item.idx);
+}
+
+// ---------------------------------------------------------------------------
+// Non-tree / out-of-distribution gate
+//
+// The 41-class softmax always sums to 1, so a photo of a person, vehicle, or
+// building still "predicts" some species. Reject the photo when ALL of these
+// hold on the RAW (pre-override) probabilities:
+//   1. top-1 confidence below NON_TREE_MIN_CONFIDENCE,
+//   2. top-1/top-2 margin below NON_TREE_MIN_MARGIN (model can't pick a winner),
+//   3. energy above NON_TREE_MAX_ENERGY (flat logit distribution = unfamiliar
+//      input), where energy = -logsumexp(logits).
+//
+// Conjunctive on purpose: a hard-but-real tree photo should fall through to
+// "needs more evidence", never to a false rejection.
+//
+// These defaults are UNCALIBRATED starting points. Calibrate with ~50 real
+// non-tree photos plus the validation set: log (confidence, margin, energy)
+// for both groups and pick thresholds that reject OOD while keeping
+// validation recall near 100%.
+// ---------------------------------------------------------------------------
+const NON_TREE_MIN_CONFIDENCE = 0.30;
+const NON_TREE_MIN_MARGIN = 0.08;
+const NON_TREE_MAX_ENERGY = -4.0;
+
+function computeEnergy(logitArray: Float32Array): number {
+  let max = -Infinity;
+  for (let i = 0; i < logitArray.length; i++) {
+    if (logitArray[i] > max) max = logitArray[i];
+  }
+  let sum = 0;
+  for (let i = 0; i < logitArray.length; i++) {
+    sum += Math.exp(logitArray[i] - max);
+  }
+  return -(max + Math.log(sum));
+}
+
+function detectNonTreeReason(confidence: number, margin: number, energy: number): string | null {
+  if (confidence >= NON_TREE_MIN_CONFIDENCE) return null;
+  if (margin >= NON_TREE_MIN_MARGIN) return null;
+  if (energy <= NON_TREE_MAX_ENERGY) return null;
+  return (
+    `No confident match (best ${(confidence * 100).toFixed(1)}%, margin ${(margin * 100).toFixed(1)}%). ` +
+    'This photo may not show a tree, or the tree is too far, blurry, or occluded.'
+  );
 }
 
 /**

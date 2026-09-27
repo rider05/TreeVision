@@ -33,7 +33,8 @@
         }
       ],
       "onnxruntime-react-native",
-      "./plugins/withAbiSplits.js"
+      "./plugins/withAbiSplits.js",
+      "./plugins/withOnnxruntimePackage.js"
     ],
     "experiments": {
       "typedRoutes": true,

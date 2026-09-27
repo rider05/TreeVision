@@ -171,7 +171,7 @@ async function stageModelAssetWithProgress(
 // from your own storage (e.g. a GitHub Release asset) with a real progress
 // bar, instead of only relying on the copy bundled inside the APK.
 // Leave empty to always use the bundled asset.
-const MODEL_REMOTE_URL = '';
+const MODEL_REMOTE_URL = 'https://raw.githubusercontent.com/rider05/TreeVision/master/app/assets/mobilenetv3_41.onnx';
 // Exact byte size of mobilenetv3_41.onnx — used to verify a remote download.
 const MODEL_EXPECTED_BYTES = 17008224;
 

@@ -16,7 +16,7 @@ import { AppHeader } from '../../components/AppHeader';
 import { SearchInput } from '../../components/SearchInput';
 import { SpeciesCard } from '../../components/SpeciesCard';
 import { EmptyState } from '../../components/EmptyState';
-import { getAllTrees, searchTrees } from '../../services/inference';
+import { getIdentifiableTrees, searchIdentifiableTrees } from '../../services/inference';
 import { LibraryFilter, TreeSpecies } from '../../types';
 import { ForestGroveIcon } from '../../components/TreeIcons';
 
@@ -30,11 +30,11 @@ export default function LibraryScreen() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [activeFilter, setActiveFilter] = useState<LibraryFilter>('All');
 
-  const allTrees = useMemo(() => getAllTrees(), []);
+  const allTrees = useMemo(() => getIdentifiableTrees(), []);
   const thinCount = useMemo(() => allTrees.filter((t) => t.isThin).length, [allTrees]);
 
   const filteredTrees = useMemo(() => {
-    return searchTrees(searchQuery, activeFilter);
+    return searchIdentifiableTrees(searchQuery, activeFilter);
   }, [searchQuery, activeFilter]);
 
   const handleCardPress = (tree: TreeSpecies) => {
@@ -48,7 +48,7 @@ export default function LibraryScreen() {
     <SafeAreaView style={styles.safeArea} edges={['top']}>
       <AppHeader
         title="Botanical Tree Atlas"
-        subtitle="50 Native & Forest Species Catalog"
+        subtitle={`${allTrees.length} Native & Forest Species Catalog`}
       />
 
       <View style={styles.container}>

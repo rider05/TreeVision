@@ -613,6 +613,20 @@ function buildPrediction(
 export function getAllTrees(): TreeSpecies[] {
   return ALL_TREES;
 }
+// Species the on-device model can actually identify (41-class mapping).
+// UI counts derive from this so they never drift from the model.
+export const IDENTIFIABLE_SPECIES_COUNT = Object.keys(IDX_TO_CLASS).length;
+const IDENTIFIABLE_IDS = new Set<string>(Object.values(IDX_TO_CLASS));
+export function isIdentifiableSpecies(id: string): boolean {
+  return IDENTIFIABLE_IDS.has(id);
+}
+export function getIdentifiableTrees(): TreeSpecies[] {
+  return ALL_TREES.filter((t) => IDENTIFIABLE_IDS.has(t.id));
+}
+
+export function searchIdentifiableTrees(query: string, filter: LibraryFilter = 'All'): TreeSpecies[] {
+  return searchTrees(query, filter).filter((t) => IDENTIFIABLE_IDS.has(t.id));
+}
 
 export function getTree(id: string): TreeSpecies | undefined {
   return ALL_TREES.find((t) => t.id === id);

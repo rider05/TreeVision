@@ -1451,5 +1451,411 @@
       "bark": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
       "tree": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80"
     }
+  },
+  {
+    "barkDescription": "Thick rough dark grey-brown bark with deep vertical fissures and a dense crown",
+    "citation": "TreeVision 41-class dataset (train split); iNaturalist research-grade observations (community ID verified); Flora of Tamil Nadu. Photo: (c) Yoav Daniel Bar-Ness, CC BY, via iNaturalist",
+    "commonName": "Mango Tree",
+    "conservationStatus": "Least Concern (IUCN)",
+    "family": "Anacardiaceae",
+    "fieldImagesCount": 345,
+    "flowerDescription": "Large terminal panicles of tiny fragrant yellowish-white to pinkish flowers",
+    "fruitDescription": "Large fleshy drupe, green to golden-yellow/red when ripe, sweet aromatic pulp around a single flat seed",
+    "habitat": "Homesteads, farmlands, urban avenues and dry deciduous tracts; widely cultivated",
+    "id": "mangifera-indica",
+    "isThin": false,
+    "isWesternGhats": false,
+    "leafType": "Simple alternate glossy lanceolate leaves, bronze-red when young, clustered at branch ends",
+    "occurrenceRecords": 345,
+    "region": "Coimbatore Plains & Foothills",
+    "sampleImages": {
+      "bark": "https://inaturalist-open-data.s3.amazonaws.com/photos/192795169/medium.jpg",
+      "leaf": "https://inaturalist-open-data.s3.amazonaws.com/photos/192795169/medium.jpg",
+      "tree": "https://inaturalist-open-data.s3.amazonaws.com/photos/192795169/medium.jpg"
+    },
+    "scientificName": "Mangifera indica",
+    "tamilName": "மாம்பழம் (Maampazham)",
+    "uses": [
+      "National fruit of India; staple food and juice crop across Tamil Nadu",
+      "Unripe mango in pickles and Siddha digestive preparations",
+      "Dense shade tree for campuses, roadsides and farm bunds"
+    ]
+  },
+  {
+    "barkDescription": "No woody trunk; stout pseudostem of tightly wrapped leaf sheaths, green to yellow-green",
+    "citation": "TreeVision 41-class dataset (train split); iNaturalist research-grade observations (community ID verified); Flora of Tamil Nadu. Photo: (c) Greg Lasley, CC BY-NC, via iNaturalist",
+    "commonName": "Banana / Plantain",
+    "conservationStatus": "Least Concern (wild relatives, IUCN)",
+    "family": "Musaceae",
+    "fieldImagesCount": 51,
+    "flowerDescription": "Large pendulous maroon inflorescence (vaazhaipoo) with rows of yellowish flowers",
+    "fruitDescription": "Elongated curved berries in hands; cultivated hybrids are seedless with sweet starchy pulp",
+    "habitat": "Homesteads, wetlands, farmlands and backyard groves; cultivated, rarely wild",
+    "id": "musa-acuminata",
+    "isThin": true,
+    "isWesternGhats": false,
+    "leafType": "Very large simple oblong blades with prominent midrib; cultivated forms are mostly hybrids",
+    "occurrenceRecords": 51,
+    "region": "Coimbatore Plains & Wetlands",
+    "sampleImages": {
+      "bark": "https://inaturalist-open-data.s3.amazonaws.com/photos/3004694/medium.jpg",
+      "leaf": "https://inaturalist-open-data.s3.amazonaws.com/photos/3004694/medium.jpg",
+      "tree": "https://inaturalist-open-data.s3.amazonaws.com/photos/3004694/medium.jpg"
+    },
+    "scientificName": "Musa acuminata (cultivated hybrids)",
+    "tamilName": "வாழை (Vaazhai)",
+    "uses": [
+      "Staple fruit, backyard food security and Theni/Vellore commercial belts",
+      "Banana flower and stem in Tamil cuisine and traditional medicine",
+      "Leaves as eco-friendly serving plates and ceremonial use"
+    ]
+  },
+  {
+    "barkDescription": "Slender unbranched grey trunk ringed with leaf scars, crown of huge feathery fronds",
+    "citation": "TreeVision 41-class dataset (train split); iNaturalist research-grade observations (community ID verified); Flora of Tamil Nadu. Photo: (c) David Anderson, CC BY, via iNaturalist",
+    "commonName": "Coconut Palm",
+    "conservationStatus": "Least Concern (IUCN)",
+    "family": "Arecaceae",
+    "fieldImagesCount": 302,
+    "flowerDescription": "Large branched spadix with small yellowish male and female flowers in a woody spathe",
+    "fruitDescription": "Large fibrous drupe with hard shell, liquid endosperm (tender coconut) and white kernel",
+    "habitat": "Coastal plains, farmlands, homesteads and urban compounds; the signature Kongu Nadu palm",
+    "id": "cocos-nucifera",
+    "isThin": false,
+    "isWesternGhats": false,
+    "leafType": "Pinnate fronds 3-4 m long with narrow serrated leaflets along a central rachis",
+    "occurrenceRecords": 302,
+    "region": "Coimbatore Plains & Pollachi Coconut Belt",
+    "sampleImages": {
+      "bark": "https://inaturalist-open-data.s3.amazonaws.com/photos/103610074/medium.jpg",
+      "leaf": "https://inaturalist-open-data.s3.amazonaws.com/photos/103610074/medium.jpg",
+      "tree": "https://inaturalist-open-data.s3.amazonaws.com/photos/103610074/medium.jpg"
+    },
+    "scientificName": "Cocos nucifera",
+    "tamilName": "தென்னை (Thennai)",
+    "uses": [
+      "Tender coconut water, copra, oil and coir — backbone of the rural Kongu economy",
+      "Fronds for thatch, mats and ceremonial decoration",
+      "Shell and husk as fuel, charcoal and growing medium"
+    ]
+  },
+  {
+    "barkDescription": "Smooth pale bark that peels in thin flakes, crooked branching trunk",
+    "citation": "TreeVision 41-class dataset (train split); iNaturalist research-grade observations (community ID verified); Flora of Tamil Nadu. Photo: (c) Daniel Dias, CC BY-SA, via iNaturalist",
+    "commonName": "Guava",
+    "conservationStatus": "Least Concern (IUCN)",
+    "family": "Myrtaceae",
+    "fieldImagesCount": 210,
+    "flowerDescription": "Solitary fragrant white flowers with many prominent stamens",
+    "fruitDescription": "Round to pear-shaped berry with fragrant pink or white pulp and many hard seeds",
+    "habitat": "Homesteads, orchards and scrub; naturalized across dry tracts",
+    "id": "psidium-guajava",
+    "isThin": false,
+    "isWesternGhats": false,
+    "leafType": "Simple opposite oval leathery leaves with prominent parallel veins",
+    "occurrenceRecords": 210,
+    "region": "Coimbatore Plains & Orchards",
+    "sampleImages": {
+      "bark": "https://inaturalist-open-data.s3.amazonaws.com/photos/259834166/medium.jpeg",
+      "leaf": "https://inaturalist-open-data.s3.amazonaws.com/photos/259834166/medium.jpeg",
+      "tree": "https://inaturalist-open-data.s3.amazonaws.com/photos/259834166/medium.jpeg"
+    },
+    "scientificName": "Psidium guajava",
+    "tamilName": "கொய்யா (Koyya)",
+    "uses": [
+      "Vitamin-C-rich fruit; leading backyard orchard tree",
+      "Leaf decoction in Siddha medicine for digestion and wounds",
+      "Fast-growing fuelwood and light timber"
+    ]
+  },
+  {
+    "barkDescription": "Soft greenish-grey trunk with prominent leaf-scar rings, hollow soft wood",
+    "citation": "TreeVision 41-class dataset (train split); iNaturalist research-grade observations (community ID verified); Flora of Tamil Nadu. Photo: (c) zebedeugalinha, CC BY, via iNaturalist",
+    "commonName": "Papaya",
+    "conservationStatus": "Least Concern (IUCN)",
+    "family": "Caricaceae",
+    "fieldImagesCount": 334,
+    "flowerDescription": "Creamy-white fleshy flowers borne directly on the trunk below the crown",
+    "fruitDescription": "Large melon-like berry, green turning golden-yellow, sweet orange pulp with black seeds",
+    "habitat": "Homesteads, farmlands and waste patches; short-lived and fast-growing",
+    "id": "carica-papaya",
+    "isThin": false,
+    "isWesternGhats": false,
+    "leafType": "Very large deeply palmately-lobed leaves on long hollow stalks, clustered at the top",
+    "occurrenceRecords": 334,
+    "region": "Coimbatore Plains & Farmlands",
+    "sampleImages": {
+      "bark": "https://inaturalist-open-data.s3.amazonaws.com/photos/697630234/medium.jpg",
+      "leaf": "https://inaturalist-open-data.s3.amazonaws.com/photos/697630234/medium.jpg",
+      "tree": "https://inaturalist-open-data.s3.amazonaws.com/photos/697630234/medium.jpg"
+    },
+    "scientificName": "Carica papaya",
+    "tamilName": "பப்பாளி (Pappaali)",
+    "uses": [
+      "Papain-rich fruit aiding digestion; commercial orchards around Tamil Nadu",
+      "Unripe fruit as vegetable; leaves in traditional fever remedies",
+      "Quick income intercrop in coconut and banana farms"
+    ]
+  },
+  {
+    "barkDescription": "Massive straight trunk with rough pebbly grey-brown bark",
+    "citation": "TreeVision 41-class dataset (train split); iNaturalist research-grade observations (community ID verified); Flora of Tamil Nadu. Photo: (c) Carolina Leal, CC BY, via iNaturalist",
+    "commonName": "Jackfruit",
+    "conservationStatus": "Least Concern (IUCN)",
+    "family": "Moraceae",
+    "fieldImagesCount": 172,
+    "flowerDescription": "Tiny greenish flowers on separate fleshy spikes borne on trunk and branches",
+    "fruitDescription": "World's largest tree-borne fruit; spiny green rind with sweet golden bulbs and large seeds",
+    "habitat": "Homesteads, Western Ghats foothills and humid valleys of the Kongu region",
+    "id": "artocarpus-heterophyllus",
+    "isThin": false,
+    "isWesternGhats": false,
+    "leafType": "Large simple glossy obovate leaves, dark green and leathery",
+    "occurrenceRecords": 172,
+    "region": "Coimbatore Foothills & Homesteads",
+    "sampleImages": {
+      "bark": "https://inaturalist-open-data.s3.amazonaws.com/photos/40635707/medium.jpeg",
+      "leaf": "https://inaturalist-open-data.s3.amazonaws.com/photos/40635707/medium.jpeg",
+      "tree": "https://inaturalist-open-data.s3.amazonaws.com/photos/40635707/medium.jpeg"
+    },
+    "scientificName": "Artocarpus heterophyllus",
+    "tamilName": "பலாப்பழம் (Palaapazham)",
+    "uses": [
+      "State fruit of Tamil Nadu; stapleJack of Western Ghats homesteads",
+      "Seeds roasted as protein-rich snack; timber for furniture and boats",
+      "Leaves as fodder and traditional plate material"
+    ]
+  },
+  {
+    "barkDescription": "Soft whitish-grey corky bark, slender brittle branches",
+    "citation": "TreeVision 41-class dataset (train split); iNaturalist research-grade observations (community ID verified); Flora of Tamil Nadu. Photo: (c) forageatx, CC BY-NC, via iNaturalist",
+    "commonName": "Drumstick / Moringa",
+    "conservationStatus": "Least Concern (IUCN)",
+    "family": "Moringaceae",
+    "fieldImagesCount": 172,
+    "flowerDescription": "Fragrant creamy-white flowers in large drooping panicles",
+    "fruitDescription": "Long slender ribbed pods (drumsticks) with winged seeds",
+    "habitat": "Homesteads, farmlands, live fences and dry plains across Tamil Nadu",
+    "id": "moringa-oleifera",
+    "isThin": false,
+    "isWesternGhats": false,
+    "leafType": "Tripinnate feathery compound leaves with tiny oval leaflets",
+    "occurrenceRecords": 172,
+    "region": "Coimbatore Plains & Farmlands",
+    "sampleImages": {
+      "bark": "https://inaturalist-open-data.s3.amazonaws.com/photos/84530419/medium.jpeg",
+      "leaf": "https://inaturalist-open-data.s3.amazonaws.com/photos/84530419/medium.jpeg",
+      "tree": "https://inaturalist-open-data.s3.amazonaws.com/photos/84530419/medium.jpeg"
+    },
+    "scientificName": "Moringa oleifera",
+    "tamilName": "முருங்கை (Murungai)",
+    "uses": [
+      "Miracle-tree nutrition: leaves, pods and flowers in daily Tamil cuisine",
+      "Seeds for water purification and oil; global superfood export from Tamil Nadu",
+      "Fast-growing live fence and fodder in dryland farms"
+    ]
+  },
+  {
+    "barkDescription": "Smooth dark brown bark with aromatic inner layer, dense spreading crown",
+    "citation": "TreeVision 41-class dataset (train split); iNaturalist research-grade observations (community ID verified); Flora of Tamil Nadu. Photo: (c) Tatiana Gerus, CC BY-SA, via iNaturalist",
+    "commonName": "Curry Leaf Tree",
+    "conservationStatus": "Least Concern (IUCN)",
+    "family": "Rutaceae",
+    "fieldImagesCount": 86,
+    "flowerDescription": "Small fragrant white flowers in terminal clusters",
+    "fruitDescription": "Small ovoid purple-black berries in clusters, single-seeded",
+    "habitat": "Homesteads, farmlands and scrub; essential backyard tree of every Tamil home",
+    "id": "bergera-koenigii",
+    "isThin": true,
+    "isWesternGhats": false,
+    "leafType": "Pinnate compound leaves with 11-21 strongly aromatic lanceolate leaflets",
+    "occurrenceRecords": 86,
+    "region": "Coimbatore Plains & Homesteads",
+    "sampleImages": {
+      "bark": "https://inaturalist-open-data.s3.amazonaws.com/photos/81041/medium.jpg",
+      "leaf": "https://inaturalist-open-data.s3.amazonaws.com/photos/81041/medium.jpg",
+      "tree": "https://inaturalist-open-data.s3.amazonaws.com/photos/81041/medium.jpg"
+    },
+    "scientificName": "Bergera koenigii (syn. Murraya koenigii)",
+    "tamilName": "கருவேப்பிலை (Karuveppilai)",
+    "uses": [
+      "Signature aroma of Tamil cuisine; daily culinary and medicinal leaf",
+      "Iron- and antioxidant-rich Siddha remedy for hair and digestion",
+      "Commercial leaf export crop of the Kongu belt"
+    ]
+  },
+  {
+    "barkDescription": "Light grey bark with shallow fissures on a low-branching trunk",
+    "citation": "TreeVision 41-class dataset (train split); iNaturalist research-grade observations (community ID verified); Flora of Tamil Nadu. Photo: (c) Guillaume Delaitre, CC BY, via iNaturalist",
+    "commonName": "Custard Apple / Sweetsop",
+    "conservationStatus": "Least Concern (IUCN)",
+    "family": "Annonaceae",
+    "fieldImagesCount": 128,
+    "flowerDescription": "Drooping fleshy yellowish-green flowers with three thick petals",
+    "fruitDescription": "Heart-shaped fruit with knobby green rind and sweet creamy segmented pulp",
+    "habitat": "Dry scrub, rocky hillocks and homesteads of the Kongu plains",
+    "id": "annona-squamosa",
+    "isThin": true,
+    "isWesternGhats": false,
+    "leafType": "Simple oblong dull-green leaves with a characteristic odour when crushed",
+    "occurrenceRecords": 128,
+    "region": "Coimbatore Plains & Scrub Hills",
+    "sampleImages": {
+      "bark": "https://inaturalist-open-data.s3.amazonaws.com/photos/338394758/medium.jpeg",
+      "leaf": "https://inaturalist-open-data.s3.amazonaws.com/photos/338394758/medium.jpeg",
+      "tree": "https://inaturalist-open-data.s3.amazonaws.com/photos/338394758/medium.jpeg"
+    },
+    "scientificName": "Annona squamosa",
+    "tamilName": "சீதாப்பழம் (Seethaapazham)",
+    "uses": [
+      "Beloved dryland fruit; Marudhamalai foothill orchards",
+      "Seeds and leaves in traditional pest control and Siddha use",
+      "Hardy income tree for rainfed farms"
+    ]
+  },
+  {
+    "barkDescription": "Dark brown to black rough fissured bark on a thorny umbrella-crowned trunk",
+    "citation": "TreeVision 41-class dataset (train split); iNaturalist research-grade observations (community ID verified); Flora of Tamil Nadu. Photo: (c) janet_taylor, CC BY-NC, via iNaturalist",
+    "commonName": "Babul / Gum Arabic Tree",
+    "conservationStatus": "Least Concern (IUCN)",
+    "family": "Fabaceae",
+    "fieldImagesCount": 102,
+    "flowerDescription": "Fragrant golden-yellow puffball flower heads in axillary clusters",
+    "fruitDescription": "Flat greyish pods constricted between seeds, relished by livestock",
+    "habitat": "Dry plains, tank bunds, scrub forests and black-soil tracts",
+    "id": "vachellia-nilotica",
+    "isThin": true,
+    "isWesternGhats": false,
+    "leafType": "Bipinnate feathery leaves with tiny leaflets and paired white thorns",
+    "occurrenceRecords": 102,
+    "region": "Coimbatore Plains & Scrub Forests",
+    "sampleImages": {
+      "bark": "https://inaturalist-open-data.s3.amazonaws.com/photos/210371368/medium.jpg",
+      "leaf": "https://inaturalist-open-data.s3.amazonaws.com/photos/210371368/medium.jpg",
+      "tree": "https://inaturalist-open-data.s3.amazonaws.com/photos/210371368/medium.jpg"
+    },
+    "scientificName": "Vachellia nilotica (syn. Acacia nilotica)",
+    "tamilName": "கருவேலம் (Karuvelam)",
+    "uses": [
+      "Gum arabic, tannin and firewood economy of dry districts",
+      "Pods as nutritious livestock feed in drought years",
+      "Thorny live fencing and resolved wasteland afforestation"
+    ]
+  },
+  {
+    "barkDescription": "Smooth grey-green bark on a slender fast-growing trunk",
+    "citation": "TreeVision 41-class dataset (train split); iNaturalist research-grade observations (community ID verified); Flora of Tamil Nadu. Photo: CC0 by 葉子, via iNaturalist",
+    "commonName": "Subabul / White Leadtree",
+    "conservationStatus": "Least Concern (IUCN)",
+    "family": "Fabaceae",
+    "fieldImagesCount": 97,
+    "flowerDescription": "Creamy-white round puffball flower heads",
+    "fruitDescription": "Flat brown pods in clusters with many flat oval seeds",
+    "habitat": "Wastelands, roadsides, tank foreshores and social forestry blocks",
+    "id": "leucaena-leucocephala",
+    "isThin": true,
+    "isWesternGhats": false,
+    "leafType": "Bipinnate feathery leaves resembling a giant tamarind foliage",
+    "occurrenceRecords": 97,
+    "region": "Coimbatore Plains & Wastelands",
+    "sampleImages": {
+      "bark": "https://inaturalist-open-data.s3.amazonaws.com/photos/173810094/medium.jpeg",
+      "leaf": "https://inaturalist-open-data.s3.amazonaws.com/photos/173810094/medium.jpeg",
+      "tree": "https://inaturalist-open-data.s3.amazonaws.com/photos/173810094/medium.jpeg"
+    },
+    "scientificName": "Leucaena leucocephala",
+    "tamilName": "சுபாபுல் (Subabul)",
+    "uses": [
+      "Pulpwood and biomass plantations of the paper industry",
+      "Protein-rich fodder (in moderation) and green manure",
+      "Nitrogen-fixing pioneer for degraded land restoration"
+    ]
+  },
+  {
+    "barkDescription": "Tall straight buttressed trunk with smooth grey bark mottled with lichens",
+    "citation": "TreeVision 41-class dataset (train split); iNaturalist research-grade observations (community ID verified); Flowers of India; eFlora of India. Photo: (c) Prashanth, CC BY-NC, via iNaturalist",
+    "commonName": "Wild Durian",
+    "conservationStatus": "Western Ghats endemic; status not verified in this build — see IUCN Red List",
+    "family": "Malvaceae",
+    "fieldImagesCount": 86,
+    "flowerDescription": "Large fleshy cream-pink flowers clustered on old wood (cauliflory)",
+    "fruitDescription": "Woody spiny capsule that bursts open star-like, revealing dark seeds in yellow arils",
+    "habitat": "Wet evergreen forests of the Western Ghats; Anamalai keystone species",
+    "id": "cullenia-exarillata",
+    "isThin": true,
+    "isWesternGhats": true,
+    "leafType": "Large simple oblong leathery leaves, glossy above and rusty-scaly beneath",
+    "occurrenceRecords": 86,
+    "region": "Anamalai & Western Ghats Evergreen Belt",
+    "sampleImages": {
+      "bark": "https://inaturalist-open-data.s3.amazonaws.com/photos/107634260/medium.jpeg",
+      "leaf": "https://inaturalist-open-data.s3.amazonaws.com/photos/107634260/medium.jpeg",
+      "tree": "https://inaturalist-open-data.s3.amazonaws.com/photos/107634260/medium.jpeg"
+    },
+    "scientificName": "Cullenia exarillata",
+    "tamilName": "வெடிப்பலா (Vedipila)",
+    "uses": [
+      "Keystone food tree for hornbills, macaques and giant squirrels",
+      "Indicator of undisturbed evergreen forest; ecotourism flagship of Topslip",
+      "Studied widely in Anamalai rainforest restoration science"
+    ]
+  },
+  {
+    "barkDescription": "Tall straight bole with smooth grey bark exuding white fragrant dammar resin",
+    "citation": "TreeVision 41-class dataset (train split); iNaturalist research-grade observations (community ID verified); India Biodiversity Portal. Photo: (c) Rohit, CC BY-SA, via iNaturalist",
+    "commonName": "White Damar",
+    "conservationStatus": "Western Ghats endemic; status not verified in this build — see IUCN Red List",
+    "family": "Dipterocarpaceae",
+    "fieldImagesCount": 46,
+    "flowerDescription": "Large fragrant white flowers in terminal panicles",
+    "fruitDescription": "Ovoid nut enclosed in enlarged papery calyx wings",
+    "habitat": "Wet evergreen forests of the Western Ghats lowlands and foothills",
+    "id": "vateria-indica",
+    "isThin": true,
+    "isWesternGhats": true,
+    "leafType": "Large simple oblong leathery leaves with prominent parallel veins",
+    "occurrenceRecords": 46,
+    "region": "Anamalai & Western Ghats Evergreen Belt",
+    "sampleImages": {
+      "bark": "https://inaturalist-open-data.s3.amazonaws.com/photos/51610697/medium.jpg",
+      "leaf": "https://inaturalist-open-data.s3.amazonaws.com/photos/51610697/medium.jpg",
+      "tree": "https://inaturalist-open-data.s3.amazonaws.com/photos/51610697/medium.jpg"
+    },
+    "scientificName": "Vateria indica",
+    "tamilName": "வெள்ளை குங்கிலியம் (Vellai Kungiliyam)",
+    "uses": [
+      "White dammar resin for incense, varnish and Ayurvedic medicine",
+      "High-value timber historically over-harvested; now protected",
+      "Flagship endemic for evergreen forest conservation"
+    ]
+  },
+  {
+    "barkDescription": "Rough grey-brown scaly bark exuding blood-red kino gum when cut",
+    "citation": "TreeVision 41-class dataset (train split); iNaturalist research-grade observations (community ID verified); Flora of Tamil Nadu. Photo: (c) Milind Girdhari, CC BY-NC, via iNaturalist",
+    "commonName": "Vengai / Malabar Kino",
+    "conservationStatus": "Status not verified in this build — see IUCN Red List",
+    "family": "Fabaceae",
+    "fieldImagesCount": 65,
+    "flowerDescription": "Golden-yellow pea flowers in large showy panicles",
+    "fruitDescription": "Flat winged pods with a single seed, dispersed by wind",
+    "habitat": "Dry deciduous forests and rocky slopes of the Eastern and Western Ghats",
+    "id": "pterocarpus-marsupium",
+    "isThin": true,
+    "isWesternGhats": false,
+    "leafType": "Imparipinnate compound leaves with 5-7 leathery oblong leaflets",
+    "occurrenceRecords": 65,
+    "region": "Sathyamangalam & Ghats Deciduous Belt",
+    "sampleImages": {
+      "bark": "https://inaturalist-open-data.s3.amazonaws.com/photos/168147246/medium.jpeg",
+      "leaf": "https://inaturalist-open-data.s3.amazonaws.com/photos/168147246/medium.jpeg",
+      "tree": "https://inaturalist-open-data.s3.amazonaws.com/photos/168147246/medium.jpeg"
+    },
+    "scientificName": "Pterocarpus marsupium",
+    "tamilName": "வேங்கை (Vengai)",
+    "uses": [
+      "Prized Vengai timber for furniture, carving and temples",
+      "Kino gum and heartwood in Siddha medicine for diabetes",
+      "Nectar-rich flowering tree supporting wild bees"
+    ]
   }
 ]

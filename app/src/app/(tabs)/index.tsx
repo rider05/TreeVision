@@ -12,7 +12,7 @@ import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors, Radius, Typography, Spacing, Shadows } from '../../theme';
-import { getAllTrees, SAMPLE_TEST_LEAVES, resolveSampleUri } from '../../services/inference';
+import { getIdentifiableTrees, SAMPLE_TEST_LEAVES, resolveSampleUri, IDENTIFIABLE_SPECIES_COUNT } from '../../services/inference';
 import {
   BanyanBrandEmblem,
   TreeCanopyIcon,
@@ -27,7 +27,7 @@ export default function HomeScreen() {
   const isDark = useColorScheme() === 'dark';
   const colors = isDark ? Colors.dark : Colors.light;
 
-  const trees = getAllTrees();
+  const trees = getIdentifiableTrees();
   const ghatsTreesCount = trees.filter((t) => t.isWesternGhats).length;
 
   // Bundled real sample photos, resolved to local URIs once.
@@ -112,7 +112,7 @@ export default function HomeScreen() {
             ]}
           >
             <View style={styles.metricItem}>
-              <Text style={[styles.metricVal, { color: colors.primary }]}>50</Text>
+              <Text style={[styles.metricVal, { color: colors.primary }]}>{IDENTIFIABLE_SPECIES_COUNT}</Text>
               <Text style={[styles.metricLabel, { color: colors.muted }]}>Species</Text>
             </View>
             <View style={styles.metricDivider} />
@@ -203,7 +203,7 @@ export default function HomeScreen() {
                     { backgroundColor: isDark ? '#143818' : colors.primaryLight },
                   ]}
                 >
-                  <Text style={[styles.countPillText, { color: colors.primary }]}>50 Species</Text>
+                  <Text style={[styles.countPillText, { color: colors.primary }]}>{IDENTIFIABLE_SPECIES_COUNT} Species</Text>
                 </View>
               </View>
               <Text style={[styles.secondaryCardSubtitle, { color: colors.muted }]}>

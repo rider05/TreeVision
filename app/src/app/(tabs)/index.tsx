@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -12,7 +12,7 @@ import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors, Radius, Typography, Spacing, Shadows } from '../../theme';
-import { getAllTrees, SAMPLE_TEST_LEAVES } from '../../services/inference';
+import { getAllTrees, SAMPLE_TEST_LEAVES, resolveSampleUri } from '../../services/inference';
 import {
   BanyanBrandEmblem,
   TreeCanopyIcon,
@@ -29,6 +29,21 @@ export default function HomeScreen() {
 
   const trees = getAllTrees();
   const ghatsTreesCount = trees.filter((t) => t.isWesternGhats).length;
+
+  // Bundled real sample photos, resolved to local URIs once.
+  const [sampleUris, setSampleUris] = useState<Record<string, string>>({});
+  useEffect(() => {
+    (async () => {
+      const entries: Record<string, string> = {};
+      await Promise.all(
+        SAMPLE_TEST_LEAVES.map(async (s) => {
+          const uri = await resolveSampleUri(s.speciesId);
+          if (uri) entries[s.speciesId] = uri;
+        })
+      );
+      setSampleUris(entries);
+    })();
+  }, []);
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
@@ -232,7 +247,9 @@ export default function HomeScreen() {
                 ]}
                 className="interactive-hover"
               >
-                <Image source={{ uri: sample.image }} style={styles.specimenThumb} resizeMode="cover" />
+                {sampleUris[sample.speciesId] ? (
+                  <Image source={{ uri: sampleUris[sample.speciesId] }} style={styles.specimenThumb} resizeMode="cover" />
+                ) : null}
                 <View style={styles.specimenBadge}>
                   <Text style={styles.specimenBadgeText}>Sample</Text>
                 </View>

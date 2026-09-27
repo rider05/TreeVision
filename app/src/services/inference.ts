@@ -55,14 +55,50 @@ export const isExpoGo =
 export function isOrtNativeAvailable(): boolean {
   if (Platform.OS === 'web' || isExpoGo) return false;
   try {
+    const mod = NativeModules.Onnxruntime;
+    // The native module exposes an `install()` method that installs the JSI bindings.
+    // It does NOT have createSession/createSessionWithBuffer directly on the native module.
+    // Those are exposed via the global OrtApi after calling install().
     return Boolean(
-      NativeModules &&
-      NativeModules.Onnxruntime &&
-      typeof NativeModules.Onnxruntime.install === 'function'
+      mod &&
+      typeof mod.install === 'function'
     );
   } catch {
     return false;
   }
+}
+
+/**
+ * On-device diagnostics for the "native module missing" case.
+ * Distinguishes Expo Go vs a native build whose module failed to register.
+ */
+export interface OrtDiagnostics {
+  platform: string;
+  isExpoGo: boolean;
+  executionEnvironment: string;
+  appOwnership: string;
+  hasNativeModule: boolean;
+  hasInstallFn: boolean;
+}
+
+export function getOrtDiagnostics(): OrtDiagnostics {
+  let hasNativeModule = false;
+  let hasInstallFn = false;
+  try {
+    const mod = NativeModules.Onnxruntime;
+    hasNativeModule = Boolean(mod);
+    hasInstallFn = Boolean(mod && typeof mod.install === 'function');
+  } catch {
+    // ignore — reports false below
+  }
+  return {
+    platform: String(Platform.OS),
+    isExpoGo,
+    executionEnvironment: String(Constants.executionEnvironment ?? 'null'),
+    appOwnership: String(Constants.appOwnership ?? 'null'),
+    hasNativeModule,
+    hasInstallFn,
+  };
 }
 
 function loadOrtModule(): typeof import('onnxruntime-react-native') {
@@ -131,6 +167,52 @@ async function stageModelAssetWithProgress(
   onProgress?.(1, 1);
 }
 
+// Remote model hosting: paste a direct .onnx URL here to download the model
+// from your own storage (e.g. a GitHub Release asset) with a real progress
+// bar, instead of only relying on the copy bundled inside the APK.
+// Leave empty to always use the bundled asset.
+const MODEL_REMOTE_URL = '';
+// Exact byte size of mobilenetv3_41.onnx — used to verify a remote download.
+const MODEL_EXPECTED_BYTES = 17008224;
+
+/**
+ * Download the model from a remote URL with byte-level progress.
+ * Writes to a temp file first, verifies size, then moves into place —
+ * a failed download never leaves a corrupt staged model behind.
+ */
+async function downloadModelWithProgress(
+  url: string,
+  targetUri: string,
+  expectedBytes: number,
+  onProgress?: (bytesWritten: number, totalBytes: number | null) => void
+): Promise<void> {
+  const tmpUri = `${targetUri}.tmp`;
+  try {
+    const dl = FileSystem.createDownloadResumable(url, tmpUri, {}, (p) => {
+      const total = p.totalBytesExpectedToWrite;
+      onProgress?.(p.totalBytesWritten, total && total > 0 ? total : expectedBytes > 0 ? expectedBytes : null);
+    });
+    const res = await dl.downloadAsync();
+    if (res && typeof res.status === 'number' && res.status !== 200) {
+      throw new Error(`Model download failed (HTTP ${res.status}).`);
+    }
+    const info = await FileSystem.getInfoAsync(tmpUri);
+    const size = info.exists ? (info as { size?: number }).size ?? 0 : 0;
+    if (expectedBytes > 0 && size !== expectedBytes) {
+      throw new Error(`Model download incomplete (got ${size} bytes, expected ${expectedBytes}).`);
+    }
+    await FileSystem.moveAsync({ from: tmpUri, to: targetUri });
+    onProgress?.(1, 1);
+  } catch (e) {
+    try {
+      await FileSystem.deleteAsync(tmpUri, { idempotent: true });
+    } catch {
+      // ignore cleanup failures
+    }
+    throw e;
+  }
+}
+
 /**
  * Initialize ONNX Runtime and load model
  * Call once at app startup
@@ -168,11 +250,24 @@ export async function initializeInference(
     const stagedModelUri = `${modelsDir}mobilenetv3_41.onnx`;
     const stagedModelInfo = await FileSystem.getInfoAsync(stagedModelUri);
     if (!stagedModelInfo.exists) {
-      await stageModelAssetWithProgress(
-        Asset.fromModule(MODEL_MODULES.mobilenetv3.model),
-        stagedModelUri,
-        onDownload
-      );
+      // Prefer the remote URL (real download progress) when configured,
+      // fall back to the asset bundled in the APK when offline or on failure.
+      let staged = false;
+      if (MODEL_REMOTE_URL) {
+        try {
+          await downloadModelWithProgress(MODEL_REMOTE_URL, stagedModelUri, MODEL_EXPECTED_BYTES, onDownload);
+          staged = true;
+        } catch (e) {
+          console.warn('[TreeVision] Remote model download failed, using bundled asset:', e);
+        }
+      }
+      if (!staged) {
+        await stageModelAssetWithProgress(
+          Asset.fromModule(MODEL_MODULES.mobilenetv3.model),
+          stagedModelUri,
+          onDownload
+        );
+      }
     }
 
     // Default (CPU) execution provider — matches official onnxruntime-react-native usage:
@@ -207,6 +302,30 @@ export function isModelReady(): boolean {
  */
 export function getLoadError(): string | null {
   return loadError;
+}
+
+/**
+ * Delete the staged .onnx copy and drop the loaded session, forcing the
+ * next predictTree() to re-stage (re-download) the model from the bundle
+ * and recreate the session. Used by the UI retry/remove actions.
+ * @returns bytes freed (0 when nothing was staged).
+ */
+export async function resetStagedModel(): Promise<number> {
+  ortSession = null;
+  modelLoaded = false;
+  loadError = null;
+  try {
+    const stagedModelUri = `${FileSystem.documentDirectory}models/mobilenetv3_41.onnx`;
+    const info = await FileSystem.getInfoAsync(stagedModelUri);
+    if (info.exists) {
+      const size = (info as { size?: number }).size ?? 0;
+      await FileSystem.deleteAsync(stagedModelUri, { idempotent: true });
+      return size;
+    }
+  } catch (e) {
+    console.warn('[TreeVision] resetStagedModel:', e);
+  }
+  return 0;
 }
 
 /**
@@ -519,39 +638,59 @@ export function searchTrees(query: string, filter: LibraryFilter = 'All'): TreeS
   });
 }
 
-// Sample test images (unchanged)
+// Sample test images — REAL photos bundled from the training dataset
+// (app/assets/samples/), one per species, classified by the real model.
 export const SAMPLE_TEST_LEAVES = [
   {
     name: 'Neem (Veppam)',
     speciesId: 'azadirachta-indica',
-    image: 'https://images.unsplash.com/photo-1629853974488-8889ff0a9f5f?auto=format&fit=crop&w=800&q=80',
+    asset: require('../../assets/samples/neem.jpg'),
     description: 'Serrated lanceolate leaflets',
   },
   {
     name: 'Peepal (Arasu)',
     speciesId: 'ficus-religiosa',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
+    asset: require('../../assets/samples/peepal.jpg'),
     description: 'Classic heart-shape with long drip tip',
   },
   {
     name: 'Banyan (Aalamaram)',
     speciesId: 'ficus-benghalensis',
-    image: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80',
+    asset: require('../../assets/samples/banyan.jpg'),
     description: 'Leathery oval with prominent ribs',
   },
   {
     name: 'Teak (Thekku)',
     speciesId: 'tectona-grandis',
-    image: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80',
+    asset: require('../../assets/samples/teak.jpg'),
     description: 'Large rough foliage',
   },
   {
     name: 'Tamarind (Puli)',
     speciesId: 'tamarindus-indica',
-    image: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80',
+    asset: require('../../assets/samples/tamarind.jpg'),
     description: 'Feathery pinnate compound leaflets',
   },
 ];
+
+// Resolve a bundled sample photo to a local file URI (cached).
+// Works offline in dev builds and release builds alike.
+const sampleUriCache: Record<string, string> = {};
+export async function resolveSampleUri(speciesId: string): Promise<string | null> {
+  if (sampleUriCache[speciesId]) return sampleUriCache[speciesId];
+  const sample = SAMPLE_TEST_LEAVES.find((s) => s.speciesId === speciesId);
+  if (!sample) return null;
+  try {
+    const a = Asset.fromModule(sample.asset);
+    await a.downloadAsync();
+    const uri = a.localUri ?? a.uri;
+    sampleUriCache[speciesId] = uri;
+    return uri;
+  } catch (e) {
+    console.warn('Sample asset failed:', speciesId, e);
+    return null;
+  }
+}
 
 // Type for filter (avoid duplicate declaration)
 export type { LibraryFilter } from '../types';

@@ -51,6 +51,7 @@ tg_session.session
 stats_out.txt
 stats_err.txt
 npm-debug.log*
+*.log
 # Local data mirrors (reproducible)
 dataset_base/
 quarantine/

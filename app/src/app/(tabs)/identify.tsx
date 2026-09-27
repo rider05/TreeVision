@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -9,6 +9,8 @@ import {
   useColorScheme,
   Alert,
   ActivityIndicator,
+  Animated,
+  Easing,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -18,7 +20,7 @@ import { Colors, Radius, Typography, Spacing, Shadows } from '../../theme';
 import { AppHeader } from '../../components/AppHeader';
 import { PrimaryButton, GhostButton } from '../../components/Buttons';
 import { ImageQualityHint } from '../../components/ImageQualityHint';
-import { predictTree, SAMPLE_TEST_LEAVES, isOrtNativeAvailable } from '../../services/inference';
+import { predictTree, SAMPLE_TEST_LEAVES, isOrtNativeAvailable, isExpoGo, getOrtDiagnostics, resetStagedModel, resolveSampleUri } from '../../services/inference';
 import { TreeScanIcon } from '../../components/TreeIcons';
 
 export default function IdentifyScreen() {
@@ -31,6 +33,49 @@ export default function IdentifyScreen() {
   const [inferPhase, setInferPhase] = useState<'idle' | 'model' | 'inference'>('idle');
   const [downloadFrac, setDownloadFrac] = useState<number | null>(null);
   const [qualityWarning, setQualityWarning] = useState<string | null>(null);
+  const [inferError, setInferError] = useState<string | null>(null);
+  const [modelNotice, setModelNotice] = useState<string | null>(null);
+
+  const nativeAvailable = isOrtNativeAvailable();
+  const diag = getOrtDiagnostics();
+  const diagLine =
+    `diag: expoGo=${diag.isExpoGo} env=${diag.executionEnvironment} ` +
+    `owner=${diag.appOwnership} native=${diag.hasNativeModule} install=${diag.hasInstallFn}`;
+
+  // Resolve bundled sample photos to local URIs once (works offline,
+  // in dev builds and release builds alike).
+  const [sampleUris, setSampleUris] = useState<Record<string, string>>({});
+  useEffect(() => {
+    (async () => {
+      const entries: Record<string, string> = {};
+      await Promise.all(
+        SAMPLE_TEST_LEAVES.map(async (s) => {
+          const uri = await resolveSampleUri(s.speciesId);
+          if (uri) entries[s.speciesId] = uri;
+        })
+      );
+      setSampleUris(entries);
+    })();
+  }, []);
+
+  // Indeterminate progress animation for the model phase when total size
+  // is unknown (release builds stage the embedded model locally).
+  const [indeterminateX] = useState(() => new Animated.Value(0));
+  const showIndeterminate = isInferring && inferPhase === 'model' && downloadFrac === null;
+  useEffect(() => {
+    if (!showIndeterminate) return;
+    indeterminateX.setValue(0);
+    const loop = Animated.loop(
+      Animated.timing(indeterminateX, {
+        toValue: 1,
+        duration: 1200,
+        easing: Easing.inOut(Easing.ease),
+        useNativeDriver: false,
+      })
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [showIndeterminate, indeterminateX]);
 
   // Take photo with device camera
   const handleTakePhoto = async () => {
@@ -54,6 +99,8 @@ export default function IdentifyScreen() {
       if (!result.canceled && result.assets?.[0]?.uri) {
         setSelectedUri(result.assets[0].uri);
         setQualityWarning(null);
+        setInferError(null);
+        setModelNotice(null);
       }
     } catch (e) {
       console.warn('Camera error:', e);
@@ -74,6 +121,8 @@ export default function IdentifyScreen() {
       if (!result.canceled && result.assets?.[0]?.uri) {
         setSelectedUri(result.assets[0].uri);
         setQualityWarning(null);
+        setInferError(null);
+        setModelNotice(null);
       }
     } catch (e) {
       console.warn('Picker error:', e);
@@ -82,17 +131,35 @@ export default function IdentifyScreen() {
   };
 
   const handleSelectSample = (sample: typeof SAMPLE_TEST_LEAVES[0]) => {
-    // Sample photos are classified by the real model like any other photo.
-    setSelectedUri(sample.image);
+    // Bundled real dataset photo, resolved to a local file URI on mount.
+    const uri = sampleUris[sample.speciesId];
+    if (!uri) return;
+    setSelectedUri(uri);
     setQualityWarning(null);
+    setInferError(null);
+    setModelNotice(null);
   };
 
-  // Run on-device inference with laser animation
+  // Run on-device inference with laser animation.
+  // No alerts here: when the native ONNX engine is absent (Expo Go / web)
+  // show an inline note instead of throwing, and surface genuine failures
+  // inline too so identification never pops an error dialog.
   const handleIdentify = async () => {
     if (!selectedUri) return;
 
+    if (!isOrtNativeAvailable()) {
+      setInferError(
+        'On-device AI needs the native TreeVision build. This preview runs in Expo Go, ' +
+          'which cannot load the ONNX engine — install the release APK to run identification.'
+      );
+      return;
+    }
+
     try {
       setIsInferring(true);
+      setInferPhase('model');
+      setInferError(null);
+      setModelNotice(null);
       setDownloadFrac(null);
       const prediction = await predictTree(selectedUri, {
         onPhase: (phase) => setInferPhase(phase),
@@ -108,10 +175,7 @@ export default function IdentifyScreen() {
       });
     } catch (error) {
       console.error('Inference error:', error);
-      Alert.alert(
-        'Inference Failed',
-        error instanceof Error ? error.message : 'An error occurred running the model.'
-      );
+      setInferError(error instanceof Error ? error.message : 'An error occurred running the model.');
     } finally {
       setIsInferring(false);
       setInferPhase('idle');
@@ -122,13 +186,39 @@ export default function IdentifyScreen() {
   const handleRetake = () => {
     setSelectedUri(null);
     setQualityWarning(null);
+    setInferError(null);
+    setModelNotice(null);
+  };
+
+  // Failure recovery: wipe the staged model/session and re-run, which
+  // re-stages (re-downloads) the model from the bundle and reloads it.
+  // The model-phase progress pill (spinner + progress bar) shows while staging.
+  const handleRetryDownload = async () => {
+    if (!selectedUri || isInferring) return;
+    setInferError(null);
+    setModelNotice(null);
+    await resetStagedModel();
+    await handleIdentify();
+  };
+
+  // Storage management: delete the staged model copy to free space.
+  // It downloads again automatically on the next Run.
+  const handleRemoveModel = async () => {
+    if (isInferring) return;
+    const freed = await resetStagedModel();
+    setInferError(null);
+    setModelNotice(
+      freed > 0
+        ? `Downloaded model removed (${(freed / 1048576).toFixed(1)} MB freed). It will download again on the next Run.`
+        : 'No downloaded model found — nothing to remove.'
+    );
   };
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
       <AppHeader
         title="Botanical Scanner"
-        subtitle={isOrtNativeAvailable() ? "ONNX MobileNetV3 (On-Device)" : "Expo Go Preview Mode"}
+        subtitle={nativeAvailable ? "ONNX MobileNetV3 (On-Device)" : isExpoGo ? "Expo Go Preview Mode" : "Native Engine Missing"}
         right={
           selectedUri ? (
             <GhostButton title="Clear" onPress={handleRetake} />
@@ -198,11 +288,23 @@ export default function IdentifyScreen() {
                         ? `Downloading AI model… ${Math.round(downloadFrac * 100)}%`
                         : 'Preparing AI model…'}
                     </Text>
-                    {downloadFrac !== null && (
-                      <View style={styles.downloadTrack}>
+                    <View style={styles.downloadTrack}>
+                      {downloadFrac !== null ? (
                         <View style={[styles.downloadFill, { width: `${Math.round(downloadFrac * 100)}%` }]} />
-                      </View>
-                    )}
+                      ) : (
+                        <Animated.View
+                          style={[
+                            styles.indeterminateFill,
+                            {
+                              left: indeterminateX.interpolate({
+                                inputRange: [0, 1],
+                                outputRange: ['-30%', '100%'],
+                              }),
+                            },
+                          ]}
+                        />
+                      )}
+                    </View>
                   </View>
                 </View>
               )}
@@ -229,6 +331,63 @@ export default function IdentifyScreen() {
 
             {/* Quality Hint (if flagged) */}
             {qualityWarning ? <ImageQualityHint reason={qualityWarning} /> : null}
+
+            {/* Inline inference status — replaces the old error alert */}
+            {inferError ? (
+              <View
+                style={[
+                  styles.errorCard,
+                  {
+                    backgroundColor: isDark ? 'rgba(66, 20, 20, 0.85)' : 'rgba(253, 237, 237, 0.95)',
+                    borderColor: isDark ? 'rgba(229, 115, 115, 0.4)' : 'rgba(198, 40, 40, 0.25)',
+                  },
+                ]}
+              >
+                <View style={styles.errorRow}>
+                  <Ionicons name="alert-circle" size={18} color="#E53935" style={{ marginRight: 8 }} />
+                  <Text style={[styles.errorText, { color: colors.text }]}>{inferError}</Text>
+                </View>
+                {!nativeAvailable ? (
+                  <Text style={[styles.diagText, { color: colors.muted }]}>{diagLine}</Text>
+                ) : null}
+                <View style={styles.cardActions}>
+                  <TouchableOpacity
+                    style={styles.removeButton}
+                    onPress={handleRemoveModel}
+                    activeOpacity={0.8}
+                  >
+                    <Ionicons name="trash-outline" size={14} color="#E53935" style={{ marginRight: 6 }} />
+                    <Text style={styles.removeText}>Remove model</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.retryButton}
+                    onPress={handleRetryDownload}
+                    activeOpacity={0.8}
+                  >
+                    <Ionicons name="download-outline" size={14} color="#FFFFFF" style={{ marginRight: 6 }} />
+                    <Text style={styles.retryText}>Re-download model & retry</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            ) : null}
+
+            {/* Green confirmation note (e.g. after removing the model) */}
+            {modelNotice && !inferError ? (
+              <View
+                style={[
+                  styles.errorCard,
+                  {
+                    backgroundColor: isDark ? 'rgba(20, 46, 24, 0.85)' : 'rgba(232, 245, 233, 0.95)',
+                    borderColor: isDark ? 'rgba(76, 175, 80, 0.35)' : 'rgba(46, 125, 50, 0.25)',
+                  },
+                ]}
+              >
+                <View style={styles.errorRow}>
+                  <Ionicons name="checkmark-circle" size={18} color={colors.primary} style={{ marginRight: 8 }} />
+                  <Text style={[styles.errorText, { color: colors.text }]}>{modelNotice}</Text>
+                </View>
+              </View>
+            ) : null}
           </View>
         ) : (
           <View style={styles.captureContainer}>
@@ -309,7 +468,13 @@ export default function IdentifyScreen() {
                     ]}
                     className="interactive-hover"
                   >
-                    <Image source={{ uri: sample.image }} style={styles.sampleThumb} resizeMode="cover" />
+                    {sampleUris[sample.speciesId] ? (
+                      <Image source={{ uri: sampleUris[sample.speciesId] }} style={styles.sampleThumb} resizeMode="cover" />
+                    ) : (
+                      <View style={[styles.sampleThumb, styles.sampleThumbPlaceholder]}>
+                        <ActivityIndicator size="small" color={colors.primary} />
+                      </View>
+                    )}
                     <View style={styles.sampleTapBadge}>
                       <Text style={styles.sampleTapText}>Tap to Test</Text>
                     </View>
@@ -378,6 +543,61 @@ const styles = StyleSheet.create({
   },
   previewContainer: {
     marginBottom: Spacing.md,
+  },
+  errorCard: {
+    padding: Spacing.md,
+    borderRadius: Radius.card,
+    borderWidth: 1,
+    marginTop: Spacing.md,
+  },
+  errorRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  errorText: {
+    ...Typography.caption,
+    flex: 1,
+    lineHeight: 18,
+  },
+  diagText: {
+    fontFamily: 'monospace',
+    fontSize: 10,
+    marginTop: 8,
+    lineHeight: 14,
+  },
+  retryButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#1B5E20',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: Radius.chip,
+  },
+  retryText: {
+    ...Typography.captionBold,
+    color: '#FFFFFF',
+    fontSize: 12,
+  },
+  cardActions: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    marginTop: 10,
+    gap: 8,
+  },
+  removeButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: Radius.chip,
+    borderWidth: 1,
+    borderColor: 'rgba(198, 40, 40, 0.5)',
+  },
+  removeText: {
+    ...Typography.captionBold,
+    color: '#E53935',
+    fontSize: 12,
   },
   previewFrame: {
     width: '100%',
@@ -493,6 +713,14 @@ const styles = StyleSheet.create({
   downloadFill: {
     height: '100%',
     backgroundColor: '#10B981',
+  },
+  indeterminateFill: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    width: '30%',
+    backgroundColor: '#10B981',
+    borderRadius: 2,
   },
   retakeChip: {
     flexDirection: 'row',
@@ -610,6 +838,10 @@ const styles = StyleSheet.create({
     borderRadius: Radius.image,
     backgroundColor: '#E0E0E0',
     marginBottom: 8,
+  },
+  sampleThumbPlaceholder: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   sampleTapBadge: {
     position: 'absolute',

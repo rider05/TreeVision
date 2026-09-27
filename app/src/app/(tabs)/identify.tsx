@@ -35,6 +35,8 @@ export default function IdentifyScreen() {
   const [qualityWarning, setQualityWarning] = useState<string | null>(null);
   const [inferError, setInferError] = useState<string | null>(null);
   const [modelNotice, setModelNotice] = useState<string | null>(null);
+  // Square crop is opt-in: pickers return the full image unless enabled.
+  const [cropSquare, setCropSquare] = useState<boolean>(false);
 
   const nativeAvailable = isOrtNativeAvailable();
   const diag = getOrtDiagnostics();
@@ -91,8 +93,8 @@ export default function IdentifyScreen() {
 
       const result = await ImagePicker.launchCameraAsync({
         mediaTypes: ['images'],
-        allowsEditing: true,
-        aspect: [1, 1],
+        allowsEditing: cropSquare,
+        ...(cropSquare ? { aspect: [1, 1] as [number, number] } : {}),
         quality: 0.8,
       });
 
@@ -113,8 +115,8 @@ export default function IdentifyScreen() {
     try {
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ['images'],
-        allowsEditing: true,
-        aspect: [1, 1],
+        allowsEditing: cropSquare,
+        ...(cropSquare ? { aspect: [1, 1] as [number, number] } : {}),
         quality: 0.8,
       });
 
@@ -391,6 +393,38 @@ export default function IdentifyScreen() {
           </View>
         ) : (
           <View style={styles.captureContainer}>
+            {/* Square-crop opt-in: off = full image, on = square crop editor */}
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => setCropSquare((v) => !v)}
+              style={[
+                styles.cropToggle,
+                {
+                  backgroundColor: cropSquare
+                    ? colors.primary
+                    : isDark
+                      ? 'rgba(24, 32, 26, 0.85)'
+                      : 'rgba(255, 255, 255, 0.9)',
+                  borderColor: isDark ? 'rgba(46, 125, 50, 0.3)' : 'rgba(46, 125, 50, 0.18)',
+                },
+              ]}
+            >
+              <Ionicons
+                name="crop-outline"
+                size={15}
+                color={cropSquare ? '#FFFFFF' : colors.primary}
+                style={{ marginRight: 6 }}
+              />
+              <Text
+                style={[
+                  styles.cropToggleText,
+                  { color: cropSquare ? '#FFFFFF' : colors.text },
+                ]}
+              >
+                Square crop: {cropSquare ? 'On' : 'Off'}
+              </Text>
+            </TouchableOpacity>
+
             {/* Capture CTAs: Take Photo & Gallery */}
             <View style={styles.ctaGrid}>
               <TouchableOpacity
@@ -739,6 +773,20 @@ const styles = StyleSheet.create({
   },
   captureContainer: {
     marginBottom: Spacing.md,
+  },
+  cropToggle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: Radius.chip,
+    borderWidth: 1,
+    marginBottom: Spacing.md,
+  },
+  cropToggleText: {
+    ...Typography.captionBold,
+    fontSize: 12,
   },
   ctaGrid: {
     flexDirection: 'row',

@@ -16,6 +16,26 @@ import { ResultCard } from '../components/ResultCard';
 import { PrimaryButton, SecondaryButton, GhostButton } from '../components/Buttons';
 import { Prediction, Observation } from '../types';
 import { saveObservation } from '../services/storage';
+import * as Location from 'expo-location';
+
+// Coimbatore center — used only when GPS is unavailable/denied.
+const COIMBATORE_FALLBACK = { latitude: 11.0168, longitude: 76.9558 };
+
+/** Real GPS fix with a timeout; falls back to the Coimbatore center. */
+async function getObservationCoords(): Promise<{ latitude: number; longitude: number; gps: boolean }> {
+  try {
+    const perm = await Location.requestForegroundPermissionsAsync();
+    if (!perm.granted) return { ...COIMBATORE_FALLBACK, gps: false };
+    const pos = await Promise.race([
+      Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced }),
+      new Promise<never>((_, reject) => setTimeout(() => reject(new Error('gps-timeout')), 8000)),
+    ]);
+    return { latitude: pos.coords.latitude, longitude: pos.coords.longitude, gps: true };
+  } catch (e) {
+    console.warn('GPS unavailable, using approximate center:', e);
+    return { ...COIMBATORE_FALLBACK, gps: false };
+  }
+}
 
 export default function ResultScreen() {
   const router = useRouter();
@@ -42,6 +62,7 @@ export default function ResultScreen() {
     if (!prediction) return;
     try {
       setIsSaving(true);
+      const coords = await getObservationCoords();
       const newObs: Observation = {
         id: `obs-${Date.now()}`,
         speciesId: prediction.speciesId,
@@ -51,9 +72,11 @@ export default function ResultScreen() {
         imageUri: prediction.imageUri,
         timestamp: new Date().toISOString(),
         confidence: prediction.confidence,
-        latitude: 11.0168 + (Math.random() - 0.5) * 0.04,
-        longitude: 76.9558 + (Math.random() - 0.5) * 0.04,
-        locationName: 'Coimbatore District Field Observation',
+        latitude: coords.latitude,
+        longitude: coords.longitude,
+        locationName: coords.gps
+          ? 'GPS Field Observation • Coimbatore'
+          : 'Coimbatore District (approximate — GPS unavailable)',
         status: prediction.confidence >= 0.8 ? 'Verified' : 'Pending Field Review',
       };
 

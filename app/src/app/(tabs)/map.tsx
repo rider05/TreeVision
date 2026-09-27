@@ -19,14 +19,28 @@ import { getSavedObservations } from '../../services/storage';
 import { Observation } from '../../types';
 import { TreeMapPinIcon, TreeCanopyIcon } from '../../components/TreeIcons';
 
-// Coimbatore Regional Biodiversity Hotspots
+// Coimbatore Regional Biodiversity Hotspots (real anchor coordinates;
+// counts below are computed from actual saved observations, not hardcoded)
 const COIMBATORE_HOTSPOTS = [
-  { name: 'Singanallur Lake Buffer', lat: 11.001, lng: 76.962, count: 18, type: 'Wetland Ecotone' },
-  { name: 'Marudhamalai Forest Track', lat: 11.045, lng: 76.924, count: 24, type: 'Dry Deciduous Scrub' },
-  { name: 'Siruvani Catchment Basin', lat: 10.985, lng: 76.885, count: 32, type: 'Riparian Evergreen' },
-  { name: 'Anaikatti Western Foothills', lat: 11.082, lng: 76.812, count: 29, type: 'Shola-Grassland' },
-  { name: 'TNAU Botanical Enclave', lat: 11.012, lng: 76.936, count: 41, type: 'Living Botanical Flora' },
+  { name: 'Singanallur Lake Buffer', lat: 11.001, lng: 76.962, type: 'Wetland Ecotone' },
+  { name: 'Marudhamalai Forest Track', lat: 11.045, lng: 76.924, type: 'Dry Deciduous Scrub' },
+  { name: 'Siruvani Catchment Basin', lat: 10.985, lng: 76.885, type: 'Riparian Evergreen' },
+  { name: 'Anaikatti Western Foothills', lat: 11.082, lng: 76.812, type: 'Shola-Grassland' },
+  { name: 'TNAU Botanical Enclave', lat: 11.012, lng: 76.936, type: 'Living Botanical Flora' },
 ];
+
+// Real map projection: Coimbatore district bounds → canvas percent.
+// Pins outside the bounds clamp to the edge instead of scattering randomly.
+const MAP_BOUNDS = { minLat: 10.85, maxLat: 11.2, minLng: 76.7, maxLng: 77.1 };
+function projectToPercent(lat: number, lng: number): { top: number; left: number } {
+  const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
+  const fx = clamp((lng - MAP_BOUNDS.minLng) / (MAP_BOUNDS.maxLng - MAP_BOUNDS.minLng), 0, 1);
+  const fy = clamp((lat - MAP_BOUNDS.minLat) / (MAP_BOUNDS.maxLat - MAP_BOUNDS.minLat), 0, 1);
+  return { left: 6 + fx * 88, top: 8 + (1 - fy) * 84 };
+}
+
+// Hotspot membership radius in degrees (~3.5 km).
+const HOTSPOT_RADIUS_DEG = 0.035;
 
 export default function MapScreen() {
   const router = useRouter();
@@ -56,6 +70,14 @@ export default function MapScreen() {
     if (filterType === 'Pending') return obs.status === 'Pending Field Review';
     return true;
   });
+
+  // Real hotspot aggregation: count saved observations near each anchor.
+  const hotspots = COIMBATORE_HOTSPOTS.map((h) => ({
+    ...h,
+    count: observations.filter(
+      (o) => Math.hypot(o.latitude - h.lat, o.longitude - h.lng) <= HOTSPOT_RADIUS_DEG
+    ).length,
+  }));
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
@@ -96,11 +118,10 @@ export default function MapScreen() {
             </Text>
           </View>
 
-          {/* Observation Tree Pins on Map */}
-          {filteredObservations.map((obs, index) => {
+          {/* Observation Tree Pins on Map — real GPS-projected positions */}
+          {filteredObservations.map((obs) => {
             const isSelected = selectedObservation?.id === obs.id;
-            const topPercent = 25 + ((index * 23) % 52);
-            const leftPercent = 18 + ((index * 31) % 65);
+            const { top, left } = projectToPercent(obs.latitude, obs.longitude);
 
             return (
               <TouchableOpacity
@@ -110,8 +131,8 @@ export default function MapScreen() {
                 style={[
                   styles.mapPin,
                   {
-                    top: `${topPercent}%`,
-                    left: `${leftPercent}%`,
+                    top: `${top}%`,
+                    left: `${left}%`,
                     backgroundColor: isSelected
                       ? colors.primary
                       : obs.status === 'Verified'
@@ -244,7 +265,7 @@ export default function MapScreen() {
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.hotspotsScroll}
         >
-          {COIMBATORE_HOTSPOTS.map((h) => (
+          {hotspots.map((h) => (
             <View
               key={h.name}
               style={[
@@ -261,7 +282,7 @@ export default function MapScreen() {
               <Text style={[styles.hotspotName, { color: colors.text }]}>{h.name}</Text>
               <Text style={[styles.hotspotType, { color: colors.primary }]}>{h.type}</Text>
               <Text style={[styles.hotspotCount, { color: colors.muted }]}>
-                {h.count} verified trees cataloged
+                {h.count} field observation{h.count === 1 ? '' : 's'}
               </Text>
             </View>
           ))}

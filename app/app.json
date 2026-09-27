@@ -33,6 +33,9 @@
         }
       ],
       "onnxruntime-react-native",
+      ["expo-location", {
+        "locationWhenInUsePermission": "TreeVision uses your location to place verified tree observations on the local biodiversity map."
+      }],
       "./plugins/withAbiSplits.js",
       "./plugins/withOnnxruntimePackage.js"
     ],
